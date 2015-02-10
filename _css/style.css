@@ -227,8 +227,8 @@ font-family: 'futuralgt';
     cursor:pointer;    
 }
 #cont2{
-    width: 100%;
-    /* height: 819px; */
+    width: 90%;
+    margin: 5%
 }
 .cont2-row1{
     width: 100%;
@@ -306,10 +306,10 @@ font-family: 'futuralgt';
         font-size: 14px;
     }
 #cont3{
-    width: 100%;
+    width: 90%;
     height: 100%;
     background-color: #E4E2DC;
-    padding: 2% 0px 2% 0;
+    padding: 5%;
 }
     .product{
         margin:10px 0 10px 10px;
@@ -665,7 +665,7 @@ float: right;
     padding-top: 3%;
 }
 .cont-menu-resp{
-    width: 100%;
+    width: 96%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.7);
     margin-top: 110px;
@@ -680,7 +680,6 @@ float: right;
     font-size: 16px;
     cursor: pointer;
     padding: 5px;
-    width: 100%;
     background-color: transparent;
     
 }
