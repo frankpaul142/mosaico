@@ -1,0 +1,171 @@
+@media screen and  (min-width:1101px) {
+        .cont-menu-resp{
+    display: none!important;}
+}
+@media screen and (min-width:801px) and (max-width:1100px) {
+
+    
+    .artesanias, .subastas, .collares{
+        width: 33%;
+        height: auto;
+    }
+ 
+    .sub-box {
+        width: 100%;
+        float: left;
+    }
+    .bisuteria, .sombreros, .pulseras, .bolsos {
+        width: 25%;}
+    .product {
+        width: 48%;}
+    .cont2-row1{
+        height: auto;   
+    }
+    .form {
+        width: 80%;}
+    .menu-icon{
+        display: none;
+    }
+    .resp-menu{
+        display: block;
+    }
+    #cont1 img {
+        width: 6%;}
+    .img-top {
+        margin-top: 110px;}
+    /*carrito*/
+    .carrito-right{
+        font-size: 80%;
+    }
+    .contact-border{
+        width: 40%;
+    }     
+
+}
+@media screen and (min-width:461px) and (max-width:800px) {
+ 
+    .artesanias, .subastas, .collares {
+        width: 100%;
+        height: auto;
+    }
+    .product {
+        width: 47%;
+    }
+    .form {
+        width: 90%;
+    }
+    .face, .twit {
+    width: 10%;
+    }
+        .menu-icon{
+        display: none;
+    }
+    .resp-menu{
+        display: block;
+    }
+    .img-top {
+    margin-top: 110px;}
+   /*carrito*/
+    .carrito-cont{
+        width: 100%;
+        height: 100%;
+        min-height: 900px;
+    }
+    .carrito-left, .carrito-right{
+        width: 100%;
+        margin: 5% auto;
+        padding: 0;
+        font-size: 70%;}
+    .comprar{
+        width: 100%;
+        float: left;  
+        padding: 0;
+        margin: 0;
+        }
+    .comprar label, .comprar-txt{
+        font-size: 80%;
+    }
+    .comprar img {
+        width: 150px;
+        margin: 10% auto;
+        
+        } 
+    .contact-border{
+        width: 50%;
+    }    
+    
+}
+@media screen and (max-width:460px) {
+
+    .bisuteria, .sombreros, .pulseras, .bolsos {
+        width: 100%;
+    }
+    .artesanias, .subastas, .collares {
+        width: 100%;
+        height: auto;}
+    .cont2-row1,.cont2-row2{
+        height: auto;
+    }
+    .product {
+        width: 100%;}
+    .form-left, .form-right {
+        width: 90%;
+    }
+    #form-form .row {
+        width: 90%;}
+    .form {
+        width: 90%;
+        height: auto;}
+    .face, .twit {
+        width: 10%;
+        }
+    #footer img {
+        width: 20%;}
+    .foot-txt {
+        font-size: 14px;
+    }
+    .menu-icon{
+        display: none;
+    }
+    .resp-menu{
+        display: block;
+    }    
+    #cont1 img {
+        width: 10%;
+        left: 45%;
+        right: 45%;
+    }    
+    #cont4 {
+        height: auto;
+    }
+    .img-top {
+    margin-top: 110px;}
+   /*carrito*/
+    .carrito-cont{
+        height: 700px;
+        }
+    .carrito-left, .carrito-right{
+        width: 100%;
+        margin: 5% auto;
+        padding: 0;
+        font-size: 70%;}
+    .comprar{
+        width: 100%;
+        float: left;  
+        padding: 0;
+        margin: 0;
+        }
+    .comprar label, .comprar-txt{
+        font-size: 80%;
+        width: 50%;
+    }
+    .comprar img {
+        width: 150px;
+        margin: 1%;
+        
+        }
+    .contact-border{
+        width: 80%;
+    }
+    
+}
