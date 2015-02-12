@@ -2,8 +2,9 @@
 /* @var $this yii\web\View */
 $this->title = 'Mosaico';
 ?>
+
 <div id="cont1">
-    <a href='#cont2'><img src="<?= Yii::getAlias('@web'); ?>/img/ico-scroll-01.png">
+    <a href='#cont2' du-smooth-scroll><img src="<?= Yii::getAlias('@web'); ?>/img/ico-scroll-01.png">
     </a>
 </div>
 <div id="cont2">

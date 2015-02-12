@@ -22,7 +22,6 @@ class AppAsset extends AssetBundle
         'css/queries.css',
     ];
     public $js = [
-        'js/jqueryeasing.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
