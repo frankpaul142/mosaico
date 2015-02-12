@@ -214,7 +214,7 @@ font-family: 'futuralgt';
     background-image: url(../img/fondo1.jpg);
     background-position: center;
     width: 100%;
-    height: 100%;
+    height: 650px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -306,7 +306,7 @@ font-family: 'futuralgt';
         font-size: 14px;
     }
 #cont3{
-    width: 90%;
+    width: 100%;
     height: 100%;
     background-color: #E4E2DC;
     padding: 5%;
@@ -432,7 +432,7 @@ color: #000;
     }
 .form{
     width: 50%;
-    height: 50%;
+    height: 250px;
     margin: 2% auto;
     font-family: 'futurabold';
     font-size: 12px;
@@ -479,9 +479,8 @@ input[type="submit"]{
 }
 .social{
     width: 100%;
-    margin: 0 auto;
+    margin: 2% auto;
     text-align: center;
-    
 }
 .face, .twit{
     width:3%;
