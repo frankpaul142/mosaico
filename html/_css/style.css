@@ -693,3 +693,45 @@ float: right;
 #cont1 img:hover{
     bottom: 3%;
 }
+/*nav*/
+#nav{
+    position: fixed;
+    width: 20px;
+    height: auto;
+    z-index: 999;
+    top: 35%;
+    left: 1%;
+}
+.circle{
+    border-radius: 12px;
+    border: 2px solid #E64229;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    margin: 15px auto;
+}
+.circle:hover{
+    background-color: #E64229;
+    border: 2px solid transparent;
+}
+.small-circle{
+    border-radius: 2px;
+    border: 1px solid #5C5C5C;
+    width: 2px;
+    height: 2px;
+    cursor: pointer;
+    margin: 15px auto;
+}
+.small-circle:hover{
+    background-color: #000;
+    border: 1px solid transparent;
+}
+/*clase para circulo selccionado -Rodney- */
+.circle-selected{
+    border-radius: 12px;
+    border: 2px solid #E64229;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    margin: 15px auto;
+}
