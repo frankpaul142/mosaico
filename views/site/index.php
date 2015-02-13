@@ -4,10 +4,10 @@ $this->title = 'Mosaico';
 ?>
 
 <div id="nav">
-    <a href="#cont1" class="circle-selected" du-scrollspy><div class="circle"></div></a>
-    <a href="#cont2" class="circle-selected" du-scrollspy><div class="circle"></div></a>
-    <a href="#cont3" class="circle-selected" du-scrollspy><div class="circle"></div></a>
-    <a href="#cont4" class="circle-selected" du-scrollspy><div class="circle"></div></a>
+    <a href="cont1"><div class="circle" du-scrollspy="cont1"></div></a>
+    <a href="#cont2"><div class="circle" du-scrollspy="cont2"></div></a>
+    <a href="#cont3"><div class="circle" du-scrollspy="cont3"></div></a>
+    <a href="#cont4"><div class="circle" du-scrollspy="cont4"></div></a>
 </div>
 <div id="cont1">
 	<img src='<?= Yii::getAlias('@web'); ?>/img/fondo1.jpg'>

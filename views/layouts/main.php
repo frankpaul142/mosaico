@@ -18,7 +18,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <base href="<?= Yii::getAlias('@web'); ?>">
+    <base href="<?= Yii::getAlias('@web'); ?>/web">
     <?php $this->head() ?>
 </head>
 
