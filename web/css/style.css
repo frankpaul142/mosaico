@@ -724,7 +724,7 @@ float: right;
     border: 1px solid transparent;
 }
 /*clase para circulo selccionado -Rodney- */
-.circle-selected:active{
+.circle-selected .active{
     border-radius: 12px;
     border: 2px solid #E64229;
     width: 12px;

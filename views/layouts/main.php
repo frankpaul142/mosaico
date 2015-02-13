@@ -18,7 +18,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <base href="<?= Yii::getAlias('@web'); ?>/web">
+    <base href="<?= Yii::getAlias('@web'); ?>">
     <?php $this->head() ?>
 </head>
 
@@ -63,9 +63,9 @@ AppAsset::register($this);
             </div>
         </div>
         <div id="notif">
-            <div class="notif-ico"><a href='#'><img src='img/ico-notif-03.png'></a></div>
-            <div class="notif-ico"><a href='#'><img src='img/ico-notif-02.png'></a></div>
-            <div class="notif-ico"><a href='#'><img src='img/ico-notif-01.png'></a></div>
+            <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'></a></div>
+            <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></a></div>
+            <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
             <div class="notif-txt"><a href='#'>LOGIN/REGISTRATE</a></div>
         </div>
         

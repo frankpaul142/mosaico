@@ -3,20 +3,16 @@
 $this->title = 'Mosaico';
 ?>
 
+<div id="nav">
+    <a href="#cont1" class="circle-selected" du-scrollspy><div class="circle"></div></a>
+    <a href="#cont2" class="circle-selected" du-scrollspy><div class="circle"></div></a>
+    <a href="#cont3" class="circle-selected" du-scrollspy><div class="circle"></div></a>
+    <a href="#cont4" class="circle-selected" du-scrollspy><div class="circle"></div></a>
+</div>
 <div id="cont1">
 	<img src='<?= Yii::getAlias('@web'); ?>/img/fondo1.jpg'>
     <a href='#cont2'><img src="<?= Yii::getAlias('@web'); ?>/img/ico-scroll-01.png">
     </a>
-    <div id="nav">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-            <div class="small-circle"></div>
-            <div class="small-circle"></div>
-            <div class="small-circle"></div>
-            <div class="small-circle"></div>
-        <div class="circle"></div>
-    </div>     
 </div>
 <div id="cont2">
     <div class="cont2-row1">
