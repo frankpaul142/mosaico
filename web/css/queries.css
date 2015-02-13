@@ -30,7 +30,7 @@
         display: block;
     }
     #cont1 img {
-        width: 6%;}
+        }
     .img-top {
         margin-top: 110px;}
     /*carrito*/
@@ -134,7 +134,7 @@
         display: block;
     }    
     #cont1 img {
-        width: 10%;
+        
         left: 45%;
         right: 45%;
     }    
@@ -173,5 +173,7 @@
     #cont2{
         margin: 5% 0% 5% 10%;
     }
+    #cont1 a img {
+width: 6%;}
     
 }

@@ -218,11 +218,11 @@ font-family: 'futuralgt';
 }
 #cont1 a img{
 width: 3%;
-position: absolute;
-bottom: 20%;
+position: relative;
+bottom: 40px;
 left: 50%;
 right: 50%;
-cursor: pointer;   
+cursor: pointer;  
 }
 #cont2{
     width: 90%;
@@ -688,7 +688,7 @@ float: right;
     color: #000
 }
 #cont1 a img:hover{
-    bottom: 15%;
+    bottom: 30px;
 }
 /*nav*/
 #nav{
@@ -712,10 +712,10 @@ float: right;
     border: 2px solid transparent;
 }
 .small-circle{
-    border-radius: 2px;
+    border-radius: 5px;
     border: 1px solid #5C5C5C;
-    width: 2px;
-    height: 2px;
+    width: 5px;
+    height: 5px;
     cursor: pointer;
     margin: 15px auto;
 }
@@ -724,11 +724,43 @@ float: right;
     border: 1px solid transparent;
 }
 /*clase para circulo selccionado -Rodney- */
-.circle-selected{
+.circle-selected:active{
     border-radius: 12px;
     border: 2px solid #E64229;
     width: 12px;
     height: 12px;
     cursor: pointer;
     margin: 15px auto;
+}
+/*notificaciones*/
+#notif{
+    position: absolute;
+    width: 100%;
+    top: 1%;
+    right: 1%;
+}
+.notif-ico {
+float: right;
+border-right: 1px solid #fff;  
+text-align: center;    
+width: 30px;    
+}
+.notif-ico:first-child{
+    border-right: 0px solid #fff;
+}
+.notif-ico img {
+width: 70%;
+}
+.notif-txt {
+font-family: 'futurabold';
+font-size: 12px;
+margin: 5px auto;
+color: #fff;
+text-align: center;
+float: right;
+width: 150px;
+}
+.notif-txt a:hover{
+    color: #E64229;
+    
 }

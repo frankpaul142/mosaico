@@ -62,6 +62,13 @@ AppAsset::register($this);
                 <div class="tri"></div>
             </div>
         </div>
+        <div id="notif">
+            <div class="notif-ico"><a href='#'><img src='img/ico-notif-03.png'></a></div>
+            <div class="notif-ico"><a href='#'><img src='img/ico-notif-02.png'></a></div>
+            <div class="notif-ico"><a href='#'><img src='img/ico-notif-01.png'></a></div>
+            <div class="notif-txt"><a href='#'>LOGIN/REGISTRATE</a></div>
+        </div>
+        
         <div class="resp-menu">
             <div class="logo-resp"></div>
             <div class="trigger">☰</div>
@@ -84,6 +91,7 @@ AppAsset::register($this);
             </ul>
         </div>
         <div class="login"></div>
+        
     </div>
 
     <?= $content ?>
