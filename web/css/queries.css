@@ -39,7 +39,10 @@
     }
     .contact-border{
         width: 40%;
-    }     
+    }   
+    #notif{
+        display: none;
+    }    
 
 }
 @media screen and (min-width:461px) and (max-width:800px) {
@@ -95,6 +98,9 @@
     }    
     #cont2{
         margin: 5% 0% 5% 10%;
+    }
+    #notif{
+        display: none;
     }
     
 }
@@ -175,5 +181,8 @@
     }
     #cont1 a img {
 width: 6%;}
+    #notif{
+        display: none;
+    }
     
 }
