@@ -472,7 +472,7 @@ input[type="submit"]{
     margin: 5% auto;
     border: none;
     color: #fff;
-    width: 90%;
+    width: 100%;
     cursor: pointer;
 }
 .social{
@@ -662,7 +662,7 @@ float: right;
     padding-top: 3%;
 }
 .cont-menu-resp{
-    width: 96%;
+    width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.7);
     margin-top: 110px;
