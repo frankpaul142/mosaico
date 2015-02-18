@@ -123,7 +123,14 @@ font-family: 'futuralgt';
     z-index: 999; 
     top: 0;
     left: 0;
-    display: block;}
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;    
+}
 
 
 .menu-icon{
@@ -356,7 +363,7 @@ margin: 0 auto;
 
 }
 .styled-select {
-height: 29px;
+
 overflow: hidden;
 width: 65px;
 margin: 0 auto;
@@ -365,7 +372,7 @@ margin: 0 auto;
 .styled-select select {
 border: medium none;
 font-size: 14px;
-height: 29px;
+
 padding-left: 5px;
 width: 125%;
 background: none repeat scroll 0% 0% transparent;
@@ -759,4 +766,11 @@ width: 150px;
 .notif-txt a:hover{
     color: #E64229;
     
+}
+/*jquery toogle-class*/
+.margtop{
+    margin-top: 100px;
+}
+.margbody{
+    margin-top: 278px!important;
 }

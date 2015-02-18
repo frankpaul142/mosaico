@@ -42,6 +42,9 @@
     }   
     #notif{
         display: none;
+    } 
+    #menu{
+        height: 110px !important;
     }    
 
 }
@@ -102,6 +105,9 @@
     #notif{
         display: none;
     }
+    #menu{
+        height: 110px !important;
+    }    
     
 }
 @media screen and (max-width:460px) {
@@ -184,5 +190,14 @@ width: 6%;}
     #notif{
         display: none;
     }
-    
+    #menu{
+        height: 110px !important;
+        background-color:#333333;
+    }
+    .cont-menu-resp{
+        background-color:#333333;
+    }
+    #cont1 {
+        margin-top: 110px;
+    }    
 }

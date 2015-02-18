@@ -70,7 +70,7 @@ AppAsset::register($this);
         </div>
         
         <div class="resp-menu">
-            <div class="logo-resp"></div>
+            <div ng-click="toTheTop()" class="logo-resp"></div>
             <div class="trigger">☰</div>
 
         </div>
