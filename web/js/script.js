@@ -38,7 +38,7 @@ $(function(){
              
              $("#menu").css("height", "110px");  
              $('.icon-img').css({'height':'69px','opacity':'1'});
-             $('.logo').css({'height':'125px'})
+             $('.logo').css({'height':'120px'})
           }
           //Updates scroll position
           lastScroll = st;
