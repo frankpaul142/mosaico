@@ -363,14 +363,14 @@ margin: 0 auto;
 }
 
 .styled-select select {
-border: none;
+border: medium none;
 font-size: 14px;
 height: 29px;
 padding: 5px;
-width: 100%;
-background: transparent;
-text-align: center;
-    cursor: pointer;
+width: 125%;
+background: none repeat scroll 0% 0% transparent;
+text-align: left;
+cursor: pointer;
 }
 
 .styled-select.slate {
