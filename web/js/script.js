@@ -32,6 +32,7 @@ $(function(){
              $("#menu").css("height", "50px"); 
              $('.icon-img').css({'height':'15px','opacity':'0'}) 
              $('.logo').css({'height':'75px'})
+             $('#submenu').css({'top':'50px'})
           }
           else {
              //Replace this with your function call for upward-scrolling
@@ -39,6 +40,7 @@ $(function(){
              $("#menu").css("height", "110px");  
              $('.icon-img').css({'height':'69px','opacity':'1'});
              $('.logo').css({'height':'120px'})
+             $('#submenu').css({'top':'100px'})
           }
           //Updates scroll position
           lastScroll = st;
