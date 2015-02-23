@@ -90,6 +90,19 @@ AppAsset::register($this);
             </ul>
         </div>
         <div class="login"></div>
+    <div id='submenu'>
+        <div class="cont-sub">
+            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+            <div class="sub"></div>
+            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+        </div>
+        
+    </div>
+    
         
     </div>
 
