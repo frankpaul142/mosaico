@@ -42,9 +42,9 @@ AppAsset::register($this);
                 <div class="icon-txt">PULSERAS</div>
                 <div class="tri"></div>
             </div>
-            <a href='#/'>
-                <div class="logo"></div>
-            </a>
+            <!-- <a href='#/'> -->
+                <div class="logo" ng-controller="MenuCtrl" ng-click="toSection('cont1')"></div>
+            <!-- </a> -->
             <div class="icon">
                 <div class="icon-img icon-4"></div>
                 <div class="icon-txt">COLLARES</div>
@@ -69,7 +69,7 @@ AppAsset::register($this);
         </div>
         
         <div class="resp-menu">
-            <div ng-click="toTheTop()" class="logo-resp"></div>
+            <div class="logo-resp"></div>
             <div class="trigger">☰</div>
 
         </div>
@@ -90,20 +90,17 @@ AppAsset::register($this);
             </ul>
         </div>
         <div class="login"></div>
-    <div id='submenu'>
-        <div class="cont-sub">
-            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
-            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
-            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
-            <div class="sub"></div>
-            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
-            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
-            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
-        </div>
-        
-    </div>
-    
-        
+	    <div id='submenu'>
+	        <div class="cont-sub">
+	            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+	            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+	            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+	            <div class="sub"></div>
+	            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+	            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+	            <a href="#"><div class="sub">PAJA TOQUILLA</div></a>
+	        </div> 
+	    </div>
     </div>
 
     <?= $content ?>
@@ -115,7 +112,8 @@ AppAsset::register($this);
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.11/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>-->
+    <script src="js/angular-scroll-master/angular-scroll.js"></script>
     <script src="<?= Yii::getAlias('@web'); ?>/js/app.js"></script>
     <script src="<?= Yii::getAlias('@web'); ?>/js/controllers.js"></script>
 

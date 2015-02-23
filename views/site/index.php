@@ -3,21 +3,25 @@
 $this->title = 'Mosaico';
 ?>
 
-<div id="nav">
-    <a href="cont1"><div class="circle" du-scrollspy="cont1"></div></a>
-    <a href="#cont2"><div class="circle" du-scrollspy="cont2"></div></a>
-    <a href="#cont3"><div class="circle" du-scrollspy="cont3"></div></a>
-    <a href="#cont4"><div class="circle" du-scrollspy="cont4"></div></a>
+<div id="nav" ng-controller="MenuCtrl">
+    <!-- <a href="#home"><div class="circle" du-scrollspy="cont1"></div></a>
+    <a href="#subastas"><div class="circle" du-scrollspy="cont2"></div></a>
+    <a href="#productos"><div class="circle" du-scrollspy="cont3"></div></a>
+    <a href="#contacto"><div class="circle" du-scrollspy="cont4"></div></a> -->
+    <div class="circle" du-scrollspy="cont1" ng-click="toSection('cont1')"></div>
+    <div class="circle" du-scrollspy="cont2" ng-click="toSection('cont2')"></div>
+    <div class="circle" du-scrollspy="cont3" ng-click="toSection('cont3')"></div>
+    <div class="circle" du-scrollspy="cont4" ng-click="toSection('cont4')"></div>
 </div>
 <div id="cont1">
-	<img src='<?= Yii::getAlias('@web'); ?>/img/fondo1.jpg'>
-    <a href='#cont2'><img src="<?= Yii::getAlias('@web'); ?>/img/ico-scroll-01.png">
+	<img src='img/fondo1.jpg'>
+    <a href='#subastas'><img src="img/ico-scroll-01.png">
     </a>
 </div>
 <div id="cont2">
     <div class="cont2-row1">
         <div class="artesanias">
-            <img src="<?= Yii::getAlias('@web'); ?>/img/subastas-01.jpg">
+            <img src="img/subastas-01.jpg">
             <div class="sub-tri"></div>
             <div class="sub-box">
                 <div class="subastas-tit">ARTESANÍAS</div>
@@ -34,7 +38,7 @@ $this->title = 'Mosaico';
 
         </div>
         <div class="collares">
-            <img src="<?= Yii::getAlias('@web'); ?>/img/subastas-02.jpg">
+            <img src="img/subastas-02.jpg">
             <div class="sub-tri"></div>
             <div class="sub-box">
                 <div class="subastas-tit">COLLARES</div>
@@ -46,7 +50,7 @@ $this->title = 'Mosaico';
     </div>
     <div class="cont2-row2">
         <div class="bisuteria">
-            <img src="<?= Yii::getAlias('@web'); ?>/img/subastas2-01.jpg">
+            <img src="img/subastas2-01.jpg">
             <div class="sub-tri"></div>
             <div class="sub-box">
                 <div class="subastas-tit">ARTESANÍAS</div>
@@ -54,7 +58,7 @@ $this->title = 'Mosaico';
             </div>
         </div>
         <div class="sombreros">
-            <img src="<?= Yii::getAlias('@web'); ?>/img/subastas2-02.jpg">
+            <img src="img/subastas2-02.jpg">
             <div class="sub-tri"></div>
             <div class="sub-box">
                 <div class="subastas-tit">ARTESANÍAS</div>
@@ -62,7 +66,7 @@ $this->title = 'Mosaico';
             </div>
         </div>
         <div class="pulseras">
-            <img src="<?= Yii::getAlias('@web'); ?>/img/subastas2-03.jpg">
+            <img src="img/subastas2-03.jpg">
             <div class="sub-tri"></div>
             <div class="sub-box">
                 <div class="subastas-tit">ARTESANÍAS</div>
@@ -70,7 +74,7 @@ $this->title = 'Mosaico';
             </div>
         </div>
         <div class="bolsos">
-            <img src="<?= Yii::getAlias('@web'); ?>/img/subastas2-04.jpg">
+            <img src="img/subastas2-04.jpg">
             <div class="sub-tri"></div>
             <div class="sub-box">
                 <div class="subastas-tit">ARTESANÍAS</div>
@@ -80,284 +84,8 @@ $this->title = 'Mosaico';
     </div>
 
 </div>
-<div id="cont3">
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-    <!---->
-    <div class="product">
-        <div class="prod-foto"><img src="<?= Yii::getAlias('@web'); ?>/img/prod-01.png">
-        </div>
-        <div class="prod-spec">
-            <div class="prod-tit">NOMBRE DEL PRODUCTO</div>
-            <div class="prod-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae.</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="prod-buy"><img src="<?= Yii::getAlias('@web'); ?>/img/icon-buy-01.png">
-            </div>
-        </div>
-    </div>
-
-
+<div id="cont3" ng-view>
+    
 </div>
 <div id="cont4">
     <div class="contact-tit">CONTACTO</div>
@@ -409,9 +137,9 @@ $this->title = 'Mosaico';
 
     </div>
     <div class="social">
-        <a href="#cont1"><img class="face" src="<?= Yii::getAlias('@web'); ?>/img/social-01.png">
+        <a href="#cont1"><img class="face" src="img/social-01.png">
         </a>
-        <a href="#cont1"><img class="twit" src="<?= Yii::getAlias('@web'); ?>/img/social-02.png">
+        <a href="#cont1"><img class="twit" src="img/social-02.png">
         </a>
     </div>
 
