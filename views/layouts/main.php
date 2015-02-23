@@ -18,14 +18,14 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <base href="<?= Yii::getAlias('@web'); ?>/web">
+    <base href="<?= Yii::getAlias('@web'); ?>/#/">
     <?php $this->head() ?>
 </head>
 
 <body ng-app="Mosaico">
 
 <?php $this->beginBody() ?>
-    <div id="menu" ng-controller="MenuCtrl">
+    <div id="menu">
         <div class="menu-icon">
             <div class="icon">
                 <div class="icon-img icon-1"></div>
@@ -42,10 +42,9 @@ AppAsset::register($this);
                 <div class="icon-txt">PULSERAS</div>
                 <div class="tri"></div>
             </div>
-
-            <!-- <a href='<?= Yii::getAlias('@web'); ?>'> -->
-                <div ng-click="toTheTop()" class="logo"></div>
-            <!-- </a> -->
+            <a href='#/'>
+                <div class="logo"></div>
+            </a>
             <div class="icon">
                 <div class="icon-img icon-4"></div>
                 <div class="icon-txt">COLLARES</div>
