@@ -199,10 +199,10 @@ width: 6%;}
     }
     #menu{
         height: 110px !important;
-        background-color:#333333;
+        background-color: rgba(0, 0, 0, 0.7);
     }
     .cont-menu-resp{
-        background-color:#333333;
+        background-color: rgba(0, 0, 0, 0.7);
     }
     #cont1 {
         margin-top: 110px;
