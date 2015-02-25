@@ -237,10 +237,10 @@ font-family: 'futuralgt';
 #cont2{
     width: 90%;
     margin: 5%;
-    height: calc(100vh - 50px);
-    height: -o-calc(100vh - 50px); /* opera */
-    height: -webkit-calc(100vh - 50px); /* google, safari */
-    height: -moz-calc(100vh - 50px); /* firefox */
+    height: calc(100vh - 100px);
+    height: -o-calc(100vh - 100px); /* opera */
+    height: -webkit-calc(100vh - 100px); /* google, safari */
+    height: -moz-calc(100vh - 100px); /* firefox */
 }
 .cont2-row1{
     width: 100%;
@@ -322,6 +322,7 @@ font-family: 'futuralgt';
     height: 100%;
     background-color: #E4E2DC;
     padding: 5%;
+    min-height: 600px;
 }
     .product{
         margin:10px 0 10px 10px;
