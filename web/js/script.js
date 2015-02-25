@@ -56,3 +56,87 @@ $(function() {
 		//lastScroll = st;
 	});
 });
+
+$(function() {
+	$('#menu-sombreros').click(function() {
+		$('#sub-sombreros').toggle();
+        $('#sub-bisuteria').hide();
+        $('#sub-pulseras').hide();
+        $('#sub-collares').hide();
+        $('#sub-figuras').hide();
+        $('#sub-bolsos').hide();
+		
+});
+    $('#menu-bisuteria').click(function() {
+		$('#sub-sombreros').hide();
+        $('#sub-bisuteria').toggle();
+        $('#sub-pulseras').hide();
+        $('#sub-collares').hide();
+        $('#sub-figuras').hide();
+        $('#sub-bolsos').hide();
+		
+});
+    $('#menu-pulseras').click(function() {
+		$('#sub-sombreros').hide();
+        $('#sub-bisuteria').hide();
+        $('#sub-pulseras').toggle();
+        $('#sub-collares').hide();
+        $('#sub-figuras').hide();
+        $('#sub-bolsos').hide();
+		
+});
+    $('#menu-collares').click(function() {
+		$('#sub-sombreros').hide();
+        $('#sub-bisuteria').hide();
+        $('#sub-pulseras').hide();
+        $('#sub-collares').toggle();
+        $('#sub-figuras').hide();
+        $('#sub-bolsos').hide();
+		
+});
+    $('#menu-figuras').click(function() {
+		$('#sub-sombreros').hide();
+        $('#sub-bisuteria').hide();
+        $('#sub-pulseras').hide();
+        $('#sub-collares').hide();
+        $('#sub-figuras').toggle();
+        $('#sub-bolsos').hide();
+		
+});
+    $('#menu-bolsos').click(function() {
+		$('#sub-sombreros').hide();
+        $('#sub-bisuteria').hide();
+        $('#sub-pulseras').hide();
+        $('#sub-collares').hide();
+        $('#sub-figuras').hide();
+        $('#sub-bolsos').toggle();
+		
+});
+    $('#menu-sombreros').mouseleave(function() {
+        $('#sub-sombreros').hide();
+        
+    });
+    $('#menu-bisuteria').mouseleave(function() {
+        $('#sub-bisuteria').hide();
+        
+    });
+    $('#menu-pulseras').mouseleave(function() {
+        $('#sub-pulseras').hide();
+        
+    });
+    $('#menu-collares').mouseleave(function() {
+        $('#sub-collares').hide();
+        
+    });
+    $('#menu-figuras').mouseleave(function() {
+        $('#sub-figuras').hide();
+        
+    });    
+    $('#menu-bolsos').mouseleave(function() {
+        $('#sub-bolsos').hide();
+        
+    });    
+    
+    
+	});
+

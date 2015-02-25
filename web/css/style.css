@@ -769,7 +769,7 @@ width: 150px;
 }
 /*jquery toogle-class*/
 .margtop{
-    margin-top: 100px;
+    margin-top: 250px;
 }
 .margbody{
     margin-top: 278px!important;
@@ -800,4 +800,18 @@ z-index: -1;
 }
 .sub:hover{
     color: #E64229;
+}
+.submenu-movil{
+    display: none;
+}
+
+ul.submenu-movil li:hover a {
+    color: #fff !important;
+}
+
+ul.submenu-movil li:hover {
+    background-color: #626262;
+}
+ul.submenu-movil li a {
+    color: #7E7E7E !important;
 }
