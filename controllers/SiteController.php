@@ -8,6 +8,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Product;
+use app\models\Category;
+use app\models\Subcategory;
 
 class SiteController extends Controller
 {
@@ -92,5 +95,31 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionLoadProducts()
+    {
+        $categories=Category::findAll(['status'=>'ACTIVE']);
+        $return=[];
+        foreach ($categories as $i => $category) {
+            $cat=[];
+            $cat['name']=$category->name;
+            foreach ($category->subcategories as $j => $subcategory) {
+                $subcat=[];
+                $subcat['name']=$subcategory->name;
+                foreach ($subcategory->products as $k => $product) {
+                	$prod=[];
+                	$prod['name']=$product->name;
+                	$prod['description']=$product->description;
+                	$prod['stock']=$product->stock;
+                	$prod['image']=$product->image;
+                	$prod['price']=$product->price;
+                	$subcat[$product->id]=$prod;
+                }
+                $cat[$subcategory->id]=$subcat;
+            }
+            $return[$category->id]=$cat;
+        }
+        return json_encode($return);
     }
 }

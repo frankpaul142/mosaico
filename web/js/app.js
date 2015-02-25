@@ -46,6 +46,7 @@ conts['cont1']='/';
 conts['cont2']='subastas';
 conts['cont3']='productos';
 conts['cont4']='contacto';
+var categories;
 
 function easingFunction(t) {
 	return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
@@ -55,4 +56,19 @@ function addScrollSpy() {
 	$('.circle').each(function(index) {
 		$(this).attr('du-scrollspy', 'cont' + (index + 1));
 	});
+}
+
+function loadProducts($scope, $http) {
+	if (typeof(categories) === 'undefined') {
+        $http.get('site/load-products').success(function(response) {
+            categories = response;
+            $scope.categories = categories;
+            $scope.loaded=true;
+        }).error(function (data) {
+        	console.log('error al cargar productos:');
+        });
+    } else {
+        $scope.categories = categories;
+        $scope.loaded=true;
+    }
 }

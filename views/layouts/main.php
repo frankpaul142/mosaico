@@ -75,17 +75,67 @@ AppAsset::register($this);
         </div>
         <div class="cont-menu-resp">
             <ul>
-                <li><a href="#">SOMBREROS</a>
+                <li id="menu-sombreros"><a href="#">SOMBREROS</a>
+                    <ul class="submenu-movil" id="sub-sombreros">
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                    </ul>
+                    
                 </li>
-                <li><a href="#">BISUTERIA</a>
+                <li id="menu-bisuteria"><a href="#">BISUTERIA</a>
+                    <ul class="submenu-movil" id="sub-bisuteria">
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                    </ul>            
+                    
                 </li>
-                <li><a href="#">PULSERAS</a>
+                <li id="menu-pulseras"><a href="#">PULSERAS</a>
+                    <ul class="submenu-movil" id="sub-pulseras">
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                    </ul>                    
                 </li>
-                <li><a href="#">COLLARES</a>
+                <li id="menu-collares"><a href="#">COLLARES</a>
+                    <ul class="submenu-movil" id="sub-collares">
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                    </ul>                     
                 </li>
-                <li><a href="#">FIGURAS</a>
+                <li id="menu-figuras"><a href="#">FIGURAS</a>
+                    <ul class="submenu-movil" id="sub-figuras">
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                    </ul>                     
                 </li>
-                <li><a href="#">BOLSOS</a>
+                <li id="menu-bolsos"><a href="#">BOLSOS</a>
+                    <ul class="submenu-movil" id="sub-bolsos">
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                        <li><a href="#">PAJA TOQUILLA</a></li>
+                    </ul>                     
                 </li>
             </ul>
         </div>
@@ -116,6 +166,10 @@ AppAsset::register($this);
     <!--<script src="js/angular-scroll-master/angular-scroll.js"></script>-->
     <script src="<?= Yii::getAlias('@web'); ?>/js/app.js"></script>
     <script src="<?= Yii::getAlias('@web'); ?>/js/controllers.js"></script>
+    <script>
+        
+
+    </script>
 
 <?php $this->endBody() ?>
 </body>

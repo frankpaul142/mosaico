@@ -84,7 +84,7 @@ $this->title = 'Mosaico';
     </div>
 
 </div>
-<div id="cont3" ng-view>
+<div id="cont3" ng-view style="min-height:520px">
     
 </div>
 <div id="cont4">
