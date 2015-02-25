@@ -112,8 +112,8 @@ AppAsset::register($this);
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.11/angular-route.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>-->
-    <script src="js/angular-scroll-master/angular-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>
+    <!--<script src="js/angular-scroll-master/angular-scroll.js"></script>-->
     <script src="<?= Yii::getAlias('@web'); ?>/js/app.js"></script>
     <script src="<?= Yii::getAlias('@web'); ?>/js/controllers.js"></script>
 

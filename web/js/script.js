@@ -5,6 +5,9 @@ $(function() {
 
 	});
 
+	var height=$(window).height();console.log(height);
+	//$('#cont1').css('height',height);
+
 	/*var $root = $('html, body');
 	$('a').click(function() {
 	    $root.animate({
@@ -18,7 +21,7 @@ $(function() {
 
 	//Keep track of last scroll
 	//var lastScroll = 0;
-	var cont1height = $('#cont1').height();
+	var cont1height = $('#cont1').height()-33;
 	$(window).scroll(function(event) {
 		//Sets the current scroll position
 		var st = $(this).scrollTop();
