@@ -57,6 +57,7 @@
     #cont1 a img {
         position: relative;
     }    
+    
 
 }
 @media screen and (min-width:461px) and (max-width:800px) {
@@ -223,6 +224,7 @@
     }
     #cont1 {
         margin-top: 110px;
+        float: none;
     }    
     #submenu{
         display: none!important;

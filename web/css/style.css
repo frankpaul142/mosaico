@@ -237,10 +237,7 @@ font-family: 'futuralgt';
 #cont2{
     width: 90%;
     margin: 5%;
-    height: calc(100vh - 100px);
-    height: -o-calc(100vh - 100px); /* opera */
-    height: -webkit-calc(100vh - 100px); /* google, safari */
-    height: -moz-calc(100vh - 100px); /* firefox */
+
 }
 .cont2-row1{
     width: 100%;
@@ -503,6 +500,7 @@ input[type="submit"]{
     height: 200px;
     background-color: #333333;
     text-align: center;
+    float: left;
 }
 #footer img{
     width: 5%;
@@ -647,10 +645,7 @@ float: right;
     float: right;
     margin: 1%;
 }
-   #cont1,#cont2, #cont3, #cont4, #footer{
-        float: left;
 
-    }
 #cont3{
         overflow-y:auto;
         overflow-x: hidden;
