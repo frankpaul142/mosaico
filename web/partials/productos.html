@@ -1,4 +1,4 @@
-<div ng-show="!loaded">Loading...</div>
+<div ng-show="!loaded"><div class='cargando'><img src='img/cargando.gif'></div></div>
 <div class="product" ng-show="loaded" ng-repeat="product in categories['1']['1']">
     <div ng-if="product.name">
         <div class="prod-foto"><img src="img/products/{{ product.image }}">
