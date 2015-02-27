@@ -1,6 +1,6 @@
 var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers']);
 
-app.config(function($routeProvider/*, $locationProvider*/) {
+app.config(function($routeProvider /*, $locationProvider*/ ) {
 	$routeProvider.
 	when('/', {
 		templateUrl: 'partials/productos.html',
@@ -13,7 +13,7 @@ app.config(function($routeProvider/*, $locationProvider*/) {
 		templateUrl: 'partials/productos.html',
 		controller: 'SubastasCtrl'
 	}).
-	when('/productos', {
+	when('/productos/:cat_id/:subcat_id', {
 		templateUrl: 'partials/productos.html',
 		controller: 'ProductosCtrl'
 	}).
@@ -41,11 +41,26 @@ app.run(function($rootScope, $location) {
 	});
 });
 
-var conts=[];
-conts['cont1']='/';
-conts['cont2']='subastas';
-conts['cont3']='productos';
-conts['cont4']='contacto';
+app.factory('loadedServ', function($rootScope) {
+	var loaded;
+	return function(arg) {
+		if (arg) {
+			loaded = arg;
+			$rootScope.loaded = arg;
+		} else {
+			return loaded;
+		}
+	}
+});
+
+
+var categoriaActual = 1;
+var subcategoriaActual = 1;
+var conts = [];
+conts['cont1'] = '/';
+conts['cont2'] = 'subastas';
+conts['cont3'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
+conts['cont4'] = 'contacto';
 var categories;
 
 function easingFunction(t) {
@@ -58,17 +73,48 @@ function addScrollSpy() {
 	});
 }
 
-function loadProducts($scope, $http) {
+function loadProducts($http, $rootScope) {
+	console.log('loadProducts');
 	if (typeof(categories) === 'undefined') {
-        $http.get('site/load-products').success(function(response) {
-            categories = response;
-            $scope.categories = categories;
-            $scope.loaded=true;
-        }).error(function (data) {
-        	console.log('error al cargar productos:');
-        });
-    } else {
-        $scope.categories = categories;
-        $scope.loaded=true;
-    }
+		$http.get('site/load-products').success(function(response) {
+			categories = response;
+			$rootScope.categories = categories;
+			$rootScope.categoria = categoriaActual;
+			$rootScope.subcategoria = subcategoriaActual;
+			$rootScope.loaded = true;
+			// loadedServ(true);
+			//console.log($scope.inProducts);
+		}).error(function(data) {
+			console.log('error al cargar productos:');
+		});
+	}
+	/*else {
+			console.log('categories no loading');
+			$scope.categories = categories;
+			$scope.categoria = categoriaActual;
+			$scope.subcategoria = subcategoriaActual;
+			$rootScope.loaded = true;
+		}*/
+}
+
+function watchLoaded($scope, $rootScope) {
+	$rootScope.$watch('loaded', function() {
+		$scope.loaded = $rootScope.loaded;
+		if ($scope.loaded) {
+			$scope.categories = categories;
+			$scope.categoria = categoriaActual;
+			$scope.subcategoria = subcategoriaActual;
+		}
+	});
+}
+
+function watchLoadedCategory($scope, $rootScope) {
+	if ($scope.loaded) {
+		$scope.subcategory = [];console.log($rootScope.categoria);
+		for (subc in $scope.categories[$rootScope.categoria]) {
+			if ($scope.categories[$rootScope.categoria][subc].name) {
+				$scope.subcategory.push($scope.categories[$rootScope.categoria][subc].name);
+			}
+		}console.log($scope.subcategory);
+	}
 }
