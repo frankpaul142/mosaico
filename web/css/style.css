@@ -799,7 +799,7 @@ z-index: -1;
     color: #333;
     text-align: center;
     float: left;
-    
+    cursor: pointer;
 }
 .sub:hover{
     color: #E64229;

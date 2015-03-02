@@ -110,11 +110,13 @@ function watchLoaded($scope, $rootScope) {
 
 function watchLoadedCategory($scope, $rootScope) {
 	if ($scope.loaded) {
-		$scope.subcategory = [];console.log($rootScope.categoria);
+		$scope.subcategory = [];
+		$scope.subcategoryId = [];
 		for (subc in $scope.categories[$rootScope.categoria]) {
 			if ($scope.categories[$rootScope.categoria][subc].name) {
 				$scope.subcategory.push($scope.categories[$rootScope.categoria][subc].name);
+				$scope.subcategoryId.push(subc);
 			}
-		}console.log($scope.subcategory);
+		}
 	}
 }

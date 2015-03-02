@@ -59,7 +59,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		watchLoadedCategory($scope,$rootScope);
 	});
 	$scope.toSection = function(sectionId, categoriaId, subcategoriaId) {
-		console.log('toSection');
+		console.log('toSection');console.log('cat: '+$scope.categoria);
 		var hash = conts[sectionId];
 		if (categoriaId && subcategoriaId) {
 			hash = 'productos/' + categoriaId + '/' + subcategoriaId;
@@ -72,5 +72,9 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 				$location.url(hash);
 			}
 		});
+	};
+	$scope.changeSubcategory=function (subcategoriaId) {
+		console.log(subcategoriaId);console.log('cat: '+$rootScope.categoria);
+		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
 });

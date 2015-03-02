@@ -149,13 +149,13 @@ foreach ($categories as $i => $category) {
         <div class="login"></div>
 	    <div id='submenu' ng-show="loaded && inProducts">
 	        <div class="cont-sub">
-	            <div class="sub">{{subcategory[0]}}</div>
-	            <div class="sub">{{subcategory[1]}}</div>
-	            <div class="sub">{{subcategory[2]}}</div>
+	            <div class="sub" ng-click="changeSubcategory(subcategoryId[0])">{{subcategory[0]}}</div>
+	            <div class="sub" ng-click="changeSubcategory(subcategoryId[1])">{{subcategory[1]}}</div>
+	            <div class="sub" ng-click="changeSubcategory(subcategoryId[2])">{{subcategory[2]}}</div>
 	            <div class="sub"></div>
-	            <div class="sub">{{subcategory[3]}}</div>
-	            <div class="sub">{{subcategory[4]}}</div>
-	            <div class="sub">{{subcategory[5]}}</div>
+	            <div class="sub" ng-click="changeSubcategory(subcategoryId[3])">{{subcategory[3]}}</div>
+	            <div class="sub" ng-click="changeSubcategory(subcategoryId[4])">{{subcategory[4]}}</div>
+	            <div class="sub" ng-click="changeSubcategory(subcategoryId[5])">{{subcategory[5]}}</div>
 	        </div> 
 	    </div>
     </div>
