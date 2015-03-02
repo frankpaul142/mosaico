@@ -2,37 +2,61 @@
 
 namespace app\models;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+use Yii;
+use yii\base\NotSupportedException;
+use yii\db\ActiveRecord;
+use yii\helpers\Security;
+use yii\web\IdentityInterface;
+
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
+
+/**
+ * This is the model class for table "user".
+ *
+ * @property integer $id
+ * @property string $username
+ * @property string $password
+ * @property string $creation_date
+ * @property string $identity
+ *
+ * @property UserHasModule[] $userHasModules
+ * @property Module[] $modules
+ */
+class User extends ActiveRecord implements IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
+    /**
+     * @inheritdoc
+     */
+
     public $authKey;
     public $accessToken;
+    public $confirmPassword;
 
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
+    public static function tableName()
+    {
+        return 'user';
+    }
 
     /**
      * @inheritdoc
      */
-    public static function findIdentity($id)
+    public function rules()
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return [
+            [['name', 'lastname', 'email', 'address', 'password', 'creation_date', 'status', 'confirmPassword'], 'required'],
+            [['creation_date'], 'safe'],
+            [['email', 'password'], 'string', 'max' => 255],
+            [['name', 'lastname', 'password', 'confirmPassword'], 'string', 'max' => 100],
+            [['phone'], 'string', 'max' => 13],
+            [['email'], 'unique'],
+            [['email'], 'email'],
+            [['confirmPassword'],'compare','compareAttribute'=>'password', 'message'=>'No coinciden las contraseñas'],
+        ];
+    }
+public static function findIdentity($id)
+    {
+        return static::findOne($id);
     }
 
     /**
@@ -40,13 +64,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        throw new NotSupportedException('"findIdentityByAccessToken" No está implementado.');
     }
 
     /**
@@ -57,16 +75,62 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        return static::findOne(['email' => $username]);
     }
 
     /**
+     * Finds user by password reset token
+     *
+     * @param  string      $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token)
+    {
+        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
+        $parts = explode('_', $token);
+        $timestamp = (int) end($parts);
+        if ($timestamp + $expire < time()) {
+            // token expired
+            return null;
+        }
+
+        return static::findOne([
+            'password_reset_token' => $token
+        ]);
+    }
+
+    /**
+     * Finds user by username
+     *
+     * @param  string      $username
+     * @return static|null
+     */
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'email' => 'Email',
+            'name' => 'Nombres',
+            'lastname' => 'Apellidos',
+            'phone' => 'Teléfono',
+            'address' => 'Dirección',
+            'password' => 'Contraseña',
+            'confirmPassword' => 'Confirmar Contraseña',
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserHasModules()
+    {
+        return $this->hasMany(UserHasModule::className(), ['user_id' => 'id']);
+    }
+        /**
      * @inheritdoc
      */
     public function getId()
@@ -98,6 +162,40 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return $this->password === $this->hashPassword($password);
+    }
+
+    public function hashPassword($password){
+
+        return hash('sha256',$password);
+    }
+    
+    public function generateAuthKey()
+    {
+        $this->auth_key = Security::generateRandomKey();
+    }
+
+    /**
+     * Generates new password reset token
+     */
+    public function generatePasswordResetToken()
+    {
+        $this->password_reset_token = Security::generateRandomKey() . '_' . time();
+    }
+
+    /**
+     * Removes password reset token
+     */
+    public function removePasswordResetToken()
+    {
+        $this->password_reset_token = null;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getModules()
+    {
+        return $this->hasMany(Module::className(), ['id' => 'module_id'])->viaTable('{user_has_module}', ['user_id' => 'id']);
     }
 }

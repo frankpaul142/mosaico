@@ -30,6 +30,7 @@ app.config(function($routeProvider /*, $locationProvider*/ ) {
 });
 
 app.value('duScrollOffset', 210).value('duScrollEasing', easingFunction);
+app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
 
 app.run(function($rootScope, $location) {
 	$rootScope.$on('duScrollspy:becameActive', function($event, $element) {

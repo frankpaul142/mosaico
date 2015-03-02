@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\Product;
 use app\models\Category;
 use app\models\Subcategory;
+use app\models\User;
 
 class SiteController extends Controller
 {
@@ -95,6 +96,27 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionRegistro()
+    {
+        $model=new User();
+        if ($model->load(Yii::$app->request->post())){
+        	$model->password=$model->hashPassword($model->password);
+        	$model->confirmPassword=$model->hashPassword($model->confirmPassword);
+        	$model->creation_date=date('Y-m-d H:i:s');
+        	$model->status='ACTIVE';
+        	if ($model->save()) {
+        		return $this->goHome();
+        	}
+        	else{
+    			Yii::$app->session->setFlash('errorRegistro',array_values($model->getFirstErrors())[0]);
+        		return $this->refresh();
+        	}
+        }
+        else{
+            return $this->render('register',['model'=>$model]);
+        }
     }
 
     public function actionLoadProducts()

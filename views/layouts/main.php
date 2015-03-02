@@ -28,6 +28,7 @@ foreach ($categories as $i => $category) {
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <base href="<?= Yii::getAlias('@web'); ?>/#/">
+    <link id="linkBaseUrl" href="<?= Yii::getAlias('@web'); ?>/">
     <?php $this->head() ?>
 </head>
 
@@ -72,7 +73,7 @@ foreach ($categories as $i => $category) {
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'></a></div>
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></a></div>
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
-            <div class="notif-txt"><a href='#'>LOGIN/REGISTRATE</a></div>
+            <div class="notif-txt"><a href='<?= Yii::getAlias('@web'); ?>/site/registro'>LOGIN/REGISTRATE</a></div>
         </div>
         
         <div class="resp-menu">
@@ -147,7 +148,7 @@ foreach ($categories as $i => $category) {
             </ul>
         </div>
         <div class="login"></div>
-	    <div id='submenu' ng-show="loaded && inProducts">
+	    <div id='submenu' ng-show="loaded && inProducts" ng-cloak class="ng-cloak">
 	        <div class="cont-sub">
 	            <div class="sub" ng-click="changeSubcategory(subcategoryId[0])">{{subcategory[0]}}</div>
 	            <div class="sub" ng-click="changeSubcategory(subcategoryId[1])">{{subcategory[1]}}</div>

@@ -44,7 +44,7 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
 	});
 });
 
-controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http) {
+controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl) {
 	$rootScope.loaded = false;
 	$rootScope.inProducts = false;
 	loadProducts($http, $rootScope);
@@ -59,22 +59,27 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		watchLoadedCategory($scope,$rootScope);
 	});
 	$scope.toSection = function(sectionId, categoriaId, subcategoriaId) {
-		console.log('toSection');console.log('cat: '+$scope.categoria);
+		console.log('toSection');
 		var hash = conts[sectionId];
 		if (categoriaId && subcategoriaId) {
 			hash = 'productos/' + categoriaId + '/' + subcategoriaId;
 		}
 		$('.circle').removeAttr('du-scrollspy');
 		var section = angular.element(document.getElementById(sectionId));
-		$document.scrollToElementAnimated(section, 50, 1500).then(function() {
-			addScrollSpy();
-			if (hash) {
-				$location.url(hash);
-			}
-		});
+		if(section[0]){
+			$document.scrollToElementAnimated(section, 50, 1500).then(function() {
+				addScrollSpy();
+				if (hash) {
+					$location.url(hash);
+				}
+			});
+		}
+		else{
+			var url=baseUrl;console.log(url);
+			$window.location.href=url;
+		}
 	};
 	$scope.changeSubcategory=function (subcategoriaId) {
-		console.log(subcategoriaId);console.log('cat: '+$rootScope.categoria);
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
 });
