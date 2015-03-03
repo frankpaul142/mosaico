@@ -450,7 +450,7 @@ color: #000;
 #Form_lastname, #Form_email, #Form_phone, #Form_city, #Form_textarea, input {
 padding: 3px;
 margin-left: 0;
-border: 1px dotted #CACACA;
+border: 1px dotted #838383;
 font-size: 1em;
 line-height: 1.5em;
 background-color: transparent;
