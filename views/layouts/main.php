@@ -73,7 +73,7 @@ foreach ($categories as $i => $category) {
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'></a></div>
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></a></div>
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
-            <div class="notif-txt"><a href='<?= Yii::getAlias('@web'); ?>/site/registro'>LOGIN/REGISTRATE</a></div>
+            <div class="notif-txt" ng-click="launch()">LOGIN/REGISTRATE</div>
         </div>
         
         <div class="resp-menu">
@@ -173,6 +173,7 @@ foreach ($categories as $i => $category) {
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.11/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
     <!--<script src="js/angular-scroll-master/angular-scroll.js"></script>-->
     <script src="<?= Yii::getAlias('@web'); ?>/js/app.js"></script>
     <script src="<?= Yii::getAlias('@web'); ?>/js/controllers.js"></script>

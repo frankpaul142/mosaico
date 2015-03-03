@@ -44,7 +44,7 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
 	});
 });
 
-controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl) {
+controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $modal) {
 	$rootScope.loaded = false;
 	$rootScope.inProducts = false;
 	loadProducts($http, $rootScope);
@@ -75,11 +75,133 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 			});
 		}
 		else{
-			var url=baseUrl;console.log(url);
+			var url=baseUrl;
 			$window.location.href=url;
 		}
 	};
 	$scope.changeSubcategory=function (subcategoriaId) {
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
+	$scope.launch = function(){
+		var modalInstance = $modal.open({
+      templateUrl: 'partials/login.html',
+      controller: 'LoginCtrl',
+      size: 'sm',
+      backdrop: true,
+      /*resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }*/
+    });
+
+	modalInstance.result.then(function () {
+      console.log('then');
+    });
+
+    /*modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });*/
+	};
+
+	$scope.getAnimation = function () {console.log(angular.fromJson(angular.toJson(animations[0].value)));
+    return angular.fromJson(angular.toJson(animations[0].value));
+  };
+  var animations = [{
+    name: 'Vertical flip',
+    value: {
+      enter: 'at-view-flip-in-vertical',
+      leave: 'at-view-flip-out-vertical'
+    }
+  },
+  {
+    name: 'Horizontal flip',
+    value: {
+      enter: 'at-view-flip-in-horizontal',
+      leave: 'at-view-flip-out-horizontal'
+    }
+  },
+  {
+    name: 'Fade',
+    value: {
+      enter: 'at-view-fade-in',
+      leave: 'at-view-fade-out'
+    }
+  },
+  {
+    name: 'Slide from left',
+    value: {
+      enter: 'at-view-slide-in-left',
+      leave: 'at-view-slide-out-left'
+    }
+  },
+  {
+    name: 'Slide in left, slide out right',
+    value: {
+      enter: 'at-view-slide-in-left',
+      leave: 'at-view-slide-out-right',
+    }
+  },
+  {
+    name: 'Rotate top-left',
+    value: {
+      enter: 'at-view-slide-in-bottom',
+      leave: 'at-view-rotate-fade-out'
+    }
+  },
+  {
+    name: 'Slide & rotate left',
+    value: {
+      enter: 'at-view-slide-in-left',
+      leave: 'at-view-flip-out-right'
+    }
+  },
+  {
+    name: 'Emerge and scale',
+    value: {
+      enter: 'at-view-emerge',
+      leave: 'at-view-scale-out'
+    }
+  },
+  {
+    name: 'Slide & opposite rotate left',
+    value: {
+      enter: 'at-view-slide-in-left',
+      leave: 'at-view-flip-out-right-opposite'
+    }
+  },
+  {
+    name: 'Scale in',
+    value: {
+      enter: 'at-view-scale-in',
+      leave: 'at-view-fade-out'
+    }
+  },
+  {
+    name: 'Slide from right',
+    value: {
+      enter: 'at-view-slide-in-right',
+      leave: 'at-view-slide-out-right'
+    }
+  },
+  {
+    name: 'Slide from top',
+    value: {
+      enter: 'at-view-slide-in-top',
+      leave: 'at-view-slide-out-top'
+    }
+  },
+  {
+    name: 'Slide from bottom',
+    value: {
+      enter: 'at-view-slide-in-bottom',
+      leave: 'at-view-slide-out-bottom'
+    }
+  }];
 });
+
+controllers.controller('LoginCtrl',function($scope){
+		console.log('LoginCtrl');
+	});

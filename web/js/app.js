@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers']);
+var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers','ui.bootstrap']);
 
 app.config(function($routeProvider /*, $locationProvider*/ ) {
 	$routeProvider.

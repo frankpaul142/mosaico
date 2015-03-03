@@ -84,7 +84,7 @@ $this->title = 'Mosaico';
     </div>
 
 </div>
-<div id="cont3" ng-view>
+<div id="cont3" ng-view ng-animate="getAnimation()" ng-controller="MenuCtrl">
     
 </div>
 <div id="cont4">
