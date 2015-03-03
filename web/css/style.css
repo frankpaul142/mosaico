@@ -222,7 +222,7 @@ font-family: 'futuralgt';
     height: 100%;
 }
 #cont1 img{
-    width: 98.8vw;
+
     height: 100vh;
 }
 #cont1 a img{
@@ -448,20 +448,21 @@ color: #000;
     font-size: 12px;
 }
 #Form_lastname, #Form_email, #Form_phone, #Form_city, #Form_textarea, input {
-    padding: 3px;
-    margin-left: 0;
-    border: 1px dotted #080808;
-    font-size: 1em;
-    line-height: 1.5em;
-    background-color: transparent;
+padding: 3px;
+margin-left: 0;
+border: 1px dotted #CACACA;
+font-size: 1em;
+line-height: 1.5em;
+background-color: transparent;
+margin: 1px;
 }
 .row {
     margin: 1%;
     height: 10%;
 }
 input{
-    float: right;
-    width: 66%;
+float: right;
+width: 100%;
 }
 textarea,input[type="submit"]{
     width: 82%;
@@ -765,6 +766,7 @@ color: #fff;
 text-align: center;
 float: right;
 width: 150px;
+cursor: pointer;
 }
 .notif-txt a:hover{
     color: #E64229;
@@ -898,3 +900,9 @@ margin: 10% auto;
     opacity: 0;
 }
 /**/
+.modal.fade.ng-isolate-scope.in {
+background-color: rgba(0, 0, 0, 0.64);
+}
+.modal-body{
+    height: 100px;
+}
