@@ -227,7 +227,7 @@ font-family: 'futuralgt';
 }
 #cont1 a img{
 	width: 3%;
-	height: 5%;
+	height: auto;
 	position: absolute;
 	bottom: 40px;
 	left: 50%;
