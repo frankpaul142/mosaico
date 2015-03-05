@@ -4,10 +4,6 @@ $this->title = 'Mosaico';
 ?>
 
 <div id="nav" ng-controller="MenuCtrl">
-    <!-- <a href="#home"><div class="circle" du-scrollspy="cont1"></div></a>
-    <a href="#subastas"><div class="circle" du-scrollspy="cont2"></div></a>
-    <a href="#productos"><div class="circle" du-scrollspy="cont3"></div></a>
-    <a href="#contacto"><div class="circle" du-scrollspy="cont4"></div></a> -->
     <div class="circle" du-scrollspy="cont1" ng-click="toSection('cont1')"></div>
     <div class="circle" du-scrollspy="cont2" ng-click="toSection('cont2')"></div>
     <div class="circle" du-scrollspy="cont3" ng-click="toSection('cont3')"></div>

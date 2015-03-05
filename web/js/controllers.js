@@ -105,15 +105,59 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 	};
 });
 
-controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
+controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalInstance, $http) {
 	console.log('LoginCtrl');
+	$scope.errorLabel = '';
+	$scope.ingresando = false;
 	$scope.entrar = function() {
 		console.log('entrar');
-		var xsrf = $.param({
-			dateArrive: $scope.llegada,
-			dateDeparture: $scope.salida
-		});
-		$http({
+		$scope.ingresando = true;
+		$scope.errorLabel = '';
+		/*var xsrf = $.param({
+			username: $scope.email,
+			password: $scope.password
+		});*/
+		/*$http.post('site/login','').success(function (response) {
+			console.log(response);
+		});*/
+		$.post('site/login', {
+				'LoginForm[username]': $scope.email,
+				'LoginForm[password]': $scope.password
+			})
+			.success(function(response) {
+				if (response == '1') {
+					console.log('logeado');
+					location.reload();
+				} else {
+					console.log(response);
+					$scope.errorLabel = 'Datos no coinciden';
+				}
+				$scope.ingresando = false;
+			}).error(function(response) {
+				$scope.errorLabel = 'Error';
+				$scope.ingresando = false;
+			});
+		/*$http({
+			method: 'POST',
+			url: 'site/login',
+			data: xsrf,
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}).success(function(response) {
+			if (response == '1') {
+				console.log('logeado');
+				$modalInstance.dismiss('success');
+			}
+			else{
+				console.log(response);
+				$scope.errorLabel='Error';
+			}
+		}).error(function (response) {
+			//console.log(response);
+			$scope.errorLabel='Error';
+		});*/
+		/*$http({
 			method: 'POST',
 			url: 'site/login',
 			data: xsrf,
@@ -121,20 +165,32 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		}).success(function(response) {
-			if (response != '') {
-				$scope.first = false;
-				$scope.loading = false;
-				$scope.disponibles = response;
-				var max = 0;
-				for (i in $scope.disponibles) {
-					if ($scope.disponibles[i] > max) {
-						max = $scope.disponibles[i];
-					}
-				}
-				$scope.maxHabitaciones = max;
-				$scope.habitaciones();
+			if (response == '1') {
+				console.log('logeado');
+				$modalInstance.dismiss('success');
 			}
-		});
+			else{
+				console.log(response);
+				$scope.errorLabel='Error';
+			}
+		}).error(function (response) {
+			//console.log(response);
+			$scope.errorLabel='Error';
+		});*/
+		// $http.post('site/login',{'LoginForm[username]': $scope.email, 'LoginForm[password]': $scope.password}).success(function(response) {
+		/*$http.post('site/login',{a: 'scope.email'}).success(function(response) {
+			if (response == '1') {
+				console.log('logeado');
+				$modalInstance.dismiss('success');
+			}
+			else{
+				console.log(response);
+				$scope.errorLabel='Error';
+			}
+		}).error(function (response) {
+			//console.log(response);
+			$scope.errorLabel='Error';
+		});*/
 	};
 	$scope.registrarse = function() {
 		var url = baseUrl + 'site/registro';

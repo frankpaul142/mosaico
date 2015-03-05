@@ -58,7 +58,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
+        /*if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
@@ -69,6 +69,14 @@ class SiteController extends Controller
             return $this->render('login', [
                 'model' => $model,
             ]);
+        }*/
+        // echo "actionLogin1";
+        $model = new LoginForm();
+        // print_r(Yii::$app->request->post());
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            echo "1";
+        } else {
+            echo "error";
         }
     }
 

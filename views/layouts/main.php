@@ -73,7 +73,13 @@ foreach ($categories as $i => $category) {
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'></a></div>
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></a></div>
             <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
-            <div class="notif-txt" ng-click="launch()">LOGIN/REGISTRATE</div>
+            <?php if(Yii::$app->user->isGuest) { ?>
+                <div class="notif-txt" ng-click="launch()">LOGIN/REGISTRATE</div>
+            <?php } else { ?>
+                <div class="notif-txt">
+                    <a href='#'><?= Yii::$app->user->identity->name ?></a> / <a href='<?= Yii::getAlias('@web'); ?>/site/logout' data-method="post">Salir</a>
+                </div>
+            <?php } ?>
         </div>
         
         <div class="resp-menu">
