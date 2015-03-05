@@ -113,13 +113,6 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalIns
 		console.log('entrar');
 		$scope.ingresando = true;
 		$scope.errorLabel = '';
-		/*var xsrf = $.param({
-			username: $scope.email,
-			password: $scope.password
-		});*/
-		/*$http.post('site/login','').success(function (response) {
-			console.log(response);
-		});*/
 		$.post('site/login', {
 				'LoginForm[username]': $scope.email,
 				'LoginForm[password]': $scope.password
@@ -130,70 +123,26 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalIns
 					location.reload();
 				} else {
 					console.log(response);
-					$scope.errorLabel = 'Datos no coinciden';
+					$scope.$apply(function () {
+						$scope.ingresando=false;
+						$scope.errorLabel = 'Datos no coinciden';
+					});
+					//$scope.errorLabel = 'Datos no coinciden';
 				}
-				$scope.ingresando = false;
+				//$scope.ingresando = false;
 			}).error(function(response) {
 				$scope.errorLabel = 'Error';
 				$scope.ingresando = false;
 			});
-		/*$http({
-			method: 'POST',
-			url: 'site/login',
-			data: xsrf,
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		}).success(function(response) {
-			if (response == '1') {
-				console.log('logeado');
-				$modalInstance.dismiss('success');
-			}
-			else{
-				console.log(response);
-				$scope.errorLabel='Error';
-			}
-		}).error(function (response) {
-			//console.log(response);
-			$scope.errorLabel='Error';
-		});*/
-		/*$http({
-			method: 'POST',
-			url: 'site/login',
-			data: xsrf,
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
-		}).success(function(response) {
-			if (response == '1') {
-				console.log('logeado');
-				$modalInstance.dismiss('success');
-			}
-			else{
-				console.log(response);
-				$scope.errorLabel='Error';
-			}
-		}).error(function (response) {
-			//console.log(response);
-			$scope.errorLabel='Error';
-		});*/
-		// $http.post('site/login',{'LoginForm[username]': $scope.email, 'LoginForm[password]': $scope.password}).success(function(response) {
-		/*$http.post('site/login',{a: 'scope.email'}).success(function(response) {
-			if (response == '1') {
-				console.log('logeado');
-				$modalInstance.dismiss('success');
-			}
-			else{
-				console.log(response);
-				$scope.errorLabel='Error';
-			}
-		}).error(function (response) {
-			//console.log(response);
-			$scope.errorLabel='Error';
-		});*/
 	};
 	$scope.registrarse = function() {
 		var url = baseUrl + 'site/registro';
 		$window.location.href = url;
+	}
+	$scope.keypressed=function (keyEvent) {
+		if(keyEvent.which===13){
+			$scope.entrar();
+		}
+		$scope.errorLabel='';
 	}
 });
