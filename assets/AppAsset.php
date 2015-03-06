@@ -20,6 +20,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/style.css',
         'css/queries.css',
+        '//rawgithub.com/mgcrea/angular-motion/master/dist/angular-motion.min.css',
+        'css/bootstrap-additions.min.css',
     ];
     public $js = [
         'js/script.js',

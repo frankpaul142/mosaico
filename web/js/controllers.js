@@ -82,7 +82,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
 	$scope.launch = function() {
-		var modalInstance = $modal.open({
+		var modalInstance = $modal({
 			templateUrl: 'partials/login.html',
 			controller: 'LoginCtrl',
 			size: 'sm',

@@ -1,7 +1,7 @@
-<div class="modal-header">
-	<h3 class="modal-title">Iniciar Sesión</h3>
-</div>
-<div class="modal-body">
+<div class="popover" style="top:0 !important">
+	<div class="arrow" style="margin-top:-94px"></div>
+	<h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+	<div class="popover-content" style="min-height:160px">
 	<form name="form">
 		<input type="email" name="username" placeholder="Email" ng-model="email" ng-disabled="ingresando" ng-keypress="keypressed($event)" required>
 		<input type="password" name="password" placeholder="Contraseña" ng-model="password" ng-disabled="ingresando" required ng-keypress="keypressed($event)">
@@ -14,13 +14,14 @@
 		</div>
 		<div>{{ errorLabel }}</div>
 	</form>
-</div>
-<div class="modal-footer">
+<!-- <div class="modal-footer"> -->
 	<div ng-show="!ingresando">
 		<button class="btn btn-primary" ng-click="entrar()">Entrar</button>
 		<button class="btn btn-warning" ng-click="registrarse()">Registrarse</button>
 	</div>
 	<div ng-show="ingresando">
 		<img src='img/cargando.gif'>
+	</div>
+<!-- </div> -->
 	</div>
 </div>

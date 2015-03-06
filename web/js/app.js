@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers','ui.bootstrap']);
+var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers'/*,'ui.bootstrap'*/,'mgcrea.ngStrap','ngAnimate']);
 
 app.config(function($routeProvider /*, $locationProvider*/ ) {
 	$routeProvider.
@@ -28,6 +28,12 @@ app.config(function($routeProvider /*, $locationProvider*/ ) {
 	// $locationProvider.html5Mode(true);
 	// $locationProvider.hashPrefix('!');
 });
+
+app.config(function($popoverProvider) {
+  angular.extend($popoverProvider.defaults, {
+    autoClose: true,
+  });
+})
 
 app.value('duScrollOffset', 210).value('duScrollEasing', easingFunction);
 app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
