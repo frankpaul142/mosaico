@@ -1,3 +1,4 @@
+<div class="productos">
 <div ng-show="!loaded"><div class='cargando'><img src='img/cargando.gif'></div></div>
 <div class="product" ng-show="loaded" ng-repeat="product in categories[categoria][subcategoria]">
     <div ng-if="product.name">
@@ -22,4 +23,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

@@ -80,10 +80,11 @@ $this->title = 'Mosaico';
     </div>
 
 </div>
-<div id="cont3" ng-view class="slide5">
+<div id="cont3" ng-view>
     
 </div>
 <div id="cont4">
+    <div class="contacto">
     <div class="contact-tit">CONTACTO</div>
     <div class="contact-border"></div>
     <div class="form">
@@ -140,5 +141,5 @@ $this->title = 'Mosaico';
         <a href="#cont1"><img class="twit" src="img/social-02.png">
         </a>
     </div>
-
+    </div>
 </div>

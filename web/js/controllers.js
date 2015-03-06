@@ -80,50 +80,8 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 	};
 	$scope.changeSubcategory = function(subcategoriaId) {
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
+		//$('#cont3').addClass('at-view-flip-out-right-opposite')
 	};
-	//login
-	/*$scope.errorLabel = '';
-	$scope.ingresando = false;
-	$scope.email='';
-	$scope.password='';
-	var popover = angular.element(document.getElementsByClassName('popover')[0]);console.log(popover);
-	$scope.entrar = function() {
-		console.log('entrar');
-		$scope.ingresando = true;
-		$scope.errorLabel = '';
-		console.log(popover.$scope);
-		$.post('site/login', {
-				'LoginForm[username]': $scope.email,
-				'LoginForm[password]': $scope.password
-			})
-			.success(function(response) {
-				if (response == '1') {
-					console.log('logeado');
-					location.reload();
-				} else {
-					console.log(response);
-					$scope.$apply(function () {
-						$scope.ingresando=false;
-						$scope.errorLabel = 'Datos no coinciden';
-					});
-					//$scope.errorLabel = 'Datos no coinciden';
-				}
-				//$scope.ingresando = false;
-			}).error(function(response) {
-				$scope.errorLabel = 'Error';
-				$scope.ingresando = false;
-			});
-	};
-	$scope.registrarse = function() {
-		var url = baseUrl + 'site/registro';
-		$window.location.href = url;
-	}
-	$scope.keypressed=function (keyEvent) {
-		if(keyEvent.which===13){
-			$scope.entrar();
-		}
-		$scope.errorLabel='';
-	}*/
 });
 
 controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
