@@ -81,32 +81,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 	$scope.changeSubcategory = function(subcategoriaId) {
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
-	$scope.launch = function() {
-		var modalInstance = $modal({
-			templateUrl: 'partials/login.html',
-			controller: 'LoginCtrl',
-			size: 'sm',
-			backdrop: true,
-			/*resolve: {
-			  items: function () {
-			    return $scope.items;
-			  }
-			}*/
-		});
-
-		modalInstance.result.then(function() {
-			console.log('then');
-		});
-
-		/*modalInstance.result.then(function (selectedItem) {
-		  $scope.selected = selectedItem;
-		}, function () {
-		  $log.info('Modal dismissed at: ' + new Date());*/
-	};
-});
-
-controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalInstance, $http) {
-	console.log('LoginCtrl');
+	//login
 	$scope.errorLabel = '';
 	$scope.ingresando = false;
 	$scope.entrar = function() {
@@ -146,3 +121,45 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalIns
 		$scope.errorLabel='';
 	}
 });
+
+/*controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalInstance, $http) {
+	console.log('LoginCtrl');
+	$scope.errorLabel = '';
+	$scope.ingresando = false;
+	$scope.entrar = function() {
+		console.log('entrar');
+		$scope.ingresando = true;
+		$scope.errorLabel = '';
+		$.post('site/login', {
+				'LoginForm[username]': $scope.email,
+				'LoginForm[password]': $scope.password
+			})
+			.success(function(response) {
+				if (response == '1') {
+					console.log('logeado');
+					location.reload();
+				} else {
+					console.log(response);
+					$scope.$apply(function () {
+						$scope.ingresando=false;
+						$scope.errorLabel = 'Datos no coinciden';
+					});
+					//$scope.errorLabel = 'Datos no coinciden';
+				}
+				//$scope.ingresando = false;
+			}).error(function(response) {
+				$scope.errorLabel = 'Error';
+				$scope.ingresando = false;
+			});
+	};
+	$scope.registrarse = function() {
+		var url = baseUrl + 'site/registro';
+		$window.location.href = url;
+	}
+	$scope.keypressed=function (keyEvent) {
+		if(keyEvent.which===13){
+			$scope.entrar();
+		}
+		$scope.errorLabel='';
+	}
+});*/
