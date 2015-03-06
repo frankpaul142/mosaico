@@ -48,18 +48,6 @@ app.run(function($rootScope, $location) {
 	});
 });
 
-app.factory('loadedServ', function($rootScope) {
-	var loaded;
-	return function(arg) {
-		if (arg) {
-			loaded = arg;
-			$rootScope.loaded = arg;
-		} else {
-			return loaded;
-		}
-	}
-});
-
 
 var categoriaActual = 1;
 var subcategoriaActual = 1;
