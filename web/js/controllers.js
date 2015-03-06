@@ -82,12 +82,16 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
 	//login
-	$scope.errorLabel = '';
+	/*$scope.errorLabel = '';
 	$scope.ingresando = false;
+	$scope.email='';
+	$scope.password='';
+	var popover = angular.element(document.getElementsByClassName('popover')[0]);console.log(popover);
 	$scope.entrar = function() {
 		console.log('entrar');
 		$scope.ingresando = true;
 		$scope.errorLabel = '';
+		console.log(popover.$scope);
 		$.post('site/login', {
 				'LoginForm[username]': $scope.email,
 				'LoginForm[password]': $scope.password
@@ -119,10 +123,10 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 			$scope.entrar();
 		}
 		$scope.errorLabel='';
-	}
+	}*/
 });
 
-/*controllers.controller('LoginCtrl', function($scope, $window, baseUrl, $modalInstance, $http) {
+controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
 	console.log('LoginCtrl');
 	$scope.errorLabel = '';
 	$scope.ingresando = false;
@@ -144,9 +148,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 						$scope.ingresando=false;
 						$scope.errorLabel = 'Datos no coinciden';
 					});
-					//$scope.errorLabel = 'Datos no coinciden';
 				}
-				//$scope.ingresando = false;
 			}).error(function(response) {
 				$scope.errorLabel = 'Error';
 				$scope.ingresando = false;
@@ -162,4 +164,4 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		}
 		$scope.errorLabel='';
 	}
-});*/
+});

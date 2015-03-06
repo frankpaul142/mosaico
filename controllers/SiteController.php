@@ -72,11 +72,16 @@ class SiteController extends Controller
         }*/
         // echo "actionLogin1";
         $model = new LoginForm();
-        // print_r(Yii::$app->request->post());
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            echo "1";
+        // print_r($_POST);
+        if ($model->load(Yii::$app->request->post())){
+            if($model->login()) {
+                echo "1";
+            }
+            else{
+                'no login';
+            }
         } else {
-            echo "error";
+            echo "no post";
         }
     }
 

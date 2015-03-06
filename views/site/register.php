@@ -17,7 +17,7 @@ $this->title = 'Mosaico - Registro';
 	<?php $form = ActiveForm::begin(['id' => 'register-form', 'fieldConfig'=>['template'=>'<div class="row col-md-5">{label}{input}{error}</div>']]); ?>
         <?= $form->field($model, 'name') ?>
         <?= $form->field($model, 'lastname') ?>
-        <?= $form->field($model, 'email') ?>
+        <?= $form->field($model, 'username') ?>
         <?= $form->field($model, 'address') ?>
         <?= $form->field($model, 'password')->passwordInput() ?>
         <?= $form->field($model, 'confirmPassword')->passwordInput() ?>

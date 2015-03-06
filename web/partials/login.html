@@ -1,8 +1,8 @@
-<div class="popover" style="top:0 !important">
+<div class="popover" style="top:0 !important" ng-controller="LoginCtrl">
 	<div class="arrow" style="margin-top:-94px"></div>
 	<h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
 	<div class="popover-content" style="min-height:160px">
-	<form name="form">
+	<form name="LoginForm">
 		<input type="email" name="username" placeholder="Email" ng-model="email" ng-disabled="ingresando" ng-keypress="keypressed($event)" required>
 		<input type="password" name="password" placeholder="Contraseña" ng-model="password" ng-disabled="ingresando" required ng-keypress="keypressed($event)">
 		<div ng-show="form.username.$touched">
