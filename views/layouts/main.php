@@ -78,7 +78,7 @@ foreach ($categories as $i => $category) {
                 <!-- <div class="notif-txt" ng-click="launch()">LOGIN/REGISTRATE</div> -->
                 <div class="notif-txt" data-template="partials/login.html" data-title="Iniciar Sesión" data-placement="left" data-animation="am-fade-and-slide-left" bs-popover>LOGIN/REGISTRATE</div>
             <?php } else { ?>
-                <div class="notif-ico"><a href='#'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
+                <div class="notif-ico"><a href='<?= Yii::getAlias('@web')."/user/view?id=".Yii::$app->user->id; ?>'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
                 <div class="notif-txt"><a href='<?= Yii::getAlias('@web'); ?>/site/logout' data-method="post">SALIR</a></div>
             <?php } ?>
         </div>
