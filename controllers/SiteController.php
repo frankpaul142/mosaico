@@ -111,6 +111,11 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    public function actionSubastas()
+    {
+        return $this->render('auction');
+    }
+
     public function actionRegistro()
     {
         $model=new User();
