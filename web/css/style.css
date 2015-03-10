@@ -750,7 +750,7 @@ float: right;
 /*notificaciones*/
 #notif{
     position: absolute;
-    width: 100%;
+    width: 242px;
     top: 1%;
     right: 1%;
 }
