@@ -141,13 +141,13 @@ class SiteController extends Controller
     {
         $cart=Yii::$app->session['cart'];
         if(isset($cart[$productId])){
-	        $cart[$productId]+=$quantity;
+	        $cart[$productId]+=intval($quantity);
 	    }
 	    else{
-	    	$cart[$productId]=$quantity;
+	    	$cart[$productId]=intval($quantity);
 	    }
         Yii::$app->session['cart']=$cart;
-        echo "1";
+        echo json_encode($cart);
     }
 
     public function actionLoadProducts()

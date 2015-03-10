@@ -57,6 +57,8 @@ conts['cont2'] = 'subastas';
 conts['cont3'] = 'contacto';
 conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
 var categories;
+var carrito=[];
+var popover;
 
 function easingFunction(t) {
 	return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;

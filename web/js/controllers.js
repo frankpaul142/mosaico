@@ -31,7 +31,7 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
 
 controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http) {
 	console.log('ProductosController');
-	$scope.producto=[];
+	$scope.producto = [];
 	$rootScope.inProducts = true;
 	$scope.loaded = $rootScope.loaded;
 	watchLoaded($scope, $rootScope);
@@ -46,24 +46,38 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 	$scope.range = function(n) {
 		return new Array(n);
 	};
-	$scope.addToCart=function (id) {
-		console.log(id);console.log($scope.producto[id]);
-		$http.get('site/add-to-cart?productId='+id+'&quantity='+$scope.producto[id]).
-		success(function (data) {
-			console.log(data);
-			if(data=='1'){
+	$scope.addToCart = function(id) {
+		console.log(id);
+		console.log($scope.producto[id]);
+		$http.get('site/add-to-cart?productId=' + id + '&quantity=' + $scope.producto[id]).
+		success(function(data) {
+			// console.log(data);
+			if (data != '') {
 				console.log('anadido');
+				carrito = data;
+				console.log(carrito);
+				var con = Object.keys(carrito).length;
+				popover.$scope.content = con;
+				popover.$promise.then(popover.show);
 			}
 		}).
-		error(function () {
+		error(function() {
 			console.log('error');
-		})
+		});
 	}
 });
 
-controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl) {
+controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $popover) {
+	console.log('MenuCtrl');
 	$rootScope.loaded = false;
 	$rootScope.inProducts = false;
+	popover = $popover($('#icoCarrito'), {
+		title: 'Carrito',
+		template: "partials/carrito.html",
+		placement: "left",
+		animation: "am-flip-x",
+		content: "0 productos",
+	});
 	loadProducts($http, $rootScope);
 	watchLoaded($scope, $rootScope);
 	$rootScope.$watch('inProducts', function() {
@@ -95,12 +109,8 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 			$window.location.href = url;
 		}
 	};
-	$scope.changeSubcategory = function(subcategoriaId, categoriaId) {
-		if(!categoriaId){
-			categoriaId=$rootScope.categoria;
-		}
-		$location.url('productos/' + categoriaId + '/' + subcategoriaId);
-		//$('#cont3').addClass('at-view-flip-out-right-opposite')
+	$scope.changeSubcategory = function(subcategoriaId) {
+		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
 });
 
@@ -122,8 +132,8 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
 					location.reload();
 				} else {
 					console.log(response);
-					$scope.$apply(function () {
-						$scope.ingresando=false;
+					$scope.$apply(function() {
+						$scope.ingresando = false;
 						$scope.errorLabel = 'Datos no coinciden';
 					});
 				}
@@ -136,10 +146,10 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
 		var url = baseUrl + 'site/registro';
 		$window.location.href = url;
 	}
-	$scope.keypressed=function (keyEvent) {
-		if(keyEvent.which===13){
+	$scope.keypressed = function(keyEvent) {
+		if (keyEvent.which === 13) {
 			$scope.entrar();
 		}
-		$scope.errorLabel='';
+		$scope.errorLabel = '';
 	}
 });

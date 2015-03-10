@@ -32,10 +32,10 @@ foreach ($categories as $i => $category) {
     <?php $this->head() ?>
 </head>
 
-<body ng-app="Mosaico">
+<body ng-app="Mosaico" ng-controller="MenuCtrl">
 
 <?php $this->beginBody() ?>
-    <div id="menu" ng-controller="MenuCtrl">
+    <div id="menu">
         <div class="menu-icon">
         <?php for ($i=0, $j=0; $j<sizeof($categories); $i++, $j++) {
         	if($i==3){ ?>
@@ -51,12 +51,11 @@ foreach ($categories as $i => $category) {
         } ?>
         </div>
         <div id="notif">
-            <div class="notif-ico" data-template="partials/carrito.html" data-content="0 productos" data-title="Carrito" data-placement="left" data-animation="am-flip-x" bs-popover>
+            <div class="notif-ico" id="icoCarrito">
                 <img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'>
             </div>
             <div class="notif-ico" ng-click="toSection('cont3')"><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></div>
             <?php if(Yii::$app->user->isGuest) { ?>
-                <!-- <div class="notif-txt" ng-click="launch()">LOGIN/REGISTRATE</div> -->
                 <div class="notif-txt" data-template="partials/login.html" data-title="Iniciar Sesión" data-placement="left" data-animation="am-fade-and-slide-left" bs-popover>LOGIN/REGISTRATE</div>
             <?php } else { ?>
                 <div class="notif-ico"><a href='<?= Yii::getAlias('@web')."/user/view?id=".Yii::$app->user->id; ?>'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
