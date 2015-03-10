@@ -37,33 +37,33 @@ foreach ($categories as $i => $category) {
 <?php $this->beginBody() ?>
     <div id="menu" ng-controller="MenuCtrl">
         <div class="menu-icon">
-            <div class="icon" ng-click="toSection('cont3',1,<?php echo $subs[0] ?>)">
+            <div class="icon" ng-click="toSection('cont4',1,<?php echo $subs[0] ?>)">
                 <div class="icon-img icon-1"></div>
                 <div class="icon-txt">SOMBREROS</div>
                 <div class="tri"></div>
             </div>
-            <div class="icon" ng-click="toSection('cont3',2,<?php echo $subs[1] ?>)">
+            <div class="icon" ng-click="toSection('cont4',2,<?php echo $subs[1] ?>)">
                 <div class="icon-img icon-2"></div>
                 <div class="icon-txt">BISUTERÍA</div>
                 <div class="tri"></div>
             </div>
-            <div class="icon" ng-click="toSection('cont3',3,<?php echo $subs[2] ?>)">
+            <div class="icon" ng-click="toSection('cont4',3,<?php echo $subs[2] ?>)">
                 <div class="icon-img icon-3"></div>
                 <div class="icon-txt">PULSERAS</div>
                 <div class="tri"></div>
             </div>
             <div class="logo" ng-click="toSection('cont1')"></div>
-            <div class="icon" ng-click="toSection('cont3',4,<?php echo $subs[3] ?>)">
+            <div class="icon" ng-click="toSection('cont4',4,<?php echo $subs[3] ?>)">
                 <div class="icon-img icon-4"></div>
                 <div class="icon-txt">COLLARES</div>
                 <div class="tri"></div>
             </div>
-            <div class="icon" ng-click="toSection('cont3',5,<?php echo $subs[4] ?>)">
+            <div class="icon" ng-click="toSection('cont4',5,<?php echo $subs[4] ?>)">
                 <div class="icon-img icon-5"></div>
                 <div class="icon-txt">FIGURAS</div>
                 <div class="tri"></div>
             </div>
-            <div class="icon" ng-click="toSection('cont3',6,<?php echo $subs[5] ?>)">
+            <div class="icon" ng-click="toSection('cont4',6,<?php echo $subs[5] ?>)">
                 <div class="icon-img icon-6"></div>
                 <div class="icon-txt">BOLSOS</div>
                 <div class="tri"></div>
@@ -73,7 +73,7 @@ foreach ($categories as $i => $category) {
             <div class="notif-ico" data-template="partials/carrito.html" data-content="0 productos" data-title="Carrito" data-placement="left" data-animation="am-flip-x" bs-popover>
                 <img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'>
             </div>
-            <div class="notif-ico" ng-click="toSection('cont4')"><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></div>
+            <div class="notif-ico" ng-click="toSection('cont3')"><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></div>
             <?php if(Yii::$app->user->isGuest) { ?>
                 <!-- <div class="notif-txt" ng-click="launch()">LOGIN/REGISTRATE</div> -->
                 <div class="notif-txt" data-template="partials/login.html" data-title="Iniciar Sesión" data-placement="left" data-animation="am-fade-and-slide-left" bs-popover>LOGIN/REGISTRATE</div>

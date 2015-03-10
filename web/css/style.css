@@ -237,11 +237,11 @@ font-family: 'futuralgt';
 #cont2{
     width: 90%;
     margin: 5%;
-
+    height: 88vh;
 }
 .cont2-row1{
     width: 100%;
-    height: 70%;
+    height: 60%;
 }
 .artesanias, .subastas, .collares{
     width: 33.33%;
@@ -417,7 +417,7 @@ color: #000;
 }
 .contacto{
     height: 100%;
-    padding-top: 14%;
+    padding-top: 10%;
 }
     .contact-tit{
         font-family: 'futuralgt';

@@ -35,7 +35,7 @@ app.config(function($popoverProvider) {
   });
 })
 
-app.value('duScrollOffset', 210).value('duScrollEasing', easingFunction);
+app.value('duScrollOffset', 100).value('duScrollEasing', easingFunction);
 app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
 
 app.run(function($rootScope, $location) {
@@ -54,8 +54,8 @@ var subcategoriaActual = 1;
 var conts = [];
 conts['cont1'] = '/';
 conts['cont2'] = 'subastas';
-conts['cont3'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
-conts['cont4'] = 'contacto';
+conts['cont3'] = 'contacto';
+conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
 var categories;
 
 function easingFunction(t) {
