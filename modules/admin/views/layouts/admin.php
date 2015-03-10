@@ -26,7 +26,7 @@ AdminAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'Mosaico',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -56,8 +56,8 @@ AdminAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <p class="pull-left">&copy; Mosaico <?= date('Y') ?></p>
+            <p class="pull-right">Powered by <a href="http://share.com.ec">Share Ecuador</a></p>
         </div>
     </footer>
 
