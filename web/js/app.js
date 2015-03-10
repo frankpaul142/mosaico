@@ -35,7 +35,7 @@ app.config(function($popoverProvider) {
   });
 })
 
-app.value('duScrollOffset', 100).value('duScrollEasing', easingFunction);
+app.value('duScrollOffset', 150).value('duScrollEasing', easingFunction);
 app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
 
 app.run(function($rootScope, $location) {
