@@ -17,12 +17,23 @@ class ProductController extends Controller
     public function behaviors()
     {
         return [
+             'rules' => [
+       
+            [
+                'actions' => ['index'],
+                'allow' => true,
+                'roles' => ['@'],
+                'matchCallback' => function ($rule, $action) {
+                    return Yii::$app->user->identity->isAdmin;
+                }
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
             ],
+
         ];
     }
 
