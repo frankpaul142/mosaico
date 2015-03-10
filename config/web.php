@@ -11,6 +11,7 @@ $config = [
         //'class' => 'yii\base\Module',
         'admin' => [
             'class' => 'app\modules\admin\AdminModule',
+              'layout' => 'admin',
         ],
         ],
     'components' => [
