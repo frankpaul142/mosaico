@@ -1,27 +1,30 @@
 <div class="productos">
-<div ng-show="!loaded"><div class='cargando'><img src='img/cargando.gif'></div></div>
-<div class="product" ng-show="loaded" ng-repeat="product in categories[categoria][subcategoria]">
-    <div ng-if="product.name">
-        <div class="prod-foto"><img src="img/products/{{ product.image }}">
+    <div ng-show="!loaded">
+        <div class='cargando'>
+            <img src='img/cargando.gif'>
         </div>
-        <div class="prod-spec">
-            <div class="prod-tit">{{ product.name }}</div>
-            <div class="prod-txt">{{ product.description }}</div>
-            <div class="prod-unit">
-                <div class="prod-unit-txt">Unidades</div>
-                <div class="select-black">
-                    <div class="styled-select black">
-                        <select>
-                            <option>100</option>
-                            <option>50</option>
-                            <option>25</option>
-                        </select>
+    </div>
+    <div class="product" ng-show="loaded" ng-repeat="product in categories[categoria][subcategoria]">
+        <div ng-if="product.name">
+            <div class="prod-foto"><img src="img/products/{{ product.image }}">
+            </div>
+            <div class="prod-spec">
+                <div class="prod-tit">{{ product.name }}</div>
+                <div class="prod-txt">{{ product.description }}</div>
+                <div class="prod-unit">
+                    <div class="prod-unit-txt">Unidades</div>
+                    <div class="select-black">
+                        <div class="styled-select black">
+                            <select ng-model="producto[product.id]" ng-init="producto[product.id]=1">
+                                <option ng-repeat="a in range(product.stock) track by $index" value="{{ $index+1 }}">{{ $index+1 }}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="prod-buy"><img src="img/icon-buy-01.png">
+                <div class="prod-buy" ng-click="addToCart(product.id)">
+                    <img src="img/icon-buy-01.png">
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

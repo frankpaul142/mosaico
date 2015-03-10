@@ -42,6 +42,12 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 	$document.scrollToElementAnimated(section, 50, 1500).then(function() {
 		addScrollSpy();
 	});
+	$scope.range = function(n) {
+		return new Array(n);
+	};
+	$scope.addToCart=function (id) {
+		console.log(id);console.log(producto[id]);
+	}
 });
 
 controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl) {
