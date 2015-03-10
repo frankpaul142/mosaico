@@ -29,8 +29,9 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
 	});
 });
 
-controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope) {
+controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http) {
 	console.log('ProductosController');
+	$scope.producto=[];
 	$rootScope.inProducts = true;
 	$scope.loaded = $rootScope.loaded;
 	watchLoaded($scope, $rootScope);
@@ -46,7 +47,14 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 		return new Array(n);
 	};
 	$scope.addToCart=function (id) {
-		console.log(id);console.log(producto[id]);
+		console.log(id);console.log($scope.producto[id]);
+		$http.get('site/add-to-cart?productId='+id+'&quantity='+$scope.producto[id]).
+		success(function (data) {
+			console.log(data);
+		}).
+		error(function () {
+			console.log('error');
+		})
 	}
 });
 

@@ -4,7 +4,7 @@
             <img src='img/cargando.gif'>
         </div>
     </div>
-    <div class="product" ng-show="loaded" ng-repeat="product in categories[categoria][subcategoria]">
+    <div class="product" ng-show="loaded" ng-repeat="(key,product) in categories[categoria][subcategoria]">
         <div ng-if="product.name">
             <div class="prod-foto"><img src="img/products/{{ product.image }}">
             </div>
@@ -15,13 +15,13 @@
                     <div class="prod-unit-txt">Unidades</div>
                     <div class="select-black">
                         <div class="styled-select black">
-                            <select ng-model="producto[product.id]" ng-init="producto[product.id]=1">
+                            <select ng-model="producto[key]" ng-init="producto[key]=1">
                                 <option ng-repeat="a in range(product.stock) track by $index" value="{{ $index+1 }}">{{ $index+1 }}</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="prod-buy" ng-click="addToCart(product.id)">
+                <div class="prod-buy" ng-click="addToCart(key)">
                     <img src="img/icon-buy-01.png">
                 </div>
             </div>

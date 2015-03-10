@@ -137,6 +137,11 @@ class SiteController extends Controller
         }
     }
 
+    public function actionAddToCart($productId,$quantity)
+    {
+        echo "1";
+    }
+
     public function actionLoadProducts()
     {
         $categories=Category::findAll(['status'=>'ACTIVE']);
