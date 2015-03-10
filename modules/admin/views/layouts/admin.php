@@ -36,11 +36,10 @@ AdminAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['Login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
+                        Yii::$app->user->isGuest ? ['label' => 'Login', 'url' => ['Login']] : ['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post']], 
+                        ['label' => 'Productos', 'url' => 'admin/product'],
+                        ['label' => 'Categorías', 'url' => 'admin/category'],
+                        ['label' => 'Sub-Categoría', 'url' => 'admin/subcategory'], 
                 ],
             ]);
             NavBar::end();

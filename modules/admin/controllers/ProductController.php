@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -17,15 +18,19 @@ class ProductController extends Controller
     public function behaviors()
     {
         return [
-             'rules' => [
-       
-            [
-                'actions' => ['index'],
-                'allow' => true,
-                'roles' => ['@'],
-                'matchCallback' => function ($rule, $action) {
+            'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
                     return Yii::$app->user->identity->isAdmin;
                 }
+                    ],
+                ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
