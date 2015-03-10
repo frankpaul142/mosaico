@@ -7,6 +7,12 @@ $config = [
     'basePath' => dirname(__DIR__),
     'language'=>'es',
     'bootstrap' => ['log'],
+    'modules' => [
+        //'class' => 'yii\base\Module',
+        'admin' => [
+            'class' => 'app\modules\admin\AdminModule',
+        ],
+        ],
     'components' => [
         'urlManager' => [
           'showScriptName' => false,
