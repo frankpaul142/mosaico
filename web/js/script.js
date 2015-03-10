@@ -5,45 +5,51 @@ $(function() {
 
 	});
 
-	var height = $(window).height();
-	console.log(height);
-	//$('#cont1').css('height',height);
-
-	/*var $root = $('html, body');
-	$('a').click(function() {
-	    $root.animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top
-	    }, {
-	        duration: 800,
-	        easing: "easeInOutExpo"
-	    });
-	    return false;
-	});*/
-
-	//Keep track of last scroll
-	//var lastScroll = 0;
+	cambioMenu();
 	var cont1height = $('#cont1').height() - 33;
 	$(window).scroll(function(event) {
-		//Sets the current scroll position
-		var st = $(this).scrollTop();
-		//Determines up-or-down scrolling
-		if (st > cont1height) {
-			//Replace this with your function call for downward-scrolling
+		cambioMenu();
+	});
 
+	$(".menu-movil").click(function() {
+		var $this = $(this);
+		$('.submenu-movil').each(function(index) {
+			if ($(this).attr('id').substr(2) != $this.attr('id').substr(2)) {
+				$(this).hide();
+			}
+		});
+		$('#sm' + $this.attr('id').substr(2)).toggle();
+	});
+
+	$('.submenu-movil').click(function() {
+		$('.cont-menu-resp').hide();
+		$('#nav').removeClass('margtop');
+	});
+
+	$(document).mousedown(function(e) {
+		var menu = $('.cont-menu-resp');
+		var trigger = $('.trigger');
+		if (!menu.is(e.target) && !trigger.is(e.target) && menu.has(e.target).length === 0) {
+			$('.cont-menu-resp').hide();
+			$('#nav').removeClass('margtop');
+		}
+	});
+
+	function cambioMenu() {
+		var st = $(this).scrollTop();
+		if (st > cont1height) {
 			$("#menu").css("height", "50px");
 			$('.icon-img').css({
 				'height': '15px',
 				'opacity': '0'
-			})
+			});
 			$('.logo').css({
 				'height': '75px'
-			})
+			});
 			$('#submenu').css({
 				'top': '50px'
-			})
+			});
 		} else {
-			//Replace this with your function call for upward-scrolling
-
 			$("#menu").css("height", "110px");
 			$('.icon-img').css({
 				'height': '69px',
@@ -51,91 +57,10 @@ $(function() {
 			});
 			$('.logo').css({
 				'height': '120px'
-			})
+			});
 			$('#submenu').css({
 				'top': '100px'
-			})
+			});
 		}
-		//Updates scroll position
-		//lastScroll = st;
-	});
-
-	$('#menu-sombreros').click(function() {
-		$('#sub-sombreros').toggle();
-		$('#sub-bisuteria').hide();
-		$('#sub-pulseras').hide();
-		$('#sub-collares').hide();
-		$('#sub-figuras').hide();
-		$('#sub-bolsos').hide();
-
-	});
-	$('#menu-bisuteria').click(function() {
-		$('#sub-sombreros').hide();
-		$('#sub-bisuteria').toggle();
-		$('#sub-pulseras').hide();
-		$('#sub-collares').hide();
-		$('#sub-figuras').hide();
-		$('#sub-bolsos').hide();
-
-	});
-	$('#menu-pulseras').click(function() {
-		$('#sub-sombreros').hide();
-		$('#sub-bisuteria').hide();
-		$('#sub-pulseras').toggle();
-		$('#sub-collares').hide();
-		$('#sub-figuras').hide();
-		$('#sub-bolsos').hide();
-
-	});
-	$('#menu-collares').click(function() {
-		$('#sub-sombreros').hide();
-		$('#sub-bisuteria').hide();
-		$('#sub-pulseras').hide();
-		$('#sub-collares').toggle();
-		$('#sub-figuras').hide();
-		$('#sub-bolsos').hide();
-
-	});
-	$('#menu-figuras').click(function() {
-		$('#sub-sombreros').hide();
-		$('#sub-bisuteria').hide();
-		$('#sub-pulseras').hide();
-		$('#sub-collares').hide();
-		$('#sub-figuras').toggle();
-		$('#sub-bolsos').hide();
-
-	});
-	$('#menu-bolsos').click(function() {
-		$('#sub-sombreros').hide();
-		$('#sub-bisuteria').hide();
-		$('#sub-pulseras').hide();
-		$('#sub-collares').hide();
-		$('#sub-figuras').hide();
-		$('#sub-bolsos').toggle();
-
-	});
-	$('#menu-sombreros').mouseleave(function() {
-		$('#sub-sombreros').hide();
-
-	});
-	$('#menu-bisuteria').mouseleave(function() {
-		$('#sub-bisuteria').hide();
-
-	});
-	$('#menu-pulseras').mouseleave(function() {
-		$('#sub-pulseras').hide();
-
-	});
-	$('#menu-collares').mouseleave(function() {
-		$('#sub-collares').hide();
-
-	});
-	$('#menu-figuras').mouseleave(function() {
-		$('#sub-figuras').hide();
-
-	});
-	$('#menu-bolsos').mouseleave(function() {
-		$('#sub-bolsos').hide();
-
-	});
+	}
 });

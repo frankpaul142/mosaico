@@ -51,6 +51,9 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 		$http.get('site/add-to-cart?productId='+id+'&quantity='+$scope.producto[id]).
 		success(function (data) {
 			console.log(data);
+			if(data=='1'){
+				console.log('anadido');
+			}
 		}).
 		error(function () {
 			console.log('error');
@@ -92,8 +95,11 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 			$window.location.href = url;
 		}
 	};
-	$scope.changeSubcategory = function(subcategoriaId) {
-		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
+	$scope.changeSubcategory = function(subcategoriaId, categoriaId) {
+		if(!categoriaId){
+			categoriaId=$rootScope.categoria;
+		}
+		$location.url('productos/' + categoriaId + '/' + subcategoriaId);
 		//$('#cont3').addClass('at-view-flip-out-right-opposite')
 	};
 });

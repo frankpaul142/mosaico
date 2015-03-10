@@ -124,10 +124,10 @@
     #submenu{
         display: none!important;
         }    
-    #cont1 img {
+    /*#cont1 img {
         height: auto;
 
-    }   
+    }   */
     #cont1 a img {
         position: relative;
     }

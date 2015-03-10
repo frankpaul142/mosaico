@@ -139,6 +139,14 @@ class SiteController extends Controller
 
     public function actionAddToCart($productId,$quantity)
     {
+        $cart=Yii::$app->session['cart'];
+        if(isset($cart[$productId])){
+	        $cart[$productId]+=$quantity;
+	    }
+	    else{
+	    	$cart[$productId]=$quantity;
+	    }
+        Yii::$app->session['cart']=$cart;
         echo "1";
     }
 
