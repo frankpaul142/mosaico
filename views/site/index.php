@@ -80,66 +80,67 @@ $this->title = 'Mosaico';
     </div>
 
 </div>
-<div id="cont3" ng-view>
-    
-</div>
-<div id="cont4">
+<div id="cont3">
     <div class="contacto">
-    <div class="contact-tit">CONTACTO</div>
-    <div class="contact-border"></div>
-    <div class="form">
+	    <div class="contact-tit">CONTACTO</div>
+	    <div class="contact-border"></div>
+	    <div class="form">
 
-        <form id="form-form" method="post">
+	        <form id="form-form" method="post">
 
-            <div class="form-left">
-                <div class="row">
-                    <label for="Form_name" class="required">NOMBRES<span class="required">*</span>
-                    </label>
-                    <input size="60" maxlength="100" name="Form[name]" id="Form_name" type="text" required>
-                </div>
-                <div class="row">
-                    <label for="Form_lastname" class="required">APELLIDOS<span class="required">*</span>
-                    </label>
-                    <input size="60" maxlength="100" name="Form[lastname]" id="Form_lastname" type="text" required>
-                </div>                
-                <div class="row">
-                    <label for="Form_email" class="required">MAIL<span class="required">*</span>
-                    </label>
-                    <input size="60" maxlength="255" name="Form[email]" id="Form_email" type="email" required>
-                </div>
-                <div class="row">
-                    <label for="Form_phone" class="required">TELÉFONO <span class="required">*</span>
-                    </label>
-                    <input size="10" maxlength="10" name="Form[phone]" id="Form_phone" type="text" class="number" required>
-                </div>                
-                <div class="row">
-                    <label for="Form_city" class="required">CIUDAD<span class="required">*</span>
-                    </label>
-                    <input size="60" maxlength="100" name="Form[city]" id="Form_city" type="text" required>
-                </div>
-            </div>
+	            <div class="form-left">
+	                <div class="row">
+	                    <label for="Form_name" class="required">NOMBRES<span class="required">*</span>
+	                    </label>
+	                    <input size="60" maxlength="100" name="Form[name]" id="Form_name" type="text" required>
+	                </div>
+	                <div class="row">
+	                    <label for="Form_lastname" class="required">APELLIDOS<span class="required">*</span>
+	                    </label>
+	                    <input size="60" maxlength="100" name="Form[lastname]" id="Form_lastname" type="text" required>
+	                </div>                
+	                <div class="row">
+	                    <label for="Form_email" class="required">MAIL<span class="required">*</span>
+	                    </label>
+	                    <input size="60" maxlength="255" name="Form[email]" id="Form_email" type="email" required>
+	                </div>
+	                <div class="row">
+	                    <label for="Form_phone" class="required">TELÉFONO <span class="required">*</span>
+	                    </label>
+	                    <input size="10" maxlength="10" name="Form[phone]" id="Form_phone" type="text" class="number" required>
+	                </div>                
+	                <div class="row">
+	                    <label for="Form_city" class="required">CIUDAD<span class="required">*</span>
+	                    </label>
+	                    <input size="60" maxlength="100" name="Form[city]" id="Form_city" type="text" required>
+	                </div>
+	            </div>
 
-            <div class="form-right">
-            <div class="row">
-                <label for="Form_textarea" class="required">COMENTARIO<span class="required">*</span>
-                </label>
-                <textarea size="60" maxlength="100" name="Form[textarea]" id="Form_textarea" type="text" required></textarea>
-            </div>                
-            <div class="row buttons">
-                <input type="submit" value="ENVIAR">
-            </div>
-            </div>
+	            <div class="form-right">
+	            <div class="row">
+	                <label for="Form_textarea" class="required">COMENTARIO<span class="required">*</span>
+	                </label>
+	                <textarea size="60" maxlength="100" name="Form[textarea]" id="Form_textarea" type="text" required></textarea>
+	            </div>                
+	            <div class="row buttons">
+	                <input type="submit" value="ENVIAR">
+	            </div>
+	            </div>
 
 
 
-        </form>
+	        </form>
 
+	    </div>
+	    <div class="social">
+	        <a href="#"><img class="face" src="img/social-01.png">
+	        </a>
+	        <a href="#"><img class="twit" src="img/social-02.png">
+	        </a>
+	    </div>
     </div>
-    <div class="social">
-        <a href="#cont1"><img class="face" src="img/social-01.png">
-        </a>
-        <a href="#cont1"><img class="twit" src="img/social-02.png">
-        </a>
-    </div>
-    </div>
+</div>
+
+<div id="cont4" ng-view>
+    
 </div>

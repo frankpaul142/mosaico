@@ -19,6 +19,16 @@ controllers.controller('SubastasCtrl', function($scope, $document, $rootScope) {
 	});
 });
 
+controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
+	console.log('ContactoController');
+	$rootScope.inProducts = false;
+	watchLoaded($scope, $rootScope);
+	var section = angular.element(document.getElementById('cont3'));
+	$document.scrollToElementAnimated(section, 50, 1500).then(function() {
+		addScrollSpy();
+	});
+});
+
 controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope) {
 	console.log('ProductosController');
 	$rootScope.inProducts = true;
@@ -27,24 +37,14 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 	categoriaActual = $routeParams.cat_id;
 	$rootScope.categoria = categoriaActual;
 	subcategoriaActual = $routeParams.subcat_id;
-	conts['cont3'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
-	var section = angular.element(document.getElementById('cont3'));
+	conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
+	var section = angular.element(document.getElementById('cont4'));
 	$document.scrollToElementAnimated(section, 50, 1500).then(function() {
 		addScrollSpy();
 	});
 });
 
-controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
-	console.log('ContactoController');
-	$rootScope.inProducts = false;
-	watchLoaded($scope, $rootScope);
-	var section = angular.element(document.getElementById('cont4'));
-	$document.scrollToElementAnimated(section, 0, 1500).then(function() {
-		addScrollSpy();
-	});
-});
-
-controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $modal) {
+controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl) {
 	$rootScope.loaded = false;
 	$rootScope.inProducts = false;
 	loadProducts($http, $rootScope);
