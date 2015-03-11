@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers'/*,'ui.bootstrap'*/,'mgcrea.ngStrap','ngAnimate']);
+var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers', 'ngSanitize', 'mgcrea.ngStrap', 'ngAnimate']);
 
 app.config(function($routeProvider /*, $locationProvider*/ ) {
 	$routeProvider.
@@ -30,9 +30,9 @@ app.config(function($routeProvider /*, $locationProvider*/ ) {
 });
 
 app.config(function($popoverProvider) {
-  angular.extend($popoverProvider.defaults, {
-    autoClose: true,
-  });
+	angular.extend($popoverProvider.defaults, {
+		autoClose: true,
+	});
 })
 
 app.value('duScrollOffset', 150).value('duScrollEasing', easingFunction);
@@ -57,7 +57,7 @@ conts['cont2'] = 'subastas';
 conts['cont3'] = 'contacto';
 conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
 var categories;
-var carrito=[];
+var carrito = [];
 var popover;
 
 function easingFunction(t) {
@@ -116,4 +116,12 @@ function watchLoadedCategory($scope, $rootScope) {
 			}
 		}
 	}
+}
+
+function htmlCarrito(data) {
+	var html = '';
+	for (c in data) {
+		html += data[c] + '<br>';
+	}
+	return html;
 }

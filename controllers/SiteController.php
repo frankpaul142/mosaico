@@ -150,6 +150,11 @@ class SiteController extends Controller
         echo json_encode($cart);
     }
 
+    public function actionLoadCart()
+    {
+    	echo json_encode(Yii::$app->session['cart']);
+    }
+
     public function actionLoadProducts()
     {
         $categories=Category::findAll(['status'=>'ACTIVE']);

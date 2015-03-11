@@ -56,8 +56,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 				console.log('anadido');
 				carrito = data;
 				console.log(carrito);
-				var con = Object.keys(carrito).length;
-				popover.$scope.content = con;
+				popover.$scope.content = htmlCarrito(carrito);
 				popover.$promise.then(popover.show);
 			}
 		}).
@@ -76,7 +75,21 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		template: "partials/carrito.html",
 		placement: "left",
 		animation: "am-flip-x",
-		content: "0 productos",
+		content: "Cargando",
+	});
+	$http.get('site/load-cart').
+	success(function(data) {
+		console.log(data);
+		var html
+		if (data) {
+			html = htmlCarrito(data);
+		} else {
+			html = "0 productos";
+		}
+		popover.$scope.content = html;
+	}).
+	error(function() {
+		console.log('error cargando carrito');
 	});
 	loadProducts($http, $rootScope);
 	watchLoaded($scope, $rootScope);
