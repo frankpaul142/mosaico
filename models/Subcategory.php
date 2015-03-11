@@ -45,8 +45,8 @@ class Subcategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category ID',
-            'name' => 'Name',
+            'category_id' => 'Categoría',
+            'name' => 'Nombre',
             'status' => 'Status',
         ];
     }

@@ -99,6 +99,7 @@ public static function findIdentity($id)
         ]);
     }
 
+
     /**
      * Finds user by username
      *
@@ -122,7 +123,13 @@ public static function findIdentity($id)
             'confirmPassword' => 'Confirmar Contraseña',
         ];
     }
-
+    public function getIsAdmin()
+    {
+        $return = false;
+        if($this->type=='ADMIN')
+            $return=true;
+        return $return;
+    }
     /**
      * @return \yii\db\ActiveQuery
      */

@@ -52,13 +52,14 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'subcategory_id' => 'Subcategory ID',
-            'name' => 'Name',
-            'description' => 'Description',
+            'subcategory_id' => 'Subcategoría',
+            'name' => 'Nombre',
+            'description' => 'Descripción',
             'stock' => 'Stock',
-            'image' => 'Image',
-            'price' => 'Price',
+            'image' => 'Imagen',
+            'price' => 'Precio',
             'status' => 'Status',
+            'auction' => 'Subasta'
         ];
     }
 
