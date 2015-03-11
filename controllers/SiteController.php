@@ -137,6 +137,25 @@ class SiteController extends Controller
         }
     }
 
+    public function actionCarrito()
+    {
+        $cart=Yii::$app->session['cart'];
+        $return=[];
+        $total=0;
+        foreach ($cart as $k => $ca) {
+            $aux=[];
+            $product=Product::findOne($k);
+            $aux['name']=$product->name;
+            $aux['quantity']=$ca;
+            $aux['stock']=$product->stock;
+            $aux['price']=$product->price;
+            $aux['total']=$product->price*$ca;
+            $return[]=$aux;
+            $total+=$product->price*$ca;
+        }
+        return $this->render('cart',['total'=>$total,'cart'=>$return]);
+    }
+
     public function actionAddToCart($productId,$quantity)
     {
         $cart=Yii::$app->session['cart'];
@@ -147,12 +166,24 @@ class SiteController extends Controller
 	    	$cart[$productId]=intval($quantity);
 	    }
         Yii::$app->session['cart']=$cart;
-        echo json_encode($cart);
+        $this->actionLoadCart();
     }
 
     public function actionLoadCart()
     {
-    	echo json_encode(Yii::$app->session['cart']);
+        $cart=Yii::$app->session['cart'];
+        $return=[];
+        $total=0;
+        foreach ($cart as $k => $ca) {
+            $aux=[];
+            $product=Product::findOne($k);
+            $aux['name']=$product->name;
+            $aux['value']=$ca;
+            $return[]=$aux;
+            $total+=$product->price*$ca;
+        }
+        $return['total']=$total;
+    	echo json_encode($return);
     }
 
     public function actionLoadProducts()

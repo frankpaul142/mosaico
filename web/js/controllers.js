@@ -47,21 +47,22 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 		return new Array(n);
 	};
 	$scope.addToCart = function(id) {
-		console.log(id);
-		console.log($scope.producto[id]);
+		// console.log(id);
+		// console.log($scope.producto[id]);
+		popover.$scope.cargando=true;
+		popover.$promise.then(popover.show);
 		$http.get('site/add-to-cart?productId=' + id + '&quantity=' + $scope.producto[id]).
 		success(function(data) {
-			// console.log(data);
 			if (data != '') {
-				console.log('anadido');
 				carrito = data;
 				console.log(carrito);
 				popover.$scope.content = htmlCarrito(carrito);
-				popover.$promise.then(popover.show);
+				popover.$scope.cargando=false;
 			}
 		}).
 		error(function() {
 			console.log('error');
+			popover.$scope.cargando=false;
 		});
 	}
 });
@@ -77,6 +78,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		animation: "am-flip-x",
 		content: "Cargando",
 	});
+	popover.$scope.cargando=true;
 	$http.get('site/load-cart').
 	success(function(data) {
 		console.log(data);
@@ -87,6 +89,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 			html = "0 productos";
 		}
 		popover.$scope.content = html;
+		popover.$scope.cargando=false;
 	}).
 	error(function() {
 		console.log('error cargando carrito');

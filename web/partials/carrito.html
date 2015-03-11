@@ -1,6 +1,14 @@
 <div class="popover" style="top:0 !important">
 	<div class="arrow" style="top:13px"></div>
 	<h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
-	<div class="popover-content" ng-bind-html="content"></div>
-	<div><button>Ver</button></div>
+	<div ng-show="!cargando">
+		<div class="popover-content" ng-bind-html="content"></div>
+		<div>
+			<a href="site/carrito"><img src="img/ico-comprar-01.png" style="width:initial">
+			</a>
+		</div>
+	</div>
+	<div ng-show="cargando">
+		<img src='img/cargando.gif'>
+	</div>
 </div>

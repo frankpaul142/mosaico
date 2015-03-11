@@ -119,9 +119,12 @@ function watchLoadedCategory($scope, $rootScope) {
 }
 
 function htmlCarrito(data) {
-	var html = '';
+	var html = '<table><thead><tr><th>Producto</th><th>Cantidad</th></tr></thead>';
 	for (c in data) {
-		html += data[c] + '<br>';
+		if (c != 'total') {
+			html += '<tr><td>' + data[c]['name'] + '</td><td>' + data[c]['value'] + '</td></tr>';
+		}
 	}
+	html += '</table><b>Total: $' + data['total'] + '</b>';
 	return html;
 }
