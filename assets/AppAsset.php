@@ -25,6 +25,15 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/script.js',
+        '//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js',
+        '//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-animate.min.js',
+        '//code.angularjs.org/1.3.11/angular-route.min.js',
+        '//cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js',
+        '//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.2.0/angular-strap.min.js',
+        '//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.2.0/angular-strap.tpl.min.js',
+        'js/app.js',
+        'js/controllers.js',
+        'js/directives.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

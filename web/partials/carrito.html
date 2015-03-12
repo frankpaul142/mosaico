@@ -2,9 +2,9 @@
 	<div class="arrow" style="top:13px"></div>
 	<h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
 	<div ng-show="!cargando">
-		<div class="popover-content" ng-bind-html="content"></div>
+		<div class="popover-content" compile="content"></div>
 		<div>
-			<a href="site/carrito"><img src="img/ico-comprar-01.png" style="width:initial">
+			<a href="site/carrito" style="background-image: url(img/backbtn-01-01.png);">Ver Carrito
 			</a>
 		</div>
 	</div>

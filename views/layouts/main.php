@@ -101,17 +101,6 @@ foreach ($categories as $i => $category) {
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-animate.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.11/angular-route.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.11/angular-sanitize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>
-    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.2.0/angular-strap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.2.0/angular-strap.tpl.min.js"></script>
-    <script src="<?= Yii::getAlias('@web'); ?>/js/app.js"></script>
-    <script src="<?= Yii::getAlias('@web'); ?>/js/controllers.js"></script>
-
 <?php $this->endBody() ?>
 </body>
 </html>

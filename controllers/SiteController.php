@@ -150,7 +150,7 @@ class SiteController extends Controller
             $aux['stock']=$product->stock;
             $aux['price']=$product->price;
             $aux['total']=$product->price*$ca;
-            $return[]=$aux;
+            $return[$product->id]=$aux;
             $total+=$product->price*$ca;
         }
         return $this->render('cart',['total'=>$total,'cart'=>$return]);
@@ -169,6 +169,19 @@ class SiteController extends Controller
         $this->actionLoadCart();
     }
 
+    public function actionRemoveFromCart($productId, $redirect=null)
+    {
+        $cart=Yii::$app->session['cart'];
+        unset($cart[$productId]);
+        Yii::$app->session['cart']=$cart;
+        if(isset($redirect)){
+            $this->redirect(['carrito']);
+        }
+        else{
+            $this->actionLoadCart();
+        }
+    }
+
     public function actionLoadCart()
     {
         $cart=Yii::$app->session['cart'];
@@ -179,7 +192,7 @@ class SiteController extends Controller
             $product=Product::findOne($k);
             $aux['name']=$product->name;
             $aux['value']=$ca;
-            $return[]=$aux;
+            $return[$product->id]=$aux;
             $total+=$product->price*$ca;
         }
         $return['total']=$total;

@@ -1,4 +1,6 @@
-var app = angular.module('Mosaico', ['ngRoute', 'duScroll', 'MosaicoControllers', 'ngSanitize', 'mgcrea.ngStrap', 'ngAnimate']);
+var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives','ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate']);
+
+// configs
 
 app.config(function($routeProvider /*, $locationProvider*/ ) {
 	$routeProvider.
@@ -33,10 +35,11 @@ app.config(function($popoverProvider) {
 	angular.extend($popoverProvider.defaults, {
 		autoClose: true,
 	});
-})
+});
 
-app.value('duScrollOffset', 150).value('duScrollEasing', easingFunction);
-app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
+// --configs
+
+// run
 
 app.run(function($rootScope, $location) {
 	$rootScope.$on('duScrollspy:becameActive', function($event, $element) {
@@ -48,6 +51,18 @@ app.run(function($rootScope, $location) {
 	});
 });
 
+// --run
+
+
+// values
+
+app.value('duScrollOffset', 150).value('duScrollEasing', easingFunction);
+app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
+
+// --values
+
+
+// variables
 
 var categoriaActual = 1;
 var subcategoriaActual = 1;
@@ -59,6 +74,11 @@ conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
 var categories;
 var carrito = [];
 var popover;
+
+// --variables
+
+
+// funciones
 
 function easingFunction(t) {
 	return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
@@ -119,12 +139,22 @@ function watchLoadedCategory($scope, $rootScope) {
 }
 
 function htmlCarrito(data) {
-	var html = '<table><thead><tr><th>Producto</th><th>Cantidad</th></tr></thead>';
+	var html='';
+	if(Object.keys(data).length>1){
+	html = '<table><thead><tr><th>Producto</th><th>Cantidad</th><th></th></tr></thead>';
 	for (c in data) {
 		if (c != 'total') {
-			html += '<tr><td>' + data[c]['name'] + '</td><td>' + data[c]['value'] + '</td></tr>';
+			html += '<tr><td>' + data[c]['name'] + '</td>';
+			html += '<td>' + data[c]['value'] + '</td>';
+			html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer"><img src="img/cerrar-01.jpg"></td></tr>';
 		}
 	}
 	html += '</table><b>Total: $' + data['total'] + '</b>';
+	}
+	else{
+		html='<b>No hay productos</b>';
+	}
 	return html;
 }
+
+// --funciones

@@ -1,3 +1,7 @@
+<?php
+$this->title="Mosaico | Carrito de Compras";
+?>
+
 <div class="img-top"><img src="img/carrito-01.png"></div>
 <div class="carrito-cont">
     <div class="carrito-tit">CARRITO DE COMPRAS</div>
@@ -34,7 +38,10 @@
                 </div>
             </div>
             <div class="unitario"><label><?= $product['price'] ?></label></div>
-            <div class="total"><label><?= $product['total'] ?></label><a href ='#'><img src="img/cerrar-01.jpg"></a></div>            
+            <div class="total">
+                <label><?= $product['total'] ?></label>
+                <a href ='<?= Yii::getAlias('@web').'/site/remove-from-cart?productId='.$i.'&redirect=1' ?>'><img src="img/cerrar-01.jpg"></a>
+            </div>            
         </div>
         <?php } ?>
     </div>
@@ -42,7 +49,6 @@
             <label>$ <?= $total ?></label>
             <div class="comprar-txt">TOTAL</div>
             <a href ='#'><img src="img/ico-comprar-01.png"></a>
-            
             
         </div>     
     
