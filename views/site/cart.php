@@ -7,13 +7,20 @@ $this->title="Mosaico | Carrito de Compras";
     <div class="carrito-tit">CARRITO DE COMPRAS</div>
     <div class="contact-border"></div>
     <div class="carrito-left">
+        <?php if(Yii::$app->user->isGuest){ ?>
+            <div class="carrito-usr" ng-click="openLogin()" style="cursor:pointer">
+                Login / Registrarse
+            </div>
+        <?php } else { ?>
         <div class="carrito-left-tit">Datos Personales</div>
         <!-- <div class="carrito-img"><img src=""></div> -->
         <div class="carrito-usr">
-            <div class="usr-txt">NOMBRE: Xxxxxxxxxxx Xxxxxxxxx</div>
-            <div class="usr-txt">DIRECIÓN: Xxxxxxxxxxx Xxxxxxxxx</div>
-            <div class="usr-txt">TELÉFONO: Xxxxxxxxxxx Xxxxxxxxx</div>
+            <div class="usr-txt">NOMBRE: <?= Yii::$app->user->identity->name ?></div>
+            <div class="usr-txt">DIRECIÓN: <?= Yii::$app->user->identity->address ?></div>
+            <div class="usr-txt">TELÉFONO: <?= Yii::$app->user->identity->phone ?></div>
+            <div><a href="<?= Yii::getAlias('@web')."/user/view?id=".Yii::$app->user->id; ?>">Editar datos</a></div>
         </div>
+        <?php } ?>
     </div>
     <div class="carrito-right">
         <div class="carrito-right-tits">

@@ -118,7 +118,7 @@ class SiteController extends Controller
 
     public function actionRegistro()
     {
-        $model=new User();
+        $model=new User(['scenario'=>'register']);
         if ($model->load(Yii::$app->request->post())){
         	$model->password=$model->hashPassword($model->password);
         	$model->confirmPassword=$model->hashPassword($model->confirmPassword);
@@ -142,17 +142,19 @@ class SiteController extends Controller
         $cart=Yii::$app->session['cart'];
         $return=[];
         $total=0;
-        foreach ($cart as $k => $ca) {
-            $aux=[];
-            $product=Product::findOne($k);
-            $aux['name']=$product->name;
-            $aux['quantity']=$ca;
-            $aux['stock']=$product->stock;
-            $aux['price']=$product->price;
-            $aux['total']=$product->price*$ca;
-            $return[$product->id]=$aux;
-            $total+=$product->price*$ca;
-        }
+        if($cart){
+	        foreach ($cart as $k => $ca) {
+	            $aux=[];
+	            $product=Product::findOne($k);
+	            $aux['name']=$product->name;
+	            $aux['quantity']=$ca;
+	            $aux['stock']=$product->stock;
+	            $aux['price']=$product->price;
+	            $aux['total']=$product->price*$ca;
+	            $return[$product->id]=$aux;
+	            $total+=$product->price*$ca;
+	        }
+	    }
         return $this->render('cart',['total'=>$total,'cart'=>$return]);
     }
 
@@ -187,15 +189,17 @@ class SiteController extends Controller
         $cart=Yii::$app->session['cart'];
         $return=[];
         $total=0;
-        foreach ($cart as $k => $ca) {
-            $aux=[];
-            $product=Product::findOne($k);
-            $aux['name']=$product->name;
-            $aux['value']=$ca;
-            $return[$product->id]=$aux;
-            $total+=$product->price*$ca;
-        }
-        $return['total']=$total;
+        if($cart){
+	        foreach ($cart as $k => $ca) {
+	            $aux=[];
+	            $product=Product::findOne($k);
+	            $aux['name']=$product->name;
+	            $aux['value']=$ca;
+	            $return[$product->id]=$aux;
+	            $total+=$product->price*$ca;
+	        }
+	        $return['total']=$total;
+	    }
     	echo json_encode($return);
     }
 

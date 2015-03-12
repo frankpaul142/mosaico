@@ -32,7 +32,7 @@ foreach ($categories as $i => $category) {
     <?php $this->head() ?>
 </head>
 
-<body ng-app="Mosaico" ng-controller="MenuCtrl">
+<body ng-app="Mosaico" ng-controller="MainCtrl">
 
 <?php $this->beginBody() ?>
     <div id="menu">
@@ -56,10 +56,13 @@ foreach ($categories as $i => $category) {
             </div>
             <div class="notif-ico" ng-click="toSection('cont3')"><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></div>
             <?php if(Yii::$app->user->isGuest) { ?>
-                <div class="notif-txt" data-template="partials/login.html" data-title="Iniciar Sesión" data-placement="left" data-animation="am-fade-and-slide-left" bs-popover>LOGIN/REGISTRATE</div>
+                <div class="notif-txt" id="loginRegistrarse">LOGIN/REGISTRARSE</div>
             <?php } else { ?>
                 <div class="notif-ico"><a href='<?= Yii::getAlias('@web')."/user/view?id=".Yii::$app->user->id; ?>'><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-01.png'></a></div>
-                <div class="notif-txt"><a href='<?= Yii::getAlias('@web'); ?>/site/logout' data-method="post">SALIR</a></div>
+                <div class="notif-txt">
+                    <a href='<?= Yii::getAlias('@web'); ?>/site/logout' data-method="post">SALIR</a> / 
+                    <a href='<?= Yii::getAlias('@web')."/user/view?id=".Yii::$app->user->id; ?>'><?= Yii::$app->user->identity->name ?></a>
+                </div>
             <?php } ?>
         </div>
         

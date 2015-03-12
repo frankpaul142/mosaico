@@ -49,7 +49,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 	$scope.addToCart = function(id) {
 		// console.log(id);
 		// console.log($scope.producto[id]);
-		popover.$scope.cargando=true;
+		popover.$scope.cargando = true;
 		popover.$promise.then(popover.show);
 		$http.get('site/add-to-cart?productId=' + id + '&quantity=' + $scope.producto[id]).
 		success(function(data) {
@@ -57,18 +57,18 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 				carrito = data;
 				console.log(carrito);
 				popover.$scope.content = htmlCarrito(carrito);
-				popover.$scope.cargando=false;
+				popover.$scope.cargando = false;
 			}
 		}).
 		error(function() {
 			console.log('error');
-			popover.$scope.cargando=false;
+			popover.$scope.cargando = false;
 		});
 	};
 });
 
-controllers.controller('MenuCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $popover) {
-	console.log('MenuCtrl');
+controllers.controller('MainCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $popover) {
+	console.log('MainCtrl');
 	$rootScope.loaded = false;
 	$rootScope.inProducts = false;
 	popover = $popover($('#icoCarrito'), {
@@ -78,7 +78,19 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 		animation: "am-flip-x",
 		content: "Cargando",
 	});
-	popover.$scope.cargando=true;
+	var divLogin = $('#loginRegistrarse');
+	if (divLogin[0]) {
+		var popoverLogin = $popover(divLogin, {
+			title: 'Iniciar Sesión',
+			template: "partials/login.html",
+			placement: "left",
+			animation: "am-fade-and-slide-left",
+		});
+		$scope.openLogin = function() {
+			popoverLogin.$promise.then(popoverLogin.show);
+		};
+	}
+	popover.$scope.cargando = true;
 	$http.get('site/load-cart').
 	success(function(data) {
 		console.log('cart loaded');
@@ -89,7 +101,7 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 			html = "0 productos";
 		}
 		popover.$scope.content = html;
-		popover.$scope.cargando=false;
+		popover.$scope.cargando = false;
 	}).
 	error(function() {
 		console.log('error cargando carrito');
@@ -128,20 +140,21 @@ controllers.controller('MenuCtrl', function($scope, $document, $location, $rootS
 	$scope.changeSubcategory = function(subcategoriaId) {
 		$location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
 	};
-	popover.$scope.removeFromCart = function(id) {console.log('removeFromCart');
-		popover.$scope.cargando=true;
+	popover.$scope.removeFromCart = function(id) {
+		console.log('removeFromCart');
+		popover.$scope.cargando = true;
 		$http.get('site/remove-from-cart?productId=' + id).
 		success(function(data) {
 			if (data != '') {
 				carrito = data;
 				console.log(carrito);
 				popover.$scope.content = htmlCarrito(carrito);
-				popover.$scope.cargando=false;
+				popover.$scope.cargando = false;
 			}
 		}).
 		error(function() {
 			console.log('error');
-			popover.$scope.cargando=false;
+			popover.$scope.cargando = false;
 		});
 	};
 });

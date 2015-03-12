@@ -44,7 +44,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'lastname', 'username', 'address', 'password', 'creation_date', 'status', 'confirmPassword'], 'required'],
+            [['name', 'lastname', 'username', 'address', 'password', 'creation_date', 'status'], 'required'],
+            [['confirmPassword'], 'required', 'on'=>'register'],
             [['creation_date'], 'safe'],
             [['username', 'password'], 'string', 'max' => 255],
             [['name', 'lastname', 'password', 'confirmPassword'], 'string', 'max' => 100],
@@ -54,7 +55,8 @@ class User extends ActiveRecord implements IdentityInterface
             [['confirmPassword'],'compare','compareAttribute'=>'password', 'message'=>'No coinciden las contraseñas'],
         ];
     }
-public static function findIdentity($id)
+
+    public static function findIdentity($id)
     {
         return static::findOne($id);
     }
