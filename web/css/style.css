@@ -216,9 +216,12 @@ img {
     cursor: pointer;
 }
 #cont2 {
-    width: 90%;
+    height: -webkit-calc(100vh - 50px);;
+}
+#contSubastas {
     margin: 5%;
-    height: 88vh;
+    width: 90%;
+    height: 90%;
 }
 .cont2-row1 {
     width: 100%;
@@ -295,7 +298,7 @@ img {
 }
 #cont3 {
     width: 100vw;
-    height: 100vh;
+    height: -webkit-calc(100vh - 50px);;
     background-color: #E4E2DC;
     overflow-y: hidden;
 }
@@ -387,11 +390,11 @@ option {
 }
 #cont4 {
     width: 100vw;
-    height: 100vh;
+    height: -webkit-calc(100vh - 50px);
     background-color: #FFFFFF;
 }
 .contacto {
-    height: 100%;
+    height: 90%;
     margin-top: 4%;
 }
 .contact-tit {
@@ -767,7 +770,8 @@ a:-ms-any-link {
     font-family: 'futurabold';
     font-size: 12px;
     width: 14%;
-    margin: 1% auto;
+    height: 30px;
+    line-height: 30px;
     color: #333;
     text-align: center;
     float: left;
@@ -814,9 +818,11 @@ ul.submenu-movil li a {
     -o-transform: translate(-100%, 0px);
     transform: translate(-100%, 0px);
     opacity: 0;
-    z-index: 1;
+    /*z-index: 1;*/
+    top: -webkit-calc(300vh - 2.5%);
     position: absolute;
 }
+
 .at-view-slide-in-left.ng-enter-active {
     -webkit-transform: translate(0px, 0px);
     -moz-transform: translate(0px, 0px);
@@ -824,7 +830,7 @@ ul.submenu-movil li a {
     -o-transform: translate(0px, 0px);
     transform: translate(0px, 0px);
     opacity: 1;
-    position: absolute;
+    /*position: fixed;*/
 }
 .at-view-flip-out-right-opposite.ng-leave {
     -webkit-transform: rotateY(0deg);
@@ -850,7 +856,7 @@ ul.submenu-movil li a {
     -ms-transform-origin: 100% 50%;
     -o-transform-origin: 100% 50%;
     transform-origin: 100% 50%;
-    position: absolute;
+    /*position: absolute;*/
     top: 0px;
     left: 0px;
     opacity: 1;
@@ -863,32 +869,8 @@ ul.submenu-movil li a {
     transform: rotateY(-90deg);
     opacity: 0;
 }
-.slide5 {
-    /*position: absolute;*/
-    
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-.slide5.ng-enter, .slide5.ng-leave {
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-}
-.slide5.ng-enter {
-    left: 100%;
-}
-.slide5.ng-enter-active {
-    left: 0;
-}
-.slide5.ng-leave {
-    left: 0;
-}
-.slide5.ng-leave-active {
-    left: -100%;
-}
+
+
 .animate-repeat {
     /*line-height:40px;*/
 }

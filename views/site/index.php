@@ -15,6 +15,7 @@ $this->title = 'Mosaico';
     </a>
 </div>
 <div id="cont2">
+    <div id="contSubastas">
     <div class="cont2-row1">
         <div class="artesanias">
             <img src="img/subastas-01.jpg">
@@ -78,7 +79,7 @@ $this->title = 'Mosaico';
             </div>
         </div>
     </div>
-
+    </div>
 </div>
 <div id="cont3">
     <div class="contacto">
@@ -141,6 +142,6 @@ $this->title = 'Mosaico';
     </div>
 </div>
 
-<div id="cont4" ng-view>
+<div id="cont4" class="at-view-slide-in-left at-view-flip-out-right-opposite" ng-view>
     
 </div>

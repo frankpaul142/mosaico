@@ -56,7 +56,7 @@ app.run(function($rootScope, $location) {
 
 // values
 
-app.value('duScrollOffset', 150).value('duScrollEasing', easingFunction);
+app.value('duScrollOffset', 76).value('duScrollEasing', easingFunction);
 app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href'));
 
 // --values
