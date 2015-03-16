@@ -184,6 +184,16 @@ class SiteController extends Controller
         }
     }
 
+    public function actionChangeQuantity($id, $q)
+    {
+        $cart=Yii::$app->session['cart'];
+        if(isset($cart[$id])){
+	        $cart[$id]=intval($q);
+	    }
+        Yii::$app->session['cart']=$cart;
+        $this->redirect(['carrito']);
+    }
+
     public function actionLoadCart()
     {
         $cart=Yii::$app->session['cart'];

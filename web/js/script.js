@@ -63,4 +63,10 @@ $(function() {
 			});
 		}
 	}
+
+	$('.selectQuantity').change(function () {
+		console.log($(this).val());
+		console.log($(this).attr('id').substr(2));
+		window.location='site/change-quantity?id='+$(this).attr('id').substr(2)+'&q='+$(this).val();
+	});
 });

@@ -105,13 +105,6 @@ function loadProducts($http, $rootScope) {
 			console.log('error al cargar productos:');
 		});
 	}
-	/*else {
-			console.log('categories no loading');
-			$scope.categories = categories;
-			$scope.categoria = categoriaActual;
-			$scope.subcategoria = subcategoriaActual;
-			$rootScope.loaded = true;
-		}*/
 }
 
 function watchLoaded($scope, $rootScope) {

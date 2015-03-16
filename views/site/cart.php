@@ -37,7 +37,7 @@ $this->title="Mosaico | Carrito de Compras";
             </div>
             <div class="cantidad">                          
                 <div class="styled-select ">
-                    <select>
+                    <select class="selectQuantity" id="sq<?= $i ?>">
                     <?php for ($j=1; $j<=$product['stock']; $j++) { ?>
                         <option <?php if($j==$product['quantity']) echo "selected"; ?>><?= $j ?></option>
                     <?php } ?>
@@ -52,11 +52,9 @@ $this->title="Mosaico | Carrito de Compras";
         </div>
         <?php } ?>
     </div>
-        <div class="comprar">
-            <label>$ <?= $total ?></label>
-            <div class="comprar-txt">TOTAL</div>
-            <a href ='#'><img src="img/ico-comprar-01.png"></a>
-            
-        </div>     
-    
-</div> 
+    <div class="comprar">
+        <label>$ <?= $total ?></label>
+        <div class="comprar-txt">TOTAL</div>
+        <a href ='#'><img src="img/ico-comprar-01.png"></a>
+    </div>
+</div>
