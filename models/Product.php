@@ -86,4 +86,11 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Cart::className(), ['id' => 'cart_id'])->viaTable('productscart', ['product_id' => 'id']);
     }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsersauction()
+    {
+        return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('auction', ['product_id' => 'id']);
+    }
 }

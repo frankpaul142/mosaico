@@ -212,4 +212,8 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasMany(Module::className(), ['id' => 'module_id'])->viaTable('{user_has_module}', ['user_id' => 'id']);
     }
+       public function getProductauctions()
+    {
+        return $this->hasMany(Product::className(), ['id' => 'product_id'])->viaTable('auction', ['user_id' => 'id']);
+    }
 }

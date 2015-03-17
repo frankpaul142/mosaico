@@ -82,6 +82,12 @@ class ProductController extends Controller
         if ($model->load(Yii::$app->request->post())) {
              $model->image = UploadedFile::getInstance($model, 'image');
              if($model->save()){
+                if($model->auction=="YES"){
+                    $auction = new Auction();
+                    $auction->product_id=$model->id;
+                    $auction->value=$model->price;
+                    $auction->save();
+                }
              $model->image->saveAs('img/products/' . $model->image->baseName .rand(10,50) .'.' . $model->image->extension);    
             return $this->redirect(['view', 'id' => $model->id]);
             }else{

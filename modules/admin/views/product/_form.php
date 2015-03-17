@@ -1,5 +1,6 @@
 <?php
 
+use yii\web\View;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
@@ -8,11 +9,26 @@ use app\models\Subcategory;
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
 /* @var $form yii\widgets\ActiveForm */
+$script=
+<<< JS
+$( document ).ready(function() {
+$('#product-auction').change(function() {
+    if($(this).val()=='YES'){
+  $('.field-product-subcategory_id').hide();
+  ('#product-subcategory_id').val("");
+    }else{
+       $('.field-product-subcategory_id').show();  
+    }
+});
+});
+JS;
+$this->registerJs($script,View::POS_END);
 ?>
 
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?= $form->field($model, 'auction')->dropDownList([ 'YES' => 'SI', 'NO' => 'NO', ], ['prompt' => '¿Producto como subasta?']) ?>
 
     <?= $form->field($model,'subcategory_id')->DropDownList(ArrayHelper::map(Subcategory::find()->all(), 'id', 'name'), ['prompt' => 'Selecciona una subcategoría.']) ?>
 
@@ -35,3 +51,6 @@ use app\models\Subcategory;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+
+
