@@ -4,6 +4,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AdminAsset;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -36,10 +37,10 @@ AdminAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                
-                        Yii::$app->user->isGuest ? ['label' => 'Login', 'url' => ['Login']] : ['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post']], 
-                        ['label' => 'Productos', 'url' => 'product'],
-                        ['label' => 'Categorías', 'url' => 'category'],
-                        ['label' => 'Sub-Categoría', 'url' => 'subcategory'], 
+                        Yii::$app->user->isGuest ? ['label' => 'login', 'url' => ['login']] : ['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post']], 
+                        ['label' => 'Productos', 'url' => Url::to(['product/index'])],
+                        ['label' => 'Categorías', 'url' => Url::to(['category/index'])],
+                        ['label' => 'Sub-Categoría', 'url' => Url::to(['subcategory/index'])], 
                 ],
             ]);
             NavBar::end();
