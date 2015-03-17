@@ -595,17 +595,17 @@ a:-ms-any-link {
     float: left;
 }
 .prod-txt {
-    width: 69%;
+    width: 80%;
     font-family: 'futuralgt';
     font-size: 12px;
-    margin: 4% auto;
+    margin: 2% auto;
 }
 .total img {
     width: 11%;
     float: right;
 }
 .comprar {
-    border-top: 1px solid #333;
+    
     width: 50%;
     float: right;
     padding: 1%;
