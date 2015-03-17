@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 
+
 /**
  * This is the model class for table "product".
  *
@@ -41,7 +42,8 @@ class Product extends \yii\db\ActiveRecord
             [['description', 'status'], 'string'],
             [['price'], 'number'],
             [['name'], 'string', 'max' => 150],
-            [['image'], 'file', 'extensions' => 'gif, jpg, png']
+            [['image'], 'file', 'extensions' => 'gif, jpg, png'],
+            [['auction'], 'string', 'max' => 3],
         ];
     }
 
