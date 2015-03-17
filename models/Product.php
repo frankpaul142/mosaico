@@ -41,7 +41,7 @@ class Product extends \yii\db\ActiveRecord
             [['description', 'status'], 'string'],
             [['price'], 'number'],
             [['name'], 'string', 'max' => 150],
-            [['image'], 'string', 'max' => 255]
+            [['image'], 'file', 'extensions' => 'gif, jpg, png']
         ];
     }
 

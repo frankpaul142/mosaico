@@ -37,9 +37,9 @@ AdminAsset::register($this);
                 'items' => [
                
                         Yii::$app->user->isGuest ? ['label' => 'Login', 'url' => ['Login']] : ['label' => 'Logout (' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post']], 
-                        ['label' => 'Productos', 'url' => 'admin/product'],
-                        ['label' => 'Categorías', 'url' => 'admin/category'],
-                        ['label' => 'Sub-Categoría', 'url' => 'admin/subcategory'], 
+                        ['label' => 'Productos', 'url' => 'product'],
+                        ['label' => 'Categorías', 'url' => 'category'],
+                        ['label' => 'Sub-Categoría', 'url' => 'subcategory'], 
                 ],
             ]);
             NavBar::end();
