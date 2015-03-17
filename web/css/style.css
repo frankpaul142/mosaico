@@ -298,7 +298,7 @@ img {
 }
 #cont3 {
     width: 100vw;
-    height: -webkit-calc(100vh - 50px);;
+    height: -webkit-calc(100vh - 50px);
     background-color: #E4E2DC;
     overflow-y: hidden;
 }
@@ -801,6 +801,7 @@ ul.submenu-movil li a {
 .ng-cloak {
     display: none;
 }
+
 /*Angular transitions*/
 
 .at-view-slide-in-left.ng-enter {
@@ -819,7 +820,9 @@ ul.submenu-movil li a {
     transform: translate(-100%, 0px);
     opacity: 0;
     /*z-index: 1;*/
-    top: -webkit-calc(300vh - 2.5%);
+    /*top: -webkit-calc(300% - 2%);*/
+    top: -webkit-calc(((100vh - 50px) * 2) + 100vh + 75px);
+    /*top: 296%;*/
     position: absolute;
 }
 
