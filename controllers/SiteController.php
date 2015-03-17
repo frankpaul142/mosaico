@@ -12,6 +12,7 @@ use app\models\Product;
 use app\models\Category;
 use app\models\Subcategory;
 use app\models\User;
+use app\models\Params;
 
 class SiteController extends Controller
 {
@@ -116,7 +117,9 @@ class SiteController extends Controller
 
     public function actionSubastas()
     {
-        return $this->render('auction');
+    	$products=Product::findAll(['status'=>'ACTIVE','auction'=>'YES']);
+    	$time=Params::findOne(['name'=>'auction_time'])->value;
+        return $this->render('auction',['products'=>$products,'time'=>$time]);
     }
 
     public function actionRegistro()
