@@ -89,7 +89,7 @@ class ProductController extends Controller
                     $auction->value=$model->price;
                     $auction->save();
                 }
-             $model->image->saveAs('img/products/' . $model->image->baseName .rand(10,50) .'.' . $model->image->extension);    
+             $model->image->saveAs('img/products/' . $model->image->baseName .'.' . $model->image->extension);    
             return $this->redirect(['view', 'id' => $model->id]);
             }else{
                 print_r($model->getErrors());

@@ -80,6 +80,10 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Productscart::className(), ['product_id' => 'id']);
     }
+       public function getAuctions()
+    {
+        return $this->hasMany(Auction::className(), ['product_id' => 'id']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery
