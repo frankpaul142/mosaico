@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Subcategory;
+use yii\widgets\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -39,7 +40,7 @@ $this->registerJs($script,View::POS_END);
     <?= $form->field($model, 'stock')->textInput() ?>
 
     <?= $form->field($model, 'image')->fileInput() ?>
-
+    <?php if(isset()) ?>
     <?= $form->field($model, 'price')->textInput(['maxlength' => 10]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'ACTIVE' => 'ACTIVE', 'INACTIVE' => 'INACTIVE', ], ['prompt' => 'Selecciona un estatus.']) ?>

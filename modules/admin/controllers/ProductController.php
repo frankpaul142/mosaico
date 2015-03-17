@@ -111,9 +111,29 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $oldimg=$model->image;    
+        if (Yii::$app->request->post()) {
+            if(UploadedFile::getInstance($model, 'image')){
+              
+              $model->load(Yii::$app->request->post()); 
+              $model->image = UploadedFile::getInstance($model, 'image');
+            $model->image->saveAs('img/products/' . $model->image->baseName .'.' . $model->image->extension);  
+            }else{
+                $model->subcategory_id=$_POST['Product']['subcategory_id'];
+                $model->name=$_POST['Product']['name'];
+                $model->description=$_POST['Product']['description'];
+                $model->subcategory_id=$_POST['Product']['subcategory_id'];
+                $model->stock=$_POST['Product']['stock'];
+                $model->price=$_POST['Product']['price'];
+                $model->status=$_POST['Product']['status'];
+                $model->auction=$_POST['Product']['auction'];
+                $model->image=$oldimg;
+
+
+            }
+            if($model->save()){
             return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,
