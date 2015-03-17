@@ -167,7 +167,7 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
 		console.log('entrar');
 		$scope.ingresando = true;
 		$scope.errorLabel = '';
-		$.post('site/login', {
+		$.post('site/entrar', {
 				'LoginForm[username]': $scope.email,
 				'LoginForm[password]': $scope.password
 			})
