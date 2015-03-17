@@ -64,9 +64,42 @@ $(function() {
 		}
 	}
 
-	$('.selectQuantity').change(function () {
+	$('.selectQuantity').change(function() {
 		console.log($(this).val());
 		console.log($(this).attr('id').substr(2));
-		window.location='site/change-quantity?id='+$(this).attr('id').substr(2)+'&q='+$(this).val();
+		window.location = 'site/change-quantity?id=' + $(this).attr('id').substr(2) + '&q=' + $(this).val();
 	});
+
+	setInterval(function() {
+		remainingTime();
+	}, 1000);
+
+	function remainingTime() {
+		var now = new Date();
+		var id = '';
+		$('.rt').each(function() {
+			id = $(this).attr('id').substr(14);
+			var date_auction_ms = Number($('#cd' + id).text() + 659);
+			var timeDiff = new Date(date_auction_ms - now.getTime());
+			var seconds = 0;
+			var minutes = 0;
+			var hours = 0;
+			var sec = 0;
+			var min = 0;
+			seconds = Math.floor(timeDiff / 1000);
+			if (seconds > 0) {
+				if (seconds > 59) {
+					minutes = Math.floor(seconds / 60);
+					seconds = seconds % 60;
+					if (minutes > 59) {
+						hours = Math.floor(minutes / 60);
+						minutes = minutes % 60;
+					}
+				}
+				sec = seconds < 10 ? '0' + seconds : seconds;
+				min = minutes < 10 ? '0' + minutes : minutes;
+			}
+			$('#remaining_time' + id).text(hours + ' h : ' + min + ' m : ' + sec + ' s');
+		});
+	}
 });

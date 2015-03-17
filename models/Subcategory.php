@@ -56,7 +56,7 @@ class Subcategory extends \yii\db\ActiveRecord
      */
     public function getProducts()
     {
-        return $this->hasMany(Product::className(), ['subcategory_id' => 'id'])->where('status="ACTIVE"');
+        return $this->hasMany(Product::className(), ['subcategory_id' => 'id'])->where('status="ACTIVE" AND auction="NO"');
     }
 
     /**
