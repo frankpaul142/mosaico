@@ -211,8 +211,8 @@ img {
     height: auto;
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    right: 50%;
+    left: 47.5%;
+    right: 52%;
     cursor: pointer;
 }
 #cont2 {
@@ -559,7 +559,7 @@ a:-ms-any-link {
     font-size: 20px;
     color: #333333;
     margin: 5% 0 0% 0;
-    padding: 2%;
+    
 }
 .carrito-right-tits {
     width: 100%;
@@ -607,7 +607,7 @@ a:-ms-any-link {
 .comprar {
     border-top: 1px solid #333;
     width: 50%;
-    float: left;
+    float: right;
     padding: 1%;
 }
 .comprar-txt {
@@ -626,9 +626,9 @@ a:-ms-any-link {
     text-align: right;
 }
 .comprar img {
-    width: 20%;
-    float: right;
-    margin: 4% 0% 4% 0;
+      width: 40%;
+  float: right;
+  margin: 4% 0% 4% 0;
 }
 .resp-menu {
     width: 100%;
