@@ -358,13 +358,14 @@ img {
     margin: 0 auto;
 }
 .styled-select select {
-    border: medium none;
-    font-size: 14px;
-    padding-left: 5px;
-    width: 125%;
-    background: none repeat scroll 0% 0% transparent;
-    text-align: left;
-    cursor: pointer;
+     border: medium none;
+  font-size: 14px;
+  padding-left: 5px;
+  width: 125%;
+  background: none repeat scroll 0% 0% transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'futuralgt';
 }
 .styled-select.slate {
     background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
@@ -441,12 +442,14 @@ option {
     margin: 1px;
 }
 .row {
-    margin: 1%;
+    margin: 1% auto;
     height: 70px;
+    width: 70%;
+    float: none;
 }
 input {
-    float: right;
-    width: 100%;
+      float: left;
+  width: 90%;
 }
 textarea, input[type="submit"] {
     width: 100%;
@@ -545,7 +548,7 @@ a:-ms-any-link {
 }
 .usr-txt {
     font-family: 'futurabold';
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 7%;
     color: #333333;
 }
@@ -565,11 +568,13 @@ a:-ms-any-link {
 .tits, .producto {
     width: 40%;
     float: left;
+    font-size: 14px;
 }
 .tits1, .cantidad, .unitario, .total {
     width: 20%;
     float: left;
     text-align: center;
+    font-size: 14px;
 }
 .unitario label, .total label {
     font-size: 14px;
@@ -578,7 +583,9 @@ a:-ms-any-link {
 .carrito-right-cont {
     border-bottom: 1px solid #333;
     height: 10%;
-    padding: 1%
+    padding: 1%;
+    float: left;
+    width: 100%;    
 }
 .carrito-right-cont:last-child {
     border-bottom: none;
@@ -598,10 +605,9 @@ a:-ms-any-link {
     float: right;
 }
 .comprar {
-    margin-right: 8%;
     border-top: 1px solid #333;
     width: 50%;
-    float: right;
+    float: left;
     padding: 1%;
 }
 .comprar-txt {
@@ -622,7 +628,7 @@ a:-ms-any-link {
 .comprar img {
     width: 20%;
     float: right;
-    margin: 1%;
+    margin: 4% 0% 4% 0;
 }
 .resp-menu {
     width: 100%;
@@ -973,3 +979,8 @@ ul.submenu-movil li a {
 }
 .popover {
   top: 0 !important;}
+.carrito-usr a {
+  color: rgb(226, 51, 31);
+  font-family: 'futurabold';
+  line-height: 40px;
+}
