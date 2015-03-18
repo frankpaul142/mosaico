@@ -979,7 +979,7 @@ ul.submenu-movil li a {
 }
 .popover {
   top: 0 !important;
-    left: -60px!important;}
+   }
 .carrito-usr a {
   color: rgb(226, 51, 31);
   font-family: 'futurabold';
