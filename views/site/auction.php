@@ -16,13 +16,13 @@ $this->title='Mosaico | Subastas';
 	                <div class="left-2"><strong>LA SUBASTA TERMINA EN: </strong><span class="rt" id="remaining_time<?= $product->id ?>"> h :  m :  s</span></div>
 	                <div class="left-3">
 		                <label for="Form_phone" class="required">OFERTA: <span class="required">*</span></label>
-		                <input size="10" maxlength="10" name="offert" id="Form_phone" type="text" class="number" required="">
+		                <input size="10" maxlength="10" name="offert" id="puja<?= $product->id ?>" type="text" class="number" required="">
 	                </div>
 	            </div>
 	            <div class="subastas-div-right">
-	                <div class="right-1"><strong>VALOR DE SUBASTA: </strong>$ <?= $product->price ?></div>
+	                <div class="right-1"><strong>VALOR DE SUBASTA: </strong>$ <span id="pp<?= $product->id ?>"><?= $product->price ?></span></div>
 	                <div class="right-2">
-			        	<input type="submit" value="SUBASTAR">
+			        	<input type="submit" class="ofertar_puja" id="op<?= $product->id ?>" value="OFERTAR">
 			        </div>
             	</div>
         	</div>

@@ -13,6 +13,7 @@ use app\models\Category;
 use app\models\Subcategory;
 use app\models\User;
 use app\models\Params;
+use app\models\Auction;
 
 class SiteController extends Controller
 {
@@ -118,6 +119,7 @@ class SiteController extends Controller
     public function actionSubastas()
     {
     	$products=Product::findAll(['status'=>'ACTIVE','auction'=>'YES']);
+    	$auctions=Auction::findAll(['status'=>'ACTIVE']);
     	$time=Params::findOne(['name'=>'auction_time'])->value;
         return $this->render('auction',['products'=>$products,'time'=>$time]);
     }
@@ -198,6 +200,54 @@ class SiteController extends Controller
 	    }
         Yii::$app->session['cart']=$cart;
         $this->redirect(['carrito']);
+    }
+
+    public function actionBid()
+    {
+    	if(isset($_POST['productId']) && isset($_POST['bid']) && $_POST['bid']!=''){
+    		$product=Product::findOne($_POST['productId']);
+    		if($product){
+	    		$auction=$product->auctions;
+	    		if($auction){
+	    			$auc=$auction[0];
+	    			$bid=$_POST['bid'];
+	    			if(floatval($bid)>$auc->value){
+		    			$auc->user_id=Yii::$app->user->id;
+		    			$auc->value=$bid;
+		    			$auc->date=date('Y-m-d H:i:s');
+		    			if($auc->save()){
+		    				echo $auc->value;
+		    			}
+		    			else{
+		    				echo "no save";
+		    			}
+		    		}
+		    		else{
+		    			echo "no mayor";
+		    		}
+	    		}
+	    		else{
+	    			echo "no auction";
+	    		}
+	    	}
+	    	else{
+	    		echo "no product";
+	    	}
+    	}
+    	else{
+    		echo "no post";
+    	}
+    }
+
+    public function actionAuctionValue($id)
+    {
+    	$auction=Auction::findOne(['product_id'=>$id]);
+    	if($auction){
+    		echo $auction->value.'-'.$id;
+    	}
+    	else{
+    		echo "no auction ".$id;
+    	}
     }
 
     public function actionLoadCart()

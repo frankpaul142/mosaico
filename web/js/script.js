@@ -65,8 +65,6 @@ $(function() {
 	}
 
 	$('.selectQuantity').change(function() {
-		console.log($(this).val());
-		console.log($(this).attr('id').substr(2));
 		window.location = 'site/change-quantity?id=' + $(this).attr('id').substr(2) + '&q=' + $(this).val();
 	});
 
@@ -100,6 +98,53 @@ $(function() {
 				min = minutes < 10 ? '0' + minutes : minutes;
 			}
 			$('#remaining_time' + id).text(hours + ' h : ' + min + ' m : ' + sec + ' s');
+		});
+	}
+
+	$('.ofertar_puja').click(function () {
+		$(this).prop('disabled',true);
+		var id=$(this).attr('id').substr(2);
+		$('#op'+id).val('OFERTANDO');
+		console.log($('#puja'+id).val());
+		$.post('site/bid',{productId: id, bid: $('#puja'+id).val()}).success(function (data) {
+			console.log(data);
+			if(data=='no post'){
+				alert('La oferta no puede estar vacía');
+			}
+			else if(data=='no product' || data=='no auction' || data=='no save'){
+				alert('Se produjo un error. Intenta nuevamente.');
+			}
+			else if(data=='no mayor'){
+				alert('La oferta debe ser mayor al valor actual.');
+			}
+			else{
+				$('#pp'+id).text(data);
+			}
+			$('#op'+id).prop('disabled',false);
+			$('#op'+id).val('OFERTAR');
+		}).error(function (data) {
+			console.log('error');
+			$('#op'+id).prop('disabled',false);
+			$('#op'+id).val('OFERTAR');
+		});
+	});
+
+	setInterval(function () {
+		auctionValue();
+	}, 5000);
+
+	function auctionValue() {
+		$('.rt').each(function() {
+			id = $(this).attr('id').substr(14);
+			$.get('site/auction-value?id='+id).success(function (data) {
+				console.log(data);
+				if(data.substr(0,2)!='no'){
+					var arr=data.split('-');
+					$('#pp'+arr[1]).text(arr[0]);
+				}
+			}).error(function () {
+				console.log('error');
+			});
 		});
 	}
 });
