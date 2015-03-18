@@ -988,42 +988,42 @@ ul.submenu-movil li a {
 /*loader*/
 @-webkit-keyframes load-bar-grow {
   100% {
-    -webkit-transform: scaleX(1.1);
-            transform: scaleX(1.1);
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
   }
 }
 @keyframes load-bar-grow {
   100% {
-    -webkit-transform: scaleX(1.1);
-            transform: scaleX(1.1);
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
   }
 }
 @-webkit-keyframes load-bar-background {
   0% {
-    background-color: #159756;
+    background-color: #893200;
   }
   25% {
-    background-color: #da4733;
+    background-color: #492B07;
   }
   50% {
-    background-color: #1d6fee;
+    background-color: #E64229;
   }
   75% {
-    background-color: #fdba2c;
+    background-color:#cba74d;
   }
 }
 @keyframes load-bar-background {
   0% {
-    background-color: #159756;
+    background-color: #893200;
   }
   25% {
-    background-color: #da4733;
+    background-color: #492B07;
   }
   50% {
-    background-color: #1d6fee;
+    background-color: #E64229;
   }
   75% {
-    background-color: #fdba2c;
+    background-color:#cba74d;
   }
 }
 .load-bar-inbox {
