@@ -32,7 +32,7 @@ $this->title="Mosaico | Carrito de Compras";
         <?php foreach ($cart as $i => $product) { ?>
         <div class="carrito-right-cont">
             <div class="producto">
-                <div class="prod-img"><img src="img/carrito-prod-01.png"></div>
+                <div class="prod-img"><img src="img/products/<?= $product['image'] ?>"></div>
                 <div class="prod-txt"><?= $product['name'] ?></div>
             </div>
             <div class="cantidad">                          

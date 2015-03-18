@@ -121,7 +121,7 @@ class SiteController extends Controller
     	$products=Product::findAll(['status'=>'ACTIVE','auction'=>'YES']);
     	$auctions=Auction::findAll(['status'=>'ACTIVE']);
     	$time=Params::findOne(['name'=>'auction_time'])->value;
-        return $this->render('auction',['products'=>$products,'time'=>$time]);
+        return $this->render('auction',['auctions'=>$auctions,'time'=>$time]);
     }
 
     public function actionRegistro()
@@ -157,7 +157,8 @@ class SiteController extends Controller
 	            $aux['name']=$product->name;
 	            $aux['quantity']=$ca;
 	            $aux['stock']=$product->stock;
-	            $aux['price']=$product->price;
+                $aux['price']=$product->price;
+	            $aux['image']=$product->image;
 	            $aux['total']=$product->price*$ca;
 	            $return[$product->id]=$aux;
 	            $total+=$product->price*$ca;
@@ -205,18 +206,16 @@ class SiteController extends Controller
     public function actionBid()
     {
     	if(isset($_POST['productId']) && isset($_POST['bid']) && $_POST['bid']!=''){
-    		$product=Product::findOne($_POST['productId']);
-    		if($product){
-	    		$auction=$product->auctions;
-	    		if($auction){
-	    			$auc=$auction[0];
+    		$auction=Auction::findOne($_POST['productId']);
+    		if($auction){
+    			if($auction->status=='ACTIVE'){
 	    			$bid=$_POST['bid'];
-	    			if(floatval($bid)>$auc->value){
-		    			$auc->user_id=Yii::$app->user->id;
-		    			$auc->value=$bid;
-		    			$auc->date=date('Y-m-d H:i:s');
-		    			if($auc->save()){
-		    				echo $auc->value;
+	    			if(floatval($bid)>$auction->value){
+		    			$auction->user_id=Yii::$app->user->id;
+		    			$auction->value=$bid;
+		    			$auction->date=date('Y-m-d H:i:s');
+		    			if($auction->save()){
+		    				echo $auction->value;
 		    			}
 		    			else{
 		    				echo "no save";
@@ -225,14 +224,14 @@ class SiteController extends Controller
 		    		else{
 		    			echo "no mayor";
 		    		}
-	    		}
-	    		else{
-	    			echo "no auction";
-	    		}
-	    	}
-	    	else{
-	    		echo "no product";
-	    	}
+		    	}
+		    	else{
+		    		echo "no active";
+		    	}
+    		}
+    		else{
+    			echo "no auction";
+    		}
     	}
     	else{
     		echo "no post";
@@ -241,13 +240,40 @@ class SiteController extends Controller
 
     public function actionAuctionValue($id)
     {
-    	$auction=Auction::findOne(['product_id'=>$id]);
+    	$auction=Auction::findOne($id);
     	if($auction){
     		echo $auction->value.'-'.$id;
     	}
     	else{
     		echo "no auction ".$id;
     	}
+    }
+
+    public function actionWinner($id)
+    {
+        $auction=Auction::findOne($id);
+        if($auction){
+            $auction->status='INACTIVE';
+            if($auction->save()){
+            	$return=$id.'-';
+            	if(!$auction->user_id){
+            		$return.='/';
+            	}
+            	elseif($auction->user_id==Yii::$app->user->id){
+            		$return.='+';
+            	}
+            	else{
+            		$return.=$auction->user_id;
+            	}
+	            echo $return;
+	        }
+	        else{
+	        	echo "no save ".$id;
+	        }
+        }
+        else{
+            echo "no auction ".$id;
+        }
     }
 
     public function actionLoadCart()

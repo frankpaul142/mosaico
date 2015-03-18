@@ -97,6 +97,27 @@ $(function() {
 				sec = seconds < 10 ? '0' + seconds : seconds;
 				min = minutes < 10 ? '0' + minutes : minutes;
 			}
+			else{
+				$('#remaining_time' + id).removeClass('rt');
+				$.get('site/winner?id='+id).success(function (data) {
+					if(data.substr(0,2)!='no'){
+						var arr=data.split('-');
+						if(arr[1]=='+'){
+							$('#lbl'+arr[0]).text('¡Has Ganado la Subasta! El producto ahora está en tu carrito.');
+							$('#puja'+arr[0]).hide();
+							$('#op'+arr[0]).hide();
+						}
+						else{
+							$('#sd'+arr[0]).hide();
+						}
+					}
+					else{
+						console.log(data);
+					}
+				}).error(function () {
+					console.log('error get winner');
+				});
+			}
 			$('#remaining_time' + id).text(hours + ' h : ' + min + ' m : ' + sec + ' s');
 		});
 	}
@@ -105,7 +126,6 @@ $(function() {
 		$(this).prop('disabled',true);
 		var id=$(this).attr('id').substr(2);
 		$('#op'+id).val('OFERTANDO');
-		console.log($('#puja'+id).val());
 		$.post('site/bid',{productId: id, bid: $('#puja'+id).val()}).success(function (data) {
 			console.log(data);
 			if(data=='no post'){
@@ -117,8 +137,12 @@ $(function() {
 			else if(data=='no mayor'){
 				alert('La oferta debe ser mayor al valor actual.');
 			}
+			else if(data=='no active'){
+				alert('Esta subasta ya no está activa.');
+			}
 			else{
 				$('#pp'+id).text(data);
+				alert('Oferta aceptada');
 			}
 			$('#op'+id).prop('disabled',false);
 			$('#op'+id).val('OFERTAR');
@@ -131,16 +155,18 @@ $(function() {
 
 	setInterval(function () {
 		auctionValue();
-	}, 5000);
+	}, 10000);
 
 	function auctionValue() {
 		$('.rt').each(function() {
 			id = $(this).attr('id').substr(14);
 			$.get('site/auction-value?id='+id).success(function (data) {
-				console.log(data);
 				if(data.substr(0,2)!='no'){
 					var arr=data.split('-');
 					$('#pp'+arr[1]).text(arr[0]);
+				}
+				else{
+					console.log(data);
 				}
 			}).error(function () {
 				console.log('error');
