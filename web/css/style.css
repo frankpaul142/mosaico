@@ -216,12 +216,11 @@ img {
     cursor: pointer;
 }
 #cont2 {
-    height: -webkit-calc(100vh - 50px);;
+    height:auto;/*-webkit-calc(100vh - 50px);*/
 }
 #contSubastas {
     margin: 5%;
-    width: 90%;
-    height: 90%;
+    
 }
 .cont2-row1 {
     width: 100%;

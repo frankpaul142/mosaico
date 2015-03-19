@@ -43,7 +43,7 @@ $this->title = 'Mosaico';
             </div>
 
         </div>
-
+        <div style="clear: both;"></div>
     </div>
     <div class="cont2-row2">
         <div class="bisuteria">
@@ -78,8 +78,11 @@ $this->title = 'Mosaico';
                 <div class="subastas-txt">Cu epicuri electram tincidunt has. Ne ignota facete discere usu. Mei in scripta sententiae. An sed nullam eirmod equidem.</div>
             </div>
         </div>
+        <div style="clear: both;"></div>
     </div>
+    <div style="clear: both;"></div>    
     </div>
+    <div style="clear: both;"></div>
 </div>
 <div id="cont3">
     <div class="contacto">
