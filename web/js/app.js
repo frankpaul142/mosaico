@@ -139,7 +139,7 @@ function htmlCarrito(data) {
 		if (c != 'total') {
 			html += '<tr><td>' + data[c]['name'] + '</td>';
 			html += '<td>' + data[c]['value'] + '</td>';
-			html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer"><img src="img/cerrar-01.jpg"></td></tr>';
+			html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer; padding:2%;"><img src="img/cerrar-01.jpg"></td></tr>';
 		}
 	}
 	html += '</table><b>Total: $' + data['total'] + '</b>';
