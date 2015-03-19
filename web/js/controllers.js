@@ -134,7 +134,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
 			});
 		} else {
 			var url = baseUrl;
-			$window.location.href = url;
+			$window.location.href = url+'#/'+hash;
 		}
 	};
 	$scope.changeSubcategory = function(subcategoriaId) {
@@ -147,7 +147,6 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
 		success(function(data) {
 			if (data != '') {
 				carrito = data;
-				console.log(carrito);
 				popover.$scope.content = htmlCarrito(carrito);
 				popover.$scope.cargando = false;
 			}

@@ -53,6 +53,9 @@ class User extends ActiveRecord implements IdentityInterface
             [['username'], 'unique'],
             [['username'], 'email'],
             [['confirmPassword'],'compare','compareAttribute'=>'password', 'message'=>'No coinciden las contraseñas'],
+            [['name', 'lastname'], 'string', 'max' => 100],
+            [['username', 'address', 'password'], 'string', 'max' => 255],
+            [['phone'], 'string', 'max' => 13],
         ];
     }
 
@@ -208,12 +211,13 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getModules()
+    public function getAuctions()
     {
-        return $this->hasMany(Module::className(), ['id' => 'module_id'])->viaTable('{user_has_module}', ['user_id' => 'id']);
+        return $this->hasMany(Auction::className(), ['user_id' => 'id']);
     }
-       public function getProductauctions()
+    
+    public function getCarts()
     {
-        return $this->hasMany(Product::className(), ['id' => 'product_id'])->viaTable('auction', ['user_id' => 'id']);
+        return $this->hasMany(Cart::className(), ['user_id' => 'id']);
     }
 }
