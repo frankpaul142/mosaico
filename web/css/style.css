@@ -216,7 +216,7 @@ img {
     cursor: pointer;
 }
 #cont2 {
-    height:auto;/*-webkit-calc(100vh - 50px);*/
+    height:-webkit-calc(100vh - 50px);
 }
 #contSubastas {
     margin: 5%;
