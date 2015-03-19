@@ -47,7 +47,9 @@ $this->title="Mosaico | Carrito de Compras";
             <div class="unitario"><label><?= $product['price'] ?></label></div>
             <div class="total">
                 <label><?= $product['total'] ?></label>
-                <a href ='<?= Yii::getAlias('@web').'/site/remove-from-cart?productId='.$i.'&redirect=1' ?>'><img src="img/cerrar-01.jpg"></a>
+                <?php if($product['won']=='NO'){ ?>
+                    <a href ='<?= Yii::getAlias('@web').'/site/remove-from-cart?productId='.$i.'&redirect=1' ?>'><img src="img/cerrar-01.jpg"></a>
+                <?php } ?>
             </div>            
         </div>
         <?php } ?>

@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives','ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate']);
+var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate']);
 
 // configs
 
@@ -132,20 +132,23 @@ function watchLoadedCategory($scope, $rootScope) {
 }
 
 function htmlCarrito(data) {
-	var html='';
-	if(Object.keys(data).length>1){
-	html = '<table><thead><tr><th>Producto</th><th>Cantidad</th><th></th></tr></thead>';
-	for (c in data) {
-		if (c != 'total') {
-			html += '<tr><td>' + data[c]['name'] + '</td>';
-			html += '<td>' + data[c]['value'] + '</td>';
-			html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer"><img src="img/cerrar-01.jpg"></td></tr>';
+	var html = '';
+	if (Object.keys(data).length > 1) {
+		html = '<table><thead><tr><th>Producto</th><th>Cantidad</th><th></th></tr></thead>';
+		for (c in data) {
+			if (c != 'total') {
+				html += '<tr><td>' + data[c]['name'] + '</td>';
+				html += '<td>' + data[c]['value'] + '</td>';
+				if (data[c]['won'] == 'NO') {
+					html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer"><img src="img/cerrar-01.jpg"></td></tr>';
+				} else {
+					html += '<td></td>';
+				}
+			}
 		}
-	}
-	html += '</table><b>Total: $' + data['total'] + '</b>';
-	}
-	else{
-		html='<b>No hay productos</b>';
+		html += '</table><b>Total: $' + data['total'] + '</b>';
+	} else {
+		html = '<b>No hay productos</b>';
 	}
 	return html;
 }

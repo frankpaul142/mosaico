@@ -204,6 +204,7 @@ class SiteController extends Controller
 	                $aux['price']=$productCart->product->price;
 		            $aux['image']=$productCart->product->image;
 		            $aux['total']=$productCart->product->price*$productCart->quantity;
+		            $aux['won']=$productCart->won;
 		            $return[$productCart->product->id]=$aux;
 		            $total+=$productCart->product->price*$productCart->quantity;
 		        }
@@ -221,6 +222,7 @@ class SiteController extends Controller
 	                $aux['price']=$product->price;
 		            $aux['image']=$product->image;
 		            $aux['total']=$product->price*$ca;
+		            $aux['won']='NO';
 		            $return[$product->id]=$aux;
 		            $total+=$product->price*$ca;
 		        }
@@ -403,6 +405,7 @@ class SiteController extends Controller
 		            $aux=[];
 		            $aux['name']=$productCart->product->name;
 		            $aux['value']=$productCart->quantity;
+		            $aux['won']=$productCart->won;
 		            $return[$productCart->product->id]=$aux;
 		            $total+=$productCart->product->price*$productCart->quantity;
 		        }
@@ -417,6 +420,7 @@ class SiteController extends Controller
 		            $product=Product::findOne($k);
 		            $aux['name']=$product->name;
 		            $aux['value']=$ca;
+		            $aux['won']='NO';
 		            $return[$product->id]=$aux;
 		            $total+=$product->price*$ca;
 		        }
