@@ -186,10 +186,10 @@
     #cont4 {
         height: auto;
         float: left;
-        min-height: 800px;
+        /*min-height: 800px;*/
     }
     .cont4-1{
-        min-height: 800px;
+        /*min-height: 800px;*/
     }
     .img-top {
     margin-top: 110px;}
