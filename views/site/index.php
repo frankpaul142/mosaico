@@ -146,6 +146,7 @@ $this->title = 'Mosaico';
 </div>
 
 <div id="cont4">
-    <div style="position:absolute; width:100%; height:100%; overflow-y:hidden;" class="at-view-slide-in-left at-view-flip-out-right-opposite" ng-view></div>
+    
+    <div class="at-view-slide-in-left at-view-flip-out-right-opposite .cont4-1" ng-view></div>
     
 </div>

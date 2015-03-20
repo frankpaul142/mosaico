@@ -392,6 +392,14 @@ option {
     width: 100vw;
     height: -webkit-calc(100vh - 50px);
     background-color: #FFFFFF;
+    min-height: auto;
+}
+.cont4-1{
+    position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+    min-height: auto;
 }
 .contacto {
     height: 90%;
@@ -638,27 +646,29 @@ a:-ms-any-link {
     background-size: contain;
     background-repeat: no-repeat;
     width: 60%;
-    height: 110px;
+    height: 50px;
     float: left;
+    cursor: pointer;
 }
 .trigger {
-    width: 32%;
-    float: left;
-    color: #fff;
-    text-align: center;
-    font-size: 50px;
-    cursor: pointer;
-    padding-top: 3%;
-}
+      float: right;
+      color: #fff;
+      text-align: center;
+      font-size: 37px;
+      cursor: pointer;
+      margin-right: 2%;}
 .cont-menu-resp {
     width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    margin-top: 110px;
+    margin-top: 50px;
     padding: 2%;
     text-align: center;
     display: none;
 }
+
+.cont-menu-resp ul li:visited {
+    text-decoration: underline;}
 .cont-menu-resp ul li {
     color: #fff;
     list-style: none;
@@ -667,13 +677,27 @@ a:-ms-any-link {
     cursor: pointer;
     padding: 5px;
     background-color: transparent;
+    
 }
-.cont-menu-resp ul li:hover {
-    background-color: #fff;
+.cont-menu-resp ul li ul li {
+    color: #fff;
+    list-style: none;
+    font-family: 'futuralgt';
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: transparent;
+    
+}
+.cont-menu-resp ul li ul:hover {
+    
     color: #000!important;
 }
-.cont-menu-resp ul li:hover a {
-    color: #000
+.cont-menu-resp ul li ul li:hover {
+    background-color: #fff;
+    color: #000;
+        
+        
 }
 #cont1 a img:hover {
     bottom: 25px;
@@ -792,7 +816,7 @@ ul.submenu-movil li:hover a {
     color: #fff !important;
 }
 ul.submenu-movil li:hover {
-    background-color: #626262;
+    background-color: #000;
 }
 ul.submenu-movil li a {
     color: #7E7E7E !important;
@@ -802,6 +826,8 @@ ul.submenu-movil li a {
 .cargando {
     width: 15%;
     margin: 10% auto;
+    
+    
 }
 .ng-cloak {
     display: none;

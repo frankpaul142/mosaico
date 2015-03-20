@@ -69,7 +69,7 @@ foreach ($categories as $i => $category) {
         <div class="resp-menu">
             <div class="logo-resp" ng-click="toSection('cont1')"></div>
             <div class="trigger">☰</div>
-
+            <div style="clear:both"></div>
         </div>
         <div class="cont-menu-resp">
             <ul>
