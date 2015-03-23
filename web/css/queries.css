@@ -33,7 +33,7 @@
     #cont1 img {
         }
     .img-top {
-        margin-top: 110px;}
+        margin-top: 50px;}
     /*carrito*/
     .carrito-right{
         font-size: 80%;
@@ -82,7 +82,7 @@
         display: block;
     }
     .img-top {
-    margin-top: 110px;}
+    margin-top: 50px;}
    /*carrito*/
     .carrito-cont{
         width: 100%;
@@ -192,7 +192,7 @@
         /*min-height: 800px;*/
     }
     .img-top {
-    margin-top: 110px;}
+   }
    /*carrito*/
     .carrito-cont{
         height: 700px;
