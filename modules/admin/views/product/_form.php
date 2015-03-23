@@ -40,7 +40,7 @@ $this->registerJs($script,View::POS_END);
     <?= $form->field($model, 'stock')->textInput() ?>
 
     <?= $form->field($model, 'image')->fileInput() ?>
-    <?php if(isset()) ?>
+    
     <?= $form->field($model, 'price')->textInput(['maxlength' => 10]) ?>
 
     <?= $form->field($model, 'status')->dropDownList([ 'ACTIVE' => 'ACTIVE', 'INACTIVE' => 'INACTIVE', ], ['prompt' => 'Selecciona un estatus.']) ?>

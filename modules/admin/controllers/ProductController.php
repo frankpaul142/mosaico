@@ -79,6 +79,7 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
+        $model->scenario  ='create';
 
         if ($model->load(Yii::$app->request->post())) {
              $model->image = UploadedFile::getInstance($model, 'image');
@@ -92,7 +93,9 @@ class ProductController extends Controller
              $model->image->saveAs('img/products/' . $model->image->baseName .'.' . $model->image->extension);    
             return $this->redirect(['view', 'id' => $model->id]);
             }else{
-                print_r($model->getErrors());
+                return $this->render('create', [
+                'model' => $model,
+            ]);
 
             }
         } else {

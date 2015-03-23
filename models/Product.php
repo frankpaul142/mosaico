@@ -38,7 +38,8 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['subcategory_id', 'stock'], 'integer'],
-            [['name', 'description', 'stock', 'image', 'price', 'status'], 'required'],
+            [['name', 'description', 'stock', 'price', 'status'], 'required'],
+            [['image'], 'required', 'on'=>'create'],
             [['description', 'status'], 'string'],
             [['price'], 'number'],
             [['name'], 'string', 'max' => 150],
