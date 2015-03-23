@@ -68,6 +68,9 @@ foreach ($categories as $i => $category) {
         
         <div class="resp-menu">
             <div class="logo-resp" ng-click="toSection('cont1')"></div>
+            <div class="notif-ico2" id="icoCarrito">
+                <img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'>
+            </div>
             <div class="trigger">☰</div>
 
         </div>
