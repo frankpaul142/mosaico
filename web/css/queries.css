@@ -1,11 +1,11 @@
 @media screen and  (min-width:1101px) {
         .cont-menu-resp{
     display: none!important;}
-   
+   .descargar{display: none}
 }
 @media screen and (min-width:801px) and (max-width:1100px) {
 
-    
+    .descargar{display: none}
     .artesanias, .subastas, .collares{
         width: 33%;
         height: auto;
@@ -61,7 +61,7 @@
 
 }
 @media screen and (min-width:461px) and (max-width:800px) {
- 
+    .descargar{display: none}
     .artesanias, .subastas, .collares {
         width: 100%;
         height: auto;
@@ -148,10 +148,12 @@
         height: auto;
     }
     .product {
-        width: 46%;}
+        width: 100%;}
     .prod-foto, .prod-spec{
-        width: 100%;
+        width: 50%; 
     }
+    .prod-foto:hover .prod-foto img{}
+    
     .form-left, .form-right {
         width: 90%;
     }
@@ -233,10 +235,10 @@
     }
     #menu{
         height: 50px !important;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 1);
     }
     .cont-menu-resp{
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 1);
     }
     #cont1 {
         margin-top: 50px;
@@ -245,4 +247,5 @@
     #submenu{
         display: none!important;
         }
+    
 }

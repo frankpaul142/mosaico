@@ -5,9 +5,13 @@
         </div>
     </div>
     <div class="product" ng-show="loaded" ng-repeat="(key,product) in categories[categoria][subcategoria]">
-        <div ng-if="product.name">
-            <div class="prod-foto"><img src="img/products/{{ product.image }}">
+        <div ng-if="product.name" style="overflow:hidden">
+            
+            <div class="prod-foto">
+                <img src="img/products/{{ product.image }}">
+                
             </div>
+            
             <div class="prod-spec">
                 <div class="prod-tit">{{ product.name }}</div>
                 <div class="prod-txt">{{ product.description }}</div>
