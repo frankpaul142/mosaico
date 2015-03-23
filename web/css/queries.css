@@ -231,7 +231,8 @@
         position: relative;
     }
     #notif{
-        display: none;
+        right: 15%;
+        top: 15px;
     }
     #menu{
         height: 50px !important;
@@ -247,5 +248,9 @@
     #submenu{
         display: none!important;
         }
-    
+    .popover {
+  width: 230px;
+  left: 0!important;
+    }
+}
 }

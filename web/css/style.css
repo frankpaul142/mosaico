@@ -646,7 +646,7 @@ a:-ms-any-link {
     background-image: url(../img/logo.jpg);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 60%;
+    width: 15%;
     height: 50px;
     float: left;
     cursor: pointer;
@@ -657,12 +657,12 @@ a:-ms-any-link {
       text-align: center;
       font-size: 37px;
       cursor: pointer;
-      margin-right: 2%;}
+    margin: 0% 2% 0 2%;}
 .cont-menu-resp {
     width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    margin-top: 50px;
+    
     padding: 2%;
     text-align: center;
     display: none;
