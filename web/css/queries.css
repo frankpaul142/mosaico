@@ -263,5 +263,15 @@
   width: 230px;
   left: 0!important;
     }
+.social {
+  width: 80%;}
+.subastas-cont-cent, .subastas-div {
+  width: 100%;}
+.subastas-div-img {
+  width: 50%;}
+.left-1 {
+  width: 40%;}    
+.left-1, .left-2, .left-3, .right-1, .right-2{
+    font-size: 12px;}
 }
-}
+
