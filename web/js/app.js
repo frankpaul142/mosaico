@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate']);
+var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate','ui.bootstrap.pagination']);
 
 // configs
 
@@ -54,6 +54,18 @@ app.run(function($rootScope, $location) {
 // --run
 
 
+// filter
+
+app.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+});
+
+// --filter
+
+
 // values
 
 app.value('duScrollOffset', 76).value('duScrollEasing', easingFunction);
@@ -99,8 +111,6 @@ function loadProducts($http, $rootScope) {
 			$rootScope.categoria = categoriaActual;
 			$rootScope.subcategoria = subcategoriaActual;
 			$rootScope.loaded = true;
-			// loadedServ(true);
-			//console.log($scope.inProducts);
 		}).error(function(data) {
 			console.log('error al cargar productos:');
 		});

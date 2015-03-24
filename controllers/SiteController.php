@@ -394,6 +394,49 @@ class SiteController extends Controller
         }
     }
 
+    public function actionPay()
+    {
+    	
+
+    	/* paypal */
+        require_once('paypal/PPBootStrap.php');
+        $buttonVar = array(
+        	"item_name=reservacion",
+        	"item_number=".$this->generateRandomString(3).$cart->id.$this->generateRandomString(1),
+			"return=".Yii::app()->request->getBaseUrl(true)."#cuenta",
+			//"business=marisaloorv-facilitator@yahoo.com",
+			// "business=marisaloorv@yahoo.com",
+			"amount=".$cart->total,
+			"notify_url=".Yii::app()->request->getBaseUrl(true)."/site/ipn",
+			// "no_shipping=1",
+			"cancel_return=".Yii::app()->request->getBaseUrl(true)."/site/carrito",
+			);
+        $createButtonRequest = new BMCreateButtonRequestType();
+        $createButtonRequest->ButtonCode = "ENCRYPTED";
+        $createButtonRequest->ButtonType = "BUYNOW";
+        $createButtonRequest->ButtonSubType='PRODUCTS';
+		$createButtonRequest->BuyNowText='PAYNOW';
+		$createButtonRequest->ButtonLanguage='es';
+		// $createButtonRequest->ButtonImageURL=Yii::app()->request->getBaseUrl(true)."/images/paypal.png";
+        $createButtonRequest->ButtonVar = $buttonVar;
+        $createButtonReq = new BMCreateButtonReq();
+		$createButtonReq->BMCreateButtonRequest = $createButtonRequest;
+		$paypalService = new PayPalAPIInterfaceServiceService(Configuration::getAcctAndConfig());
+		try {
+			$createButtonResponse = $paypalService->BMCreateButton($createButtonReq);
+			if($createButtonResponse->Ack=='Success'){
+				Yii::app()->session['button']=$createButtonResponse->Website;
+			}
+			else{
+				$this->redirect(Yii::app()->request->getBaseUrl(true).'#cuenta');
+			}
+		} catch (Exception $ex) {
+			print_r($ex);
+			die();
+		}
+        /* --- */
+    }
+
     public function actionLoadCart()
     {
 	    $return=[];
