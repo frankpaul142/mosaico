@@ -34,8 +34,6 @@ class AppAsset extends AssetBundle
         'js/app.js',
         'js/controllers.js',
         'js/directives.js',
-        'js/pagination.js',
-        // 'js/dirPagination.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

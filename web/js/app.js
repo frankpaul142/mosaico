@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate'/*,'ui.bootstrap.pagination'*/]);
+var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate']);
 
 // configs
 
@@ -52,18 +52,6 @@ app.run(function($rootScope, $location) {
 });
 
 // --run
-
-
-// filter
-
-app.filter('startFrom', function() {
-    return function(input, start) {
-        start = +start; //parse to int
-        return input.slice(start);
-    }
-});
-
-// --filter
 
 
 // values
