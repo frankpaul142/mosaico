@@ -53,6 +53,8 @@ foreach ($categories as $i => $category) {
         <div id="notif">
             <div class="notif-ico" id="icoCarrito">
                 <img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-03.png'>
+                <div class="arrow"></div>
+                <div class="quant">2</div>
             </div>
             <div class="notif-ico" ng-click="toSection('cont3')"><img src='<?= Yii::getAlias('@web'); ?>/img/ico-notif-02.png'></div>
             <?php if(Yii::$app->user->isGuest) { ?>

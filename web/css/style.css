@@ -754,6 +754,7 @@ a:-ms-any-link {
     border-right: 1px solid #fff;
     text-align: center;
     width: 30px;
+    cursor: pointer;
 }
 .notif-ico:first-child {
     border-right: 0px solid #fff;
@@ -1090,4 +1091,33 @@ ul.submenu-movil li a {
 .notif-ico2{
 float: left;
     
+}
+
+/*numero-carrito*/
+.quant {
+    background-color: rgb(230, 66, 41);
+  border-radius: 20px;
+  color: #fff;
+  width: auto;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  padding: 2px;
+  position: relative;
+  top: -5px;
+    cursor: pointer;
+}
+.arrow {
+    display: block;
+  border-color: transparent;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  line-height: 10px;
+  border-width: 10px;
+  border-top-color: transparent;
+  border-top: 28px;
+  border-bottom-color: #E64229;
+  border-bottom: 10px solid #E64229;
+  margin: 0 auto;
 }
