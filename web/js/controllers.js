@@ -29,27 +29,32 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
     });
 });
 
-controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http) {
+controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http, $timeout) {
     console.log('ProductosController');
+    var wwidth=$(window).width();
+    if(wwidth<461){
+    	$scope.numPerPage=2;
+    }
+    else if(wwidth<801){
+    	$scope.numPerPage=4;
+    }
+    else if(wwidth<1101){
+    	$scope.numPerPage=6;
+    }
+    else{
+    	$scope.numPerPage=12;
+    }
     $scope.producto = [];
-    $scope.currentPage = 1;
-    $scope.numPerPage = 4;
-    $scope.maxSize = 5;
+    $scope.currentPage = 0;
     $scope.filteredProducts = [];
-    //$scope.filteredProducts2 = [];
-    $scope.allProducts = [{text:'a1'},{text:'a2'},{text:'a3'},{text:'a4'}];
-    /*$scope.todos = [];
-    for (i=1;i<=1000;i++) {
-      $scope.todos.push({ text:'todo '+i, done:false});
-    }*/
+    $scope.allProducts = [];
     $rootScope.inProducts = true;
     $scope.loaded = $rootScope.loaded;
-    // $scope.totalNumber=$scope.todos.length;
-    $scope.totalNumber=6;
     watchLoaded($scope, $rootScope);
     categoriaActual = $routeParams.cat_id;
     $rootScope.categoria = categoriaActual;
     subcategoriaActual = $routeParams.subcat_id;
+    loadedProducts();
     conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
     var section = angular.element(document.getElementById('cont4'));
     $document.scrollToElementAnimated(section, 50, 1500).then(function() {
@@ -58,6 +63,17 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     $scope.range = function(n) {
         return new Array(n);
     };
+    $scope.range2 = function(start, end) {
+        var ret = [];
+        if (!end) {
+            end = start;
+            start = 0;
+        }
+        for (var i = start; i < end; i++) {
+            ret.push(i);
+        }
+        return ret;
+    };
     $scope.addToCart = function(id) {
         popover.$scope.cargando = true;
         popover.$promise.then(popover.show);
@@ -65,7 +81,6 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
         success(function(data) {
             if (data != '') {
                 carrito = data;
-                //console.log(carrito);
                 popover.$scope.content = htmlCarrito(carrito);
                 popover.$scope.cargando = false;
             }
@@ -75,28 +90,39 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
             popover.$scope.cargando = false;
         });
     };
-    if (typeof(categories) !== 'undefined') {
-    	//$scope.totalNumber=Object.keys(categories[categoriaActual][subcategoriaActual]).length - 1;console.log('totalNumber: '+$scope.totalNumber);
-    	$scope.allProducts=[];
-        for(i in categories[categoriaActual][subcategoriaActual]){
-        	if(categories[categoriaActual][subcategoriaActual][i].name){
-	        	$scope.allProducts.push(categories[categoriaActual][subcategoriaActual][i]);
-	        }
+    $scope.prevPage = function() {
+        if ($scope.currentPage > 0) {
+            $scope.currentPage--;
+        }
+    };
+    $scope.nextPage = function() {
+        if ($scope.currentPage < $scope.filteredProducts.length - 1) {
+            $scope.currentPage++;
+        }
+    };
+    $scope.setPage = function() {
+        $scope.currentPage = this.n;
+    };
+
+    function loadedProducts() {
+        if (typeof(categories) !== 'undefined') {
+            $scope.allProducts = [];
+            for (i in categories[categoriaActual][subcategoriaActual]) {
+                if (categories[categoriaActual][subcategoriaActual][i].name) {
+                    $scope.allProducts.push(categories[categoriaActual][subcategoriaActual][i]);
+                }
+            }
+            for (var i = 0; i < $scope.allProducts.length; i++) {
+                if (i % $scope.numPerPage === 0) {
+                    $scope.filteredProducts[Math.floor(i / $scope.numPerPage)] = [$scope.allProducts[i]];
+                } else {
+                    $scope.filteredProducts[Math.floor(i / $scope.numPerPage)].push($scope.allProducts[i]);
+                }
+            }
+        } else {
+            $timeout(loadedProducts, 500);
         }
     }
-    $scope.numPages = Math.ceil($scope.totalNumber / $scope.numPerPage);
-
-    /*$scope.$watch('currentPage + numPerPage', function() {
-        var begin = (($scope.currentPage - 1) * $scope.numPerPage),
-            end = begin + $scope.numPerPage;
-        $scope.filteredProducts2 = $scope.todos.slice(begin, end);
-    });*/
-
-    $scope.$watch('currentPage + numPerPage', function() {console.log($scope.allProducts);
-        var begin = (($scope.currentPage - 1) * $scope.numPerPage),
-            end = begin + $scope.numPerPage;
-        $scope.filteredProducts = $scope.allProducts.slice(begin, end);
-    });
 });
 
 controllers.controller('MainCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $popover) {

@@ -1,4 +1,4 @@
-var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate','ui.bootstrap.pagination']);
+var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate'/*,'ui.bootstrap.pagination'*/]);
 
 // configs
 

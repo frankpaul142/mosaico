@@ -4,7 +4,7 @@
             <img src='img/cargando.gif'>
         </div>
     </div>
-    <div class="product" ng-if="loaded" ng-repeat="(key,product) in filteredProducts">
+    <div class="product at-view-slide-in-left at-view-flip-out-right-opposite" ng-show="loaded" ng-repeat="(key,product) in filteredProducts[currentPage]">
         <div ng-if="product.name" style="overflow:hidden">
             <div class="prod-foto">
                 <img src="img/products/{{ product.image }}">
@@ -31,33 +31,17 @@
         </div>
         <div style="clear: both;"></div>
     </div>
-    <!-- <div class="product" ng-if="loaded" ng-repeat="(key,product) in filteredProducts2">
-        <div ng-if="product.name" style="overflow:hidden">
-            <div class="prod-foto">
-                <img src="img/products/{{ product.image }}">
-            </div>
-            <div class="prod-spec">
-                <div class="prod-tit">{{ product.text }}</div>
-                <div class="prod-txt">{{ product.text }}</div>
-                <div class="prod-unit">
-                    <div class="prod-unit-txt">Unidades</div>
-                    <div class="select-black">
-                        <div class="styled-select black">
-                            <select ng-model="producto[key]" ng-init="producto[key]=1">
-                                <option ng-repeat="a in range(product.stock) track by $index" value="{{ $index+1 }}">{{ $index+1 }}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-buy" ng-click="addToCart(key)">
-                    <img src="img/icon-buy-01.png">
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-            <div style="clear: both;"></div>
-        </div>
-        <div style="clear: both;"></div>
-    </div> -->
     <div style="clear: both;"></div>
-    <pagination max-size="maxSize" num-pages="numPages" ng-model="currentPage" total-items="totalNumber" rotate="false"></pagination>
+    <!-- <pagination max-size="maxSize" ng-model="currentPage" total-items="totalNumber" rotate="false"></pagination> -->
+    <ul class="pagination" ng-show="loaded && filteredProducts.length>0">
+        <li ng-class="{disabled: currentPage == 0}">
+            <a href ng-click="prevPage()">Anterior</a>
+        </li>
+        <li ng-repeat="n in range2(filteredProducts.length)" ng-class="{active: n == currentPage}" ng-click="setPage()">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == filteredProducts.length - 1}">
+            <a href ng-click="nextPage()">Siguiente</a>
+        </li>
+    </ul>
 </div>
