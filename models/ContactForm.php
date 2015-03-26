@@ -11,7 +11,10 @@ use yii\base\Model;
 class ContactForm extends Model
 {
     public $name;
+    public $lastname;
     public $email;
+    public $phone;
+    public $city;
     public $subject;
     public $body;
     public $verifyCode;
@@ -23,11 +26,12 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'lastname', 'email', 'phone', 'city', 'body'], 'required'],
             // email has to be a valid email address
+            [['phone'], 'integer', 'integerOnly'=>true, 'min'=>100000, 'max'=>9999999999],
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            //['verifyCode', 'captcha'],
         ];
     }
 
@@ -38,6 +42,12 @@ class ContactForm extends Model
     {
         return [
             'verifyCode' => 'Verification Code',
+            'name'=>'Nombres',
+            'lastname'=>'Apellidos',
+            'email'=>'Email',
+            'phone'=>'Teléfono',
+            'city'=>'Ciudad',
+            'body'=>'Comentario',
         ];
     }
 
@@ -49,16 +59,20 @@ class ContactForm extends Model
     public function contact($email)
     {
         if ($this->validate()) {
-            Yii::$app->mailer->compose()
+            $mail=Yii::$app->mailer->compose()
                 ->setTo($email)
                 ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
-
-            return true;
+                // ->setSubject($this->subject)
+                ->setSubject('Contacto Mosaico')
+                ->setTextBody($this->body);
+            if($mail->send()){
+                return 'enviado';
+            }
+            else{
+                return 'no enviado';
+            }
         } else {
-            return false;
+            return array_values($this->getFirstErrors())[0];
         }
     }
 }

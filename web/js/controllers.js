@@ -19,7 +19,7 @@ controllers.controller('SubastasCtrl', function($scope, $document, $rootScope) {
     });
 });
 
-controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
+controllers.controller('ContactoCtrl', function($scope, $document, $rootScope, $http) {
     console.log('ContactoController');
     $rootScope.inProducts = false;
     watchLoaded($scope, $rootScope);
@@ -31,18 +31,15 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope) {
 
 controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http, $timeout) {
     console.log('ProductosController');
-    var wwidth=$(window).width();
-    if(wwidth<461){
-    	$scope.numPerPage=2;
-    }
-    else if(wwidth<801){
-    	$scope.numPerPage=4;
-    }
-    else if(wwidth<1101){
-    	$scope.numPerPage=6;
-    }
-    else{
-    	$scope.numPerPage=12;
+    var wwidth = $(window).width();
+    if (wwidth < 461) {
+        $scope.numPerPage = 2;
+    } else if (wwidth < 801) {
+        $scope.numPerPage = 4;
+    } else if (wwidth < 1101) {
+        $scope.numPerPage = 6;
+    } else {
+        $scope.numPerPage = 12;
     }
     $scope.producto = [];
     $scope.currentPage = 0;
@@ -82,6 +79,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
             if (data != '') {
                 carrito = data;
                 popover.$scope.content = htmlCarrito(carrito);
+                $rootScope.cantidadCarrito=Object.keys(data).length-1;
                 popover.$scope.cargando = false;
             }
         }).
@@ -127,6 +125,9 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
 
 controllers.controller('MainCtrl', function($scope, $document, $location, $rootScope, $http, $window, baseUrl, $popover) {
     console.log('MainCtrl');
+    $scope.enviado = false;
+    $scope.noenviado = false;
+    $scope.cantidadCarrito=0;
     $rootScope.loaded = false;
     $rootScope.inProducts = false;
     popover = $popover($('#icoCarrito'), {
@@ -155,6 +156,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
         var html
         if (data) {
             html = htmlCarrito(data);
+            $rootScope.cantidadCarrito=Object.keys(data).length-1;
         } else {
             html = "0 productos";
         }
@@ -206,6 +208,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
             if (data != '') {
                 carrito = data;
                 popover.$scope.content = htmlCarrito(carrito);
+                $rootScope.cantidadCarrito=Object.keys(data).length-1;
                 popover.$scope.cargando = false;
             }
         }).
@@ -213,6 +216,30 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
             console.log('error');
             popover.$scope.cargando = false;
         });
+    };
+    $scope.enviar = function($event) {
+        console.log('enviar');
+        $event.preventDefault();
+        $scope.enviado = false;
+        $scope.noenviado = false;
+        var form = $('#form-form').serializeArray();
+        $.post('site/contact', form)
+            .success(function(data) {
+                if (data == '1') {
+                    $scope.$apply(function() {
+                        $scope.enviado = true;
+                    });
+                } else {
+                    console.log(data);
+                    $scope.$apply(function() {
+                        $scope.noenviado = true;
+                        $scope.errorNoEnviado=data;
+                    });
+                }
+            })
+            .error(function(data) {
+                console.log('error enviar contacto');
+            });
     };
 });
 

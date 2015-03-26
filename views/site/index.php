@@ -96,27 +96,27 @@ $this->title = 'Mosaico';
 	                <div class="row">
 	                    <label for="Form_name" class="required">NOMBRES<span class="required">*</span>
 	                    </label>
-	                    <input size="60" maxlength="100" name="Form[name]" id="Form_name" type="text" required>
+	                    <input size="60" maxlength="100" name="ContactForm[name]" id="Form_name" type="text" required>
 	                </div>
 	                <div class="row">
 	                    <label for="Form_lastname" class="required">APELLIDOS<span class="required">*</span>
 	                    </label>
-	                    <input size="60" maxlength="100" name="Form[lastname]" id="Form_lastname" type="text" required>
+	                    <input size="60" maxlength="100" name="ContactForm[lastname]" id="Form_lastname" type="text" required>
 	                </div>                
 	                <div class="row">
-	                    <label for="Form_email" class="required">MAIL<span class="required">*</span>
+	                    <label for="Form_email" class="required">EMAIL<span class="required">*</span>
 	                    </label>
-	                    <input size="60" maxlength="255" name="Form[email]" id="Form_email" type="email" required>
+	                    <input size="60" maxlength="255" name="ContactForm[email]" id="Form_email" type="email" required>
 	                </div>
 	                <div class="row">
 	                    <label for="Form_phone" class="required">TELÉFONO <span class="required">*</span>
 	                    </label>
-	                    <input size="10" maxlength="10" name="Form[phone]" id="Form_phone" type="text" class="number" required>
+	                    <input size="10" maxlength="10" name="ContactForm[phone]" id="Form_phone" type="text" class="number" required>
 	                </div>                
 	                <div class="row">
 	                    <label for="Form_city" class="required">CIUDAD<span class="required">*</span>
 	                    </label>
-	                    <input size="60" maxlength="100" name="Form[city]" id="Form_city" type="text" required>
+	                    <input size="60" maxlength="100" name="ContactForm[city]" id="Form_city" type="text" required>
 	                </div>
 	            </div>
 
@@ -124,17 +124,18 @@ $this->title = 'Mosaico';
 	            <div class="row">
 	                <label for="Form_textarea" class="required">COMENTARIO<span class="required">*</span>
 	                </label>
-	                <textarea size="60" maxlength="100" name="Form[textarea]" id="Form_textarea" type="text" required></textarea>
+	                <textarea size="60" maxlength="100" name="ContactForm[body]" id="Form_textarea" type="text" required></textarea>
 	            </div>                
 	            <div class="row buttons">
-	                <input type="submit" value="ENVIAR">
+	                <input type="submit" ng-click="enviar($event)" value="ENVIAR">
 	            </div>
 	            </div>
 
 
 
 	        </form>
-
+            <div class="alert alert-success" ng-if="enviado" style="float:left;width:100%;">Su mensaje ha sido enviado. Gracias por contactarnos.</div>
+            <div class="alert alert-danger" ng-if="noenviado" style="float:left;width:100%;">Error al enviar. {{errorNoEnviado}}</div>
 	    </div>
 	    <div class="social">
 	        <a href="#"><img class="face" src="img/social-01.png">

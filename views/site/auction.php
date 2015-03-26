@@ -6,7 +6,9 @@ $this->title='Mosaico | Subastas';
     <div class="subastas-cont-cent">
         <div class="subastas-tit-2">SUBASTAS</div>
             <div class="subastas-border"></div>
-	        <div class="titulos">PRODUCTO</div>
+            <?php if(sizeof($auctions)==0){ ?>
+	        	<div class="titulos">No hay subastas por ahora</div>
+        	<?php } ?>
 	        <?php foreach ($auctions as $i => $auction) { ?>
 	        <div class="subastas-div" id="sd<?= $auction->id ?>">
 	            <div class="subastas-div-img"><img src="img/products/<?= $auction->product->image ?>"></div>
