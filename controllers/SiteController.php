@@ -497,6 +497,7 @@ class SiteController extends Controller
                 $subcat['name']=$subcategory->name;
                 foreach ($subcategory->products as $k => $product) {
                 	$prod=[];
+                    $prod['id']=$product->id;
                 	$prod['name']=$product->name;
                 	$prod['description']=$product->description;
                 	$prod['stock']=$product->stock;

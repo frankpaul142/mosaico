@@ -71,7 +71,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
         }
         return ret;
     };
-    $scope.addToCart = function(id) {
+    $scope.addToCart = function(id) {console.log(id);
         popover.$scope.cargando = true;
         popover.$promise.then(popover.show);
         $http.get('site/add-to-cart?productId=' + id + '&quantity=' + $scope.producto[id]).
