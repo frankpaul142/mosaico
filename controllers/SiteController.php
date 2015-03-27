@@ -16,6 +16,17 @@ use app\models\Params;
 use app\models\Auction;
 use app\models\Cart;
 use app\models\ProductsCart;
+use PayPal\Api\Amount;
+use PayPal\Api\Details;
+use PayPal\Api\Item;
+use PayPal\Api\ItemList;
+use PayPal\Api\Payer;
+use PayPal\Api\Payment;
+use PayPal\Api\RedirectUrls;
+use PayPal\Api\Transaction;
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
+use yii\helpers\Url;
 
 class SiteController extends Controller
 {
@@ -408,45 +419,133 @@ class SiteController extends Controller
 
     public function actionPay()
     {
-    	
+    	$return=[];
+        $total=0;
+        if(isset(Yii::$app->user->id)){
+            $cart=Cart::findOne(['user_id'=>Yii::$app->user->id,'status'=>'CREATED']);
+            if($cart){
+            	$items=[];
+                foreach ($cart->productscarts as $k => $productCart) {
+                    $aux=[];
+                    $aux['name']=$productCart->product->name;
+                    $aux['quantity']=$productCart->quantity;
+                    $aux['stock']=$productCart->product->stock;
+                    $aux['price']=$productCart->product->price;
+                    $aux['image']=$productCart->product->image;
+                    $aux['total']=$productCart->product->price*$productCart->quantity;
+                    $aux['won']=$productCart->won;
+                    $return[$productCart->product->id]=$aux;
+                    $total+=$productCart->product->price*$productCart->quantity;
+                    $item=new Item();
+                    $item->setName($aux['name'])
+                    	->setCurrency('USD')
+                    	->setQuantity($aux['quantity'])
+                    	->setPrice($aux['price']);
+                    $items[]=$item;
+                }
 
-    	/* paypal */
-        require_once('paypal/PPBootStrap.php');
-        $buttonVar = array(
-        	"item_name=reservacion",
-        	"item_number=".$this->generateRandomString(3).$cart->id.$this->generateRandomString(1),
-			"return=".Yii::app()->request->getBaseUrl(true)."#cuenta",
-			//"business=marisaloorv-facilitator@yahoo.com",
-			// "business=marisaloorv@yahoo.com",
-			"amount=".$cart->total,
-			"notify_url=".Yii::app()->request->getBaseUrl(true)."/site/ipn",
-			// "no_shipping=1",
-			"cancel_return=".Yii::app()->request->getBaseUrl(true)."/site/carrito",
-			);
-        $createButtonRequest = new BMCreateButtonRequestType();
-        $createButtonRequest->ButtonCode = "ENCRYPTED";
-        $createButtonRequest->ButtonType = "BUYNOW";
-        $createButtonRequest->ButtonSubType='PRODUCTS';
-		$createButtonRequest->BuyNowText='PAYNOW';
-		$createButtonRequest->ButtonLanguage='es';
-		// $createButtonRequest->ButtonImageURL=Yii::app()->request->getBaseUrl(true)."/images/paypal.png";
-        $createButtonRequest->ButtonVar = $buttonVar;
-        $createButtonReq = new BMCreateButtonReq();
-		$createButtonReq->BMCreateButtonRequest = $createButtonRequest;
-		$paypalService = new PayPalAPIInterfaceServiceService(Configuration::getAcctAndConfig());
-		try {
-			$createButtonResponse = $paypalService->BMCreateButton($createButtonReq);
-			if($createButtonResponse->Ack=='Success'){
-				Yii::app()->session['button']=$createButtonResponse->Website;
-			}
-			else{
-				$this->redirect(Yii::app()->request->getBaseUrl(true).'#cuenta');
-			}
-		} catch (Exception $ex) {
-			print_r($ex);
-			die();
-		}
-        /* --- */
+                /* paypal */
+
+                $clientId = 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS';
+				$clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
+
+				$apiContext = $this->getApiContext($clientId, $clientSecret);
+
+				$payer = new Payer();
+				$payer->setPaymentMethod("paypal");
+
+				/*$item1 = new Item();
+				$item1->setName('Ground Coffee 40 oz')
+				    ->setCurrency('USD')
+				    ->setQuantity(1)
+				    ->setPrice(7.5);
+				$item2 = new Item();
+				$item2->setName('Granola bars')
+				    ->setCurrency('USD')
+				    ->setQuantity(5)
+				    ->setPrice(2);*/
+
+				$itemList = new ItemList();
+				$itemList->setItems($items);
+
+				$details = new Details();
+				$details->setShipping(5)
+				    // ->setTax(1.3)
+				    ->setSubtotal($total);
+
+				$amount = new Amount();
+				$amount->setCurrency("USD")
+				    ->setTotal($total+5)
+				    ->setDetails($details);
+ 
+				$transaction = new Transaction();
+				$transaction->setAmount($amount)
+				    ->setItemList($itemList)
+				    ->setDescription("Compra en Mosaico")
+				    ->setInvoiceNumber('1234567890');
+
+				$baseUrl = Url::base(true);
+				$redirectUrls = new RedirectUrls();
+				$redirectUrls->setReturnUrl("$baseUrl/site/pay?success=true")
+				    ->setCancelUrl("$baseUrl/site/pay?success=false");
+
+				$payment = new Payment();
+				$payment->setIntent("sale")
+				    ->setPayer($payer)
+				    ->setRedirectUrls($redirectUrls)
+				    ->setTransactions(array($transaction));
+
+				try {
+				    $payment->create($apiContext);
+				} catch (Exception $ex) {
+				    print_r($ex);
+				    exit(1);
+				}
+
+				$approvalUrl = $payment->getApprovalLink();
+                /* --- */
+            }
+        }
+        else{
+
+        }
+
+    	
+        return $this->render('pay',['total'=>$total,'cart'=>$return, 'aurl'=>$approvalUrl]);
+    }
+
+    private function getApiContext($clientId, $clientSecret)
+	{
+	    $apiContext = new ApiContext(
+	        new OAuthTokenCredential(
+	            $clientId,
+	            $clientSecret
+	        )
+	    );
+
+	    $apiContext->setConfig(
+	        array(
+	            'mode' => 'sandbox',
+	            'log.LogEnabled' => true,
+	            'log.FileName' => '../PayPal.log',
+	            'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
+	            'validation.level' => 'log',
+	            'cache.enabled' => true,
+	            // 'http.CURLOPT_CONNECTTIMEOUT' => 30
+	            // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
+	        )
+	    );
+	    return $apiContext;
+	}
+
+    private function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
     public function actionLoadCart()

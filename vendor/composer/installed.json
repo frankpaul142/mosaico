@@ -46,60 +46,6 @@
         ]
     },
     {
-        "name": "swiftmailer/swiftmailer",
-        "version": "v5.3.1",
-        "version_normalized": "5.3.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
-            "reference": "c5f963e7f9d6f6438fda4f22d5cc2db296ec621a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1"
-        },
-        "time": "2014-12-05 14:17:14",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chris Corbyn"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "mail",
-            "mailer"
-        ]
-    },
-    {
         "name": "bower-asset/jquery",
         "version": "2.1.3",
         "version_normalized": "2.1.3.0",
@@ -145,38 +91,6 @@
         ]
     },
     {
-        "name": "bower-asset/yii2-pjax",
-        "version": "v2.0.2",
-        "version_normalized": "2.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/jquery-pjax.git",
-            "reference": "fb92be865c0fd6583714475cb7d629020749d73f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/fb92be865c0fd6583714475cb7d629020749d73f",
-            "reference": "fb92be865c0fd6583714475cb7d629020749d73f",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/jquery": ">=1.8"
-        },
-        "type": "bower-asset-library",
-        "extra": {
-            "bower-asset-main": "./jquery.pjax.js",
-            "bower-asset-ignore": [
-                ".travis.yml",
-                "Gemfile",
-                "Gemfile.lock",
-                "vendor/",
-                "script/",
-                "test/"
-            ]
-        },
-        "installation-source": "dist"
-    },
-    {
         "name": "bower-asset/punycode",
         "version": "v1.3.2",
         "version_normalized": "1.3.2.0",
@@ -205,113 +119,6 @@
             ]
         },
         "installation-source": "dist"
-    },
-    {
-        "name": "bower-asset/jquery.inputmask",
-        "version": "3.1.61",
-        "version_normalized": "3.1.61.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-            "reference": "f2c086411d2557fc485c47afb3cecfa6c1de9ee2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/f2c086411d2557fc485c47afb3cecfa6c1de9ee2",
-            "reference": "f2c086411d2557fc485c47afb3cecfa6c1de9ee2",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/jquery": ">=1.7"
-        },
-        "type": "bower-asset-library",
-        "extra": {
-            "bower-asset-main": [
-                "./dist/inputmask/jquery.inputmask.js",
-                "./dist/inputmask/jquery.inputmask.extensions.js",
-                "./dist/inputmask/jquery.inputmask.date.extensions.js",
-                "./dist/inputmask/jquery.inputmask.numeric.extensions.js",
-                "./dist/inputmask/jquery.inputmask.phone.extensions.js",
-                "./dist/inputmask/jquery.inputmask.regex.extensions.js"
-            ],
-            "bower-asset-ignore": [
-                "**/.*",
-                "qunit/",
-                "nuget/",
-                "tools/",
-                "js/",
-                "*.md",
-                "build.properties",
-                "build.xml",
-                "jquery.inputmask.jquery.json"
-            ]
-        },
-        "installation-source": "dist",
-        "license": [
-            "http://opensource.org/licenses/mit-license.php"
-        ],
-        "description": "jquery.inputmask is a jquery plugin which create an input mask.",
-        "keywords": [
-            "form",
-            "input",
-            "inputmask",
-            "jquery",
-            "mask",
-            "plugins"
-        ]
-    },
-    {
-        "name": "bower-asset/bootstrap",
-        "version": "v3.3.2",
-        "version_normalized": "3.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
-            "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/jquery": ">=1.9.1"
-        },
-        "type": "bower-asset-library",
-        "extra": {
-            "bower-asset-main": [
-                "less/bootstrap.less",
-                "dist/css/bootstrap.css",
-                "dist/js/bootstrap.js",
-                "dist/fonts/glyphicons-halflings-regular.eot",
-                "dist/fonts/glyphicons-halflings-regular.svg",
-                "dist/fonts/glyphicons-halflings-regular.ttf",
-                "dist/fonts/glyphicons-halflings-regular.woff"
-            ],
-            "bower-asset-ignore": [
-                "/.*",
-                "_config.yml",
-                "CNAME",
-                "composer.json",
-                "CONTRIBUTING.md",
-                "docs",
-                "js/tests",
-                "test-infra"
-            ]
-        },
-        "installation-source": "dist",
-        "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-        "keywords": [
-            "css",
-            "framework",
-            "front-end",
-            "js",
-            "less",
-            "mobile-first",
-            "responsive",
-            "web"
-        ]
     },
     {
         "name": "bower-asset/typeahead.js",
@@ -922,6 +729,299 @@
         "keywords": [
             "Fixture",
             "faker",
+            "yii2"
+        ]
+    },
+    {
+        "name": "bower-asset/jquery.inputmask",
+        "version": "3.1.62",
+        "version_normalized": "3.1.62.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
+            "reference": "da1a274cefa18a52a0519ac7ffe8e8d31e950eae"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/da1a274cefa18a52a0519ac7ffe8e8d31e950eae",
+            "reference": "da1a274cefa18a52a0519ac7ffe8e8d31e950eae",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.7"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "./dist/inputmask/jquery.inputmask.js",
+                "./dist/inputmask/jquery.inputmask.extensions.js",
+                "./dist/inputmask/jquery.inputmask.date.extensions.js",
+                "./dist/inputmask/jquery.inputmask.numeric.extensions.js",
+                "./dist/inputmask/jquery.inputmask.phone.extensions.js",
+                "./dist/inputmask/jquery.inputmask.regex.extensions.js"
+            ],
+            "bower-asset-ignore": [
+                "**/.*",
+                "qunit/",
+                "nuget/",
+                "tools/",
+                "js/",
+                "*.md",
+                "build.properties",
+                "build.xml",
+                "jquery.inputmask.jquery.json"
+            ]
+        },
+        "installation-source": "dist",
+        "license": [
+            "http://opensource.org/licenses/mit-license.php"
+        ],
+        "description": "jquery.inputmask is a jquery plugin which create an input mask.",
+        "keywords": [
+            "form",
+            "input",
+            "inputmask",
+            "jquery",
+            "mask",
+            "plugins"
+        ]
+    },
+    {
+        "name": "bower-asset/yii2-pjax",
+        "version": "v2.0.4",
+        "version_normalized": "2.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/jquery-pjax.git",
+            "reference": "3f20897307cca046fca5323b318475ae9dac0ca0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/3f20897307cca046fca5323b318475ae9dac0ca0",
+            "reference": "3f20897307cca046fca5323b318475ae9dac0ca0",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.8"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": "./jquery.pjax.js",
+            "bower-asset-ignore": [
+                ".travis.yml",
+                "Gemfile",
+                "Gemfile.lock",
+                "vendor/",
+                "script/",
+                "test/"
+            ]
+        },
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ]
+    },
+    {
+        "name": "swiftmailer/swiftmailer",
+        "version": "v5.4.0",
+        "version_normalized": "5.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/31454f258f10329ae7c48763eb898a75c39e0a9f",
+            "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.1"
+        },
+        "time": "2015-03-14 06:06:39",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "mail",
+            "mailer"
+        ]
+    },
+    {
+        "name": "bower-asset/bootstrap",
+        "version": "v3.3.4",
+        "version_normalized": "3.3.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twbs/bootstrap.git",
+            "reference": "a10eb60bc0b07b747fa0c4ebd8821eb7307bd07f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a10eb60bc0b07b747fa0c4ebd8821eb7307bd07f",
+            "reference": "a10eb60bc0b07b747fa0c4ebd8821eb7307bd07f",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.9.1"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "less/bootstrap.less",
+                "dist/css/bootstrap.css",
+                "dist/js/bootstrap.js",
+                "dist/fonts/glyphicons-halflings-regular.eot",
+                "dist/fonts/glyphicons-halflings-regular.svg",
+                "dist/fonts/glyphicons-halflings-regular.ttf",
+                "dist/fonts/glyphicons-halflings-regular.woff",
+                "dist/fonts/glyphicons-halflings-regular.woff2"
+            ],
+            "bower-asset-ignore": [
+                "/.*",
+                "_config.yml",
+                "CNAME",
+                "composer.json",
+                "CONTRIBUTING.md",
+                "docs",
+                "js/tests",
+                "test-infra"
+            ]
+        },
+        "installation-source": "dist",
+        "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+        "keywords": [
+            "css",
+            "framework",
+            "front-end",
+            "js",
+            "less",
+            "mobile-first",
+            "responsive",
+            "web"
+        ]
+    },
+    {
+        "name": "paypal/rest-api-sdk-php",
+        "version": "v1.3.2",
+        "version_normalized": "1.3.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+            "reference": "0a32a6323c829e0e424e9f4d15e7b346c8472c08"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/0a32a6323c829e0e424e9f4d15e7b346c8472c08",
+            "reference": "0a32a6323c829e0e424e9f4d15e7b346c8472c08",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2015-03-18 20:40:42",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PayPal": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache2"
+        ],
+        "authors": [
+            {
+                "name": "PayPal",
+                "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+            }
+        ],
+        "description": "PayPal's PHP SDK for REST APIs",
+        "homepage": "https://github.com/paypal/rest-api-sdk-php",
+        "keywords": [
+            "payments",
+            "paypal",
+            "rest",
+            "sdk"
+        ]
+    },
+    {
+        "name": "marciocamello/yii2-paypal",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/marciocamello/yii2-paypal.git",
+            "reference": "5e2d2ad038b462508de16bc0d5deeffe95757551"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/marciocamello/yii2-paypal/zipball/5e2d2ad038b462508de16bc0d5deeffe95757551",
+            "reference": "5e2d2ad038b462508de16bc0d5deeffe95757551",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "paypal/rest-api-sdk-php": "*",
+            "php": ">=5.3.0",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2014-12-15 10:06:41",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "marciocamello\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Marcio Camello",
+                "email": "marciocamello@outlook.com"
+            }
+        ],
+        "description": "The PayPal extension for the Yii2 framework",
+        "keywords": [
+            "paypal",
             "yii2"
         ]
     }

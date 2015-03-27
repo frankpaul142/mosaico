@@ -57,4 +57,13 @@ return array (
       '@yii/faker' => $vendorDir . '/yiisoft/yii2-faker',
     ),
   ),
+  'marciocamello/yii2-paypal' => 
+  array (
+    'name' => 'marciocamello/yii2-paypal',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@marciocamello' => $vendorDir . '/marciocamello/yii2-paypal',
+    ),
+  ),
 );

@@ -56,7 +56,7 @@ $this->title="Mosaico | Carrito de Compras";
         <div class="comprar">
         <label>$ <?= $total ?></label>
         <div class="comprar-txt">TOTAL</div>
-        <a href ='#'><img src="img/ico-comprar-01.png"></a>
+        <a href ='site/pay'><img src="img/ico-comprar-01.png"></a>
     </div>
     </div>
     
