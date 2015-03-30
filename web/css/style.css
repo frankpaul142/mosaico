@@ -739,7 +739,7 @@ a:-ms-any-link {
 }
 .active {
     background-color: #E64229;
-    border: 2px solid transparent;
+    /*border: 2px solid transparent;*/
 }
 /*notificaciones*/
 
@@ -1121,3 +1121,7 @@ float: left;
   border-bottom: 10px solid #E64229;
   margin: 0 auto;
 }
+.pagination > li > a, .pagination > li > span{padding: 3px 6px !important;}
+.pagination > .active > a{background-color: #E64229!important;border-color: #000000!important;}
+.pagination > li > a, .pagination > li > span{color: #000!important;}
+li .ng-scope .active{display: none;}
