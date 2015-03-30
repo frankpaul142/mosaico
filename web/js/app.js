@@ -138,7 +138,7 @@ function htmlCarrito(data) {
 				html += '<tr><td>' + data[c]['name'] + '</td>';
 				html += '<td>' + data[c]['value'] + '</td>';
 				if (data[c]['won'] == 'NO') {
-					html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer; padding:2%;"><img src="img/cerrar-01.jpg"></td></tr>';
+					html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer; "><img src="img/cerrar-01.jpg"></td></tr>';
 				} else {
 					html += '<td></td>';
 				}

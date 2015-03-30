@@ -106,7 +106,10 @@
         margin: 0;
         }
     .comprar label, .comprar-txt{
-        font-size: 80%;
+          font-size: 20px;
+    }
+    .comprar label{
+        width: 10%;
     }
     .comprar img {
         width: 150px;
@@ -146,6 +149,7 @@
   width: 230px;
   left: 0!important;
     }
+      
 }
 @media screen and (max-width:460px) {
 
@@ -222,7 +226,7 @@
         margin: 0;
         }
     .comprar label, .comprar-txt{
-        font-size: 80%;
+        font-size: 16px;
         width: 50%;
     }
     .comprar img {
@@ -273,5 +277,14 @@
   width: 40%;}    
 .left-1, .left-2, .left-3, .right-1, .right-2{
     font-size: 12px;}
+td{
+    width: 20px;
+}    
+.tits1, .cantidad, .unitario, .total{
+    font-size: 9px;
+}
+.tits, .producto{
+    font-size: 12px;
+}    
 }
 

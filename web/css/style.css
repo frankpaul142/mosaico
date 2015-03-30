@@ -1125,3 +1125,15 @@ float: left;
 .pagination > .active > a{background-color: #E64229!important;border-color: #000000!important;}
 .pagination > li > a, .pagination > li > span{color: #000!important;}
 li .ng-scope .active{display: none;}
+td {
+  line-height: 15px;
+  vertical-align: middle;
+    padding: 2px;
+    width: 30px;
+    text-align:center;
+    
+}
+tr {
+  height: 40px;
+  border-bottom: 1px solid #D0D0D0;
+}
