@@ -29,10 +29,15 @@ $this->title = 'Mosaico';
             <div class="sub-tit">SUBASTAS</div>
             <div class="sub-border"></div>
             <div class="sub-txt">Lorem ipsum dolor sit amet, quo impedit rationibus ea, vero graeco intellegat ex ius. Epicuri efficiantur ex his, dicit iriure vix ea. Deseruisse posidonium sed an. Et vix habemus dissentiet, minim pericula splendide vel ad. An iuvaret reprehendunt est.</div>
-            <a href="<?= Yii::getAlias('@web'); ?>/site/subastas">
-                <div class="sub-btn"></div>
-            </a>
-
+            <?php if(!Yii::$app->user->isGuest) { ?>
+	            <a href="<?= Yii::getAlias('@web'); ?>/site/subastas">
+	                <div class="sub-btn"></div>
+	            </a>
+            <?php } else { ?>
+	            <a ng-click="openLogin()">
+	                <div class="sub-btn"></div>
+	            </a>
+            <?php } ?>
         </div>
         <div class="collares">
             <img src="img/subastas-02.jpg">

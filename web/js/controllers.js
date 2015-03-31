@@ -17,6 +17,9 @@ controllers.controller('SubastasCtrl', function($scope, $document, $rootScope) {
     $document.scrollToElementAnimated(section, 50, 1500).then(function() {
         addScrollSpy();
     });
+    $scope.openLogin=function () {
+        popoverLogin.$promise.then(popoverLogin.show);
+    }
 });
 
 controllers.controller('ContactoCtrl', function($scope, $document, $rootScope, $http) {
@@ -32,6 +35,7 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope, $
 controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http, $timeout) {
     console.log('ProductosController');
     var wwidth = $(window).width();
+    var wheight = $(window).height();
     if (wwidth < 461) {
         $scope.numPerPage = 2;
     } else if (wwidth < 801) {
@@ -39,7 +43,10 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     } else if (wwidth < 1101) {
         $scope.numPerPage = 6;
     } else {
-        $scope.numPerPage = 12;
+        $scope.numPerPage = 8;
+        if(wheight>750){
+            $scope.numPerPage=12;
+        }
     }
     $scope.producto = [];
     $scope.currentPage = 0;
@@ -248,7 +255,7 @@ controllers.controller('LoginCtrl', function($scope, $window, baseUrl) {
     $scope.errorLabel = '';
     $scope.ingresando = false;
     $scope.entrar = function() {
-        console.log('entrar');
+        //console.log('entrar');
         $scope.ingresando = true;
         $scope.errorLabel = '';
         $.post('site/entrar', {
