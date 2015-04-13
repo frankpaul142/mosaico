@@ -118,4 +118,41 @@ class UserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionChangePassword()
+    {
+        if(isset($_POST['uid']) && isset($_POST['passwordAnterior']) && isset($_POST['passwordNueva']) && isset($_POST['passwordNueva2'])){
+            $user=User::findOne($_POST['uid']);
+            if($user){
+            	$pa=$user->hashPassword(utf8_decode($_POST['passwordAnterior']));
+            	$p1=utf8_decode($_POST['passwordNueva']);
+            	$p2=utf8_decode($_POST['passwordNueva2']);
+            	if($user->password===$pa){
+            		if($p1==$p2){
+            			$user->password=$user->hashPassword($p1);
+            			if($user->save()){
+            				Yii::$app->session->setFlash('passwordChanged');
+            			}
+            			else{
+            				Yii::$app->session->setFlash('errorPassword','Error al guardar la contraseña');
+            			}
+            		}
+            		else{
+            			Yii::$app->session->setFlash('errorPassword','No coinciden las nuevas contraseñas');
+            		}
+            	}
+            	else{
+            		Yii::$app->session->setFlash('errorPassword','No coincide la contraseña anterior');
+            	}
+            	return $this->redirect(['view', 'id' => $user->id]);
+            }
+            else{
+            	Yii::$app->session->setFlash('errorPassword','Error al cambiar la contraseña');
+            }
+        }
+        else{
+        	Yii::$app->session->setFlash('errorPassword','Todos los campos son obligatorios');
+        }
+        return $this->goBack();
+    }
 }
