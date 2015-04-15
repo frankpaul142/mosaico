@@ -1137,3 +1137,6 @@ tr {
   height: 40px;
   border-bottom: 1px solid #D0D0D0;
 }
+label.required {
+  width: 100%;
+}
