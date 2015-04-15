@@ -152,6 +152,10 @@
       
 }
 @media screen and (max-width:460px) {
+    .productos {
+  height: 430px;
+  overflow: hidden;
+}
 
     .bisuteria, .sombreros, .pulseras, .bolsos {
         width: 100%;
