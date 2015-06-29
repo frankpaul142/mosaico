@@ -315,6 +315,7 @@ img {
 .prod-foto {
     width: 50%;
     float: left;
+	cursor:pointer;
 }
 .prod-spec {
     width: 50%;
@@ -1221,3 +1222,13 @@ label.required {
 .table-name{
 	font-size:0.9em;
 	}
+.fotorama__wrap{
+	float:left;
+	}	
+.modal-title{
+	font-family: 'futurabold';
+	}	
+.fotorama{
+	width:50%;
+	float:left;
+	}	
