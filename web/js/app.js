@@ -136,7 +136,7 @@ function htmlCarrito(data) {
 		html = '<table><thead><tr><th>Producto</th><th>Cantidad</th><th></th></tr></thead>';
 		for (c in data) {
 			if (c != 'total') {
-				html += '<tr><td>' + data[c]['name'] + '</td>';
+				html += '<tr><td class="table-name">' + data[c]['name'] + '</td>';
 				html += '<td>' + data[c]['value'] + '</td>';
 				if (data[c]['won'] == 'NO') {
 					html += '<td ng-click="removeFromCart(' + c + ')" style="cursor:pointer; "><img src="img/cerrar-01.jpg"></td></tr>';

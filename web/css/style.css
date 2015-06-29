@@ -334,6 +334,7 @@ img {
     font-size: 12px;
     text-align: center;
     margin: 2px;
+	min-height:70px;
 }
 .prod-unit {
     margin: 3% auto;
@@ -457,6 +458,7 @@ option {
     line-height: 1.5em;
     background-color: transparent;
     margin: 1px;
+	font-family: 'futuralgt';
 }
 .row {
     margin: 1% auto;
@@ -1187,3 +1189,35 @@ tr {
 label.required {
   width: 100%;
 }
+/***/
+.pagination > li {
+	font-family: 'futurabold';
+    color: #333;
+	font-size:0.8em;
+	}
+.pagination > .active > a{
+	color:#FFFFFF !important;
+	}	
+.pagination {
+ width:30%;
+ margin:20px 0 20px 50% !important;
+}	
+.popover-title{
+	font-family: 'futurabold';
+	}
+.btn-primary{
+	background-color:#e64229 !important;
+	border-color:#e64229 !important;
+	margin:7px 0 0 0 !important;	
+	}	
+.btn-warning {
+  background-color:#e64229 !important;
+  border-color:#e64229 !important;	
+  margin:7px 0 0 0 !important;
+}	
+.popover-content table{
+	width:100% !important;
+	}
+.table-name{
+	font-size:0.9em;
+	}
