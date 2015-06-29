@@ -11,7 +11,21 @@
             		<img ng-if="image2" ng-src="img/products/{{image2}}">
             		<img ng-if="image3" ng-src="img/products/{{image3}}">
             	</div>
+            	<div class="prod-unit-txt">Precio: ${{price}}</div>
             	<div ng-bind-html="description"></div>
+            	<div class="prod-unit">
+                    <div class="prod-unit-txt">Unidades</div>
+                    <div class="select-black">
+                        <div class="styled-select black">
+                            <select ng-model="$parent.producto[id]" ng-init="$parent.producto[id]=1">
+                                <option ng-repeat="a in $parent.range(stock) track by $index" value="{{ $index+1 }}">{{ $index+1 }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="prod-buy" ng-click="addToCart(id)">
+                    <img src="img/icon-buy-01.png">
+                </div>
             </div>
         </div>
     </div>
