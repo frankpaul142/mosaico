@@ -80,6 +80,9 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     };
     $scope.addToCart = function(id) {
         console.log(id);
+        if(galeriaModal){
+        	galeriaModal.hide();
+        }
         popover.$scope.cargando = true;
         popover.$promise.then(popover.show);
         $http.get('site/add-to-cart?productId=' + id + '&quantity=' + $scope.producto[id]).
@@ -115,11 +118,14 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
         show: false
     });
     $scope.showModal = function(id) {
+    	galeriaModal.$scope.id=id;
     	galeriaModal.$scope.name=categories[categoriaActual][subcategoriaActual][id].name;
     	galeriaModal.$scope.image1=categories[categoriaActual][subcategoriaActual][id].image1;
     	galeriaModal.$scope.image2=categories[categoriaActual][subcategoriaActual][id].image2;
     	galeriaModal.$scope.image3=categories[categoriaActual][subcategoriaActual][id].image3;
     	galeriaModal.$scope.description=$sce.trustAsHtml(categories[categoriaActual][subcategoriaActual][id].description);
+    	galeriaModal.$scope.stock=categories[categoriaActual][subcategoriaActual][id].stock;
+    	galeriaModal.$scope.price=categories[categoriaActual][subcategoriaActual][id].price;
         galeriaModal.$promise.then(galeriaModal.show);
     };
 
