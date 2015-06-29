@@ -17,7 +17,7 @@ controllers.controller('SubastasCtrl', function($scope, $document, $rootScope) {
     $document.scrollToElementAnimated(section, 50, 1500).then(function() {
         addScrollSpy();
     });
-    $scope.openLogin=function () {
+    $scope.openLogin = function() {
         popoverLogin.$promise.then(popoverLogin.show);
     }
 });
@@ -32,7 +32,7 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope, $
     });
 });
 
-controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http, $timeout) {
+controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http, $timeout, $modal, $sce) {
     console.log('ProductosController');
     var wwidth = $(window).width();
     var wheight = $(window).height();
@@ -44,8 +44,8 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
         $scope.numPerPage = 6;
     } else {
         $scope.numPerPage = 8;
-        if(wheight>750){
-            $scope.numPerPage=12;
+        if (wheight > 750) {
+            $scope.numPerPage = 12;
         }
     }
     $scope.producto = [];
@@ -78,7 +78,8 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
         }
         return ret;
     };
-    $scope.addToCart = function(id) {console.log(id);
+    $scope.addToCart = function(id) {
+        console.log(id);
         popover.$scope.cargando = true;
         popover.$promise.then(popover.show);
         $http.get('site/add-to-cart?productId=' + id + '&quantity=' + $scope.producto[id]).
@@ -86,7 +87,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
             if (data != '') {
                 carrito = data;
                 popover.$scope.content = htmlCarrito(carrito);
-                $rootScope.cantidadCarrito=Object.keys(data).length-1;
+                $rootScope.cantidadCarrito = Object.keys(data).length - 1;
                 popover.$scope.cargando = false;
             }
         }).
@@ -107,6 +108,19 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     };
     $scope.setPage = function() {
         $scope.currentPage = this.n;
+    };
+    var galeriaModal = $modal({
+        scope: $scope,
+        template: 'partials/galeria.html',
+        show: false
+    });
+    $scope.showModal = function(id) {
+    	galeriaModal.$scope.name=categories[categoriaActual][subcategoriaActual][id].name;
+    	galeriaModal.$scope.image1=categories[categoriaActual][subcategoriaActual][id].image1;
+    	galeriaModal.$scope.image2=categories[categoriaActual][subcategoriaActual][id].image2;
+    	galeriaModal.$scope.image3=categories[categoriaActual][subcategoriaActual][id].image3;
+    	galeriaModal.$scope.description=$sce.trustAsHtml(categories[categoriaActual][subcategoriaActual][id].description);
+        galeriaModal.$promise.then(galeriaModal.show);
     };
 
     function loadedProducts() {
@@ -134,7 +148,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
     console.log('MainCtrl');
     $scope.enviado = false;
     $scope.noenviado = false;
-    $scope.cantidadCarrito=0;
+    $scope.cantidadCarrito = 0;
     $rootScope.loaded = false;
     $rootScope.inProducts = false;
     popover = $popover($('#icoCarrito'), {
@@ -163,7 +177,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
         var html
         if (data) {
             html = htmlCarrito(data);
-            $rootScope.cantidadCarrito=Object.keys(data).length-1;
+            $rootScope.cantidadCarrito = Object.keys(data).length - 1;
         } else {
             html = "0 productos";
         }
@@ -215,7 +229,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
             if (data != '') {
                 carrito = data;
                 popover.$scope.content = htmlCarrito(carrito);
-                $rootScope.cantidadCarrito=Object.keys(data).length-1;
+                $rootScope.cantidadCarrito = Object.keys(data).length - 1;
                 popover.$scope.cargando = false;
             }
         }).
@@ -240,7 +254,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
                     console.log(data);
                     $scope.$apply(function() {
                         $scope.noenviado = true;
-                        $scope.errorNoEnviado=data;
+                        $scope.errorNoEnviado = data;
                     });
                 }
             })

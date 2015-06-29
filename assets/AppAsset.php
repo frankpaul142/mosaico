@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
         'css/queries.css',
         '//rawgithub.com/mgcrea/angular-motion/master/dist/angular-motion.min.css',
         'css/bootstrap-additions.min.css',
+        'css/fotorama.css',
     ];
     public $js = [
         'js/script.js',
@@ -31,6 +32,7 @@ class AppAsset extends AssetBundle
         '//cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js',
         '//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.2.0/angular-strap.min.js',
         '//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.2.0/angular-strap.tpl.min.js',
+        'js/fotorama.js',
         'js/app.js',
         'js/controllers.js',
         'js/directives.js',

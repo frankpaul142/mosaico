@@ -1,5 +1,5 @@
 * {
-    transition: all 0.2s;
+    /*transition: all 0.2s;*/
 }
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin: 0;
@@ -848,7 +848,7 @@ ul.submenu-movil li a {
 
 .at-view-slide-in-left.ng-enter {
     opacity: 0;
-  
+    transition: all 0.2s;
     -webkit-transform: translate(-100%, 0%);
     -moz-transform: translate(-100%, 0%);
     -ms-transform: translate(-100%, 0%);
@@ -857,8 +857,8 @@ ul.submenu-movil li a {
 }
 
 .at-view-slide-in-left.ng-enter-active {
-   opacity: 1;
-  
+    opacity: 1;
+    transition: all 0.2s;
     -webkit-transform: translate(0%, 0%);
     -moz-transform: translate(0%, 0%);
     -ms-transform: translate(0%, 0%);
@@ -867,7 +867,7 @@ ul.submenu-movil li a {
 }
 .at-view-flip-out-right-opposite.ng-leave {
     opacity: 1;
-  
+    transition: all 0.2s;
     -webkit-transform: translate(0%, 0%);
     -moz-transform: translate(0%, 0%);
     -ms-transform: translate(0%, 0%);
@@ -877,7 +877,7 @@ ul.submenu-movil li a {
 
 .at-view-flip-out-right-opposite.ng-leave-active {
     opacity: 0;
-   
+    transition: all 0.2s;
     -webkit-transform: translate(200%, 0%);
     -moz-transform: translate(200%, 0%);
     -ms-transform: translate(200%, 0%);
@@ -906,12 +906,12 @@ ul.submenu-movil li a {
 }
 /**/
 
-.modal.fade.ng-isolate-scope.in {
+/*.modal.fade.ng-isolate-scope.in {
     background-color: rgba(0, 0, 0, 0.64);
 }
 .modal-body {
     height: 100px;
-}
+}*/
 .titulos {
     font-family: 'futurabold';
     font-size: 1.3em;

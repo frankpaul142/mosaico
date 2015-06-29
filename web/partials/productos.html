@@ -6,8 +6,8 @@
     </div>
     <div class="product at-view-slide-in-left at-view-flip-out-right-opposite" ng-show="loaded" ng-repeat="product in filteredProducts[currentPage]">
         <div ng-if="product.name" style="overflow:hidden">
-            <div class="prod-foto">
-                <img src="img/products/{{ product.image }}">
+            <div class="prod-foto" ng-click="showModal(product.id)">
+                <img src="img/products/{{ product.image1 }}">
             </div>
             <div class="prod-spec">
                 <div class="prod-tit">{{ product.name }}</div>

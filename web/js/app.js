@@ -100,7 +100,8 @@ function loadProducts($http, $rootScope) {
 			$rootScope.subcategoria = subcategoriaActual;
 			$rootScope.loaded = true;
 		}).error(function(data) {
-			console.log('error al cargar productos:');
+			console.log('error al cargar productos, reintentando en 1 minuto');
+			setTimeout(function() {loadProducts($http, $rootScope)},60000);
 		});
 	}
 }

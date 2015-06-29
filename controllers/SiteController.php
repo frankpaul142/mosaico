@@ -225,7 +225,7 @@ class SiteController extends Controller
 		            $aux['quantity']=$productCart->quantity;
 		            $aux['stock']=$productCart->product->stock;
 	                $aux['price']=$productCart->product->price;
-		            $aux['image']=$productCart->product->image;
+		            $aux['image']=$productCart->product->image1;
 		            $aux['total']=$productCart->product->price*$productCart->quantity;
 		            $aux['won']=$productCart->won;
 		            $return[$productCart->product->id]=$aux;
@@ -243,7 +243,7 @@ class SiteController extends Controller
 		            $aux['quantity']=$ca;
 		            $aux['stock']=$product->stock;
 	                $aux['price']=$product->price;
-		            $aux['image']=$product->image;
+		            $aux['image']=$product->image1;
 		            $aux['total']=$product->price*$ca;
 		            $aux['won']='NO';
 		            $return[$product->id]=$aux;
@@ -431,7 +431,7 @@ class SiteController extends Controller
                     $aux['quantity']=$productCart->quantity;
                     $aux['stock']=$productCart->product->stock;
                     $aux['price']=$productCart->product->price;
-                    $aux['image']=$productCart->product->image;
+                    $aux['image']=$productCart->product->image1;
                     $aux['total']=$productCart->product->price*$productCart->quantity;
                     $aux['won']=$productCart->won;
                     $return[$productCart->product->id]=$aux;
@@ -600,7 +600,9 @@ class SiteController extends Controller
                 	$prod['name']=$product->name;
                 	$prod['description']=$product->description;
                 	$prod['stock']=$product->stock;
-                	$prod['image']=$product->image;
+                    $prod['image1']=$product->image1;
+                    $prod['image2']=$product->image2;
+                	$prod['image3']=$product->image3;
                 	$prod['price']=$product->price;
                 	$subcat[$product->id]=$prod;
                 }
