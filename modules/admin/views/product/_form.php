@@ -39,7 +39,9 @@ $this->registerJs($script,View::POS_END);
 
     <?= $form->field($model, 'stock')->textInput() ?>
 
-    <?= $form->field($model, 'image')->fileInput() ?>
+    <?= $form->field($model, 'image1')->fileInput() ?>
+    <?= $form->field($model, 'image2')->fileInput() ?>
+    <?= $form->field($model, 'image3')->fileInput() ?>
     
     <?= $form->field($model, 'price')->textInput(['maxlength' => 10]) ?>
 

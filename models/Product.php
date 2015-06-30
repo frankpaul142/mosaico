@@ -39,11 +39,11 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['subcategory_id', 'stock'], 'integer'],
             [['name', 'description', 'stock', 'price', 'status'], 'required'],
-            [['image'], 'required', 'on'=>'create'],
+            [['image1'], 'required', 'on'=>'create'],
             [['description', 'status'], 'string'],
             [['price'], 'number'],
             [['name'], 'string', 'max' => 150],
-            [['image'], 'file', 'extensions' => 'gif, jpg, png'],
+            [['image1','image2','image3'], 'file', 'extensions' => 'gif, jpg, png'],
             [['auction'], 'string', 'max' => 3],
         ];
     }
@@ -59,10 +59,13 @@ class Product extends \yii\db\ActiveRecord
             'name' => 'Nombre',
             'description' => 'Descripción',
             'stock' => 'Stock',
-            'image' => 'Imagen',
+            'image1' => 'Imagen 1',
+            'image2' => 'Imagen 2',
+            'image3' => 'Imagen 3',
             'price' => 'Precio',
             'status' => 'Status',
-            'auction' => 'Subasta'
+            'auction' => 'Subasta',
+            'creation_date'=>'Fecha de creación',
         ];
     }
 

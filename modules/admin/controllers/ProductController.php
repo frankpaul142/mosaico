@@ -80,18 +80,39 @@ class ProductController extends Controller
     {
         $model = new Product();
         $model->scenario  ='create';
-
         if ($model->load(Yii::$app->request->post())) {
-             $model->image = UploadedFile::getInstance($model, 'image');
-             if($model->save()){
+        	$image1=UploadedFile::getInstance($model,'image1');
+        	if($image1!=NULL){
+            	$name1=date('Y_m_d_H_i_s_'). $image1->baseName .'.' . $image1->extension;
+            	$model->image1=$name1;
+        	}
+        	$image2=UploadedFile::getInstance($model,'image2');
+        	if($image2!=NULL){
+            	$name2=date('Y_m_d_H_i_s_'). $image2->baseName .'.' . $image2->extension;
+            	$model->image2=$name2;
+        	}
+        	$image3=UploadedFile::getInstance($model,'image3');
+        	if($image3!=NULL){
+            	$name3=date('Y_m_d_H_i_s_'). $image3->baseName .'.' . $image3->extension;
+            	$model->image3=$name3;
+        	}
+            if($model->save()){
                 if($model->auction=="YES"){
                     $auction = new Auction();
                     $auction->product_id=$model->id;
                     $auction->value=$model->price;
                     $auction->save();
                 }
-             $model->image->saveAs('img/products/' . $model->image->baseName .'.' . $model->image->extension);    
-            return $this->redirect(['view', 'id' => $model->id]);
+                if($image1!=NULL){
+	                $image1->saveAs('img/products/'.$name1);
+	            }
+                if($image2!=NULL){
+	                $image2->saveAs('img/products/'.$name2);
+	            }
+                if($image3!=NULL){
+	                $image3->saveAs('img/products/'.$name3);
+	            }
+                return $this->redirect(['view', 'id' => $model->id]);
             }else{
                 return $this->render('create', [
                 'model' => $model,
@@ -114,28 +135,54 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldimg=$model->image;    
+        $oldimg1=$model->image1;    
+        $oldimg2=$model->image2;    
+        $oldimg3=$model->image3;    
         if (Yii::$app->request->post()) {
-            if(UploadedFile::getInstance($model, 'image')){
-              
-              $model->load(Yii::$app->request->post()); 
-              $model->image = UploadedFile::getInstance($model, 'image');
-            $model->image->saveAs('img/products/' . $model->image->baseName .'.' . $model->image->extension);  
-            }else{
-                $model->subcategory_id=$_POST['Product']['subcategory_id'];
-                $model->name=$_POST['Product']['name'];
-                $model->description=$_POST['Product']['description'];
-                $model->subcategory_id=$_POST['Product']['subcategory_id'];
-                $model->stock=$_POST['Product']['stock'];
-                $model->price=$_POST['Product']['price'];
-                $model->status=$_POST['Product']['status'];
-                $model->auction=$_POST['Product']['auction'];
-                $model->image=$oldimg;
-
-
+            $model->load(Yii::$app->request->post()); 
+            $image1=UploadedFile::getInstance($model,'image1');
+        	if($image1!=NULL){
+              	$name1=date('Y_m_d_H_i_s_'). $image1->baseName .'.' . $image1->extension;
+            	$model->image1=$name1;
             }
+            else{
+            	$model->image1=$oldimg1;
+            }
+            $image2=UploadedFile::getInstance($model,'image2');
+        	if($image2!=NULL){
+              	$name2=date('Y_m_d_H_i_s_'). $image2->baseName .'.' . $image2->extension;
+            	$model->image2=$name2;
+            }
+            else{
+            	$model->image2=$oldimg2;
+            }
+            $image3=UploadedFile::getInstance($model,'image3');
+        	if($image3!=NULL){
+              	$name3=date('Y_m_d_H_i_s_'). $image3->baseName .'.' . $image3->extension;
+            	$model->image3=$name3;
+            }
+            else{
+            	$model->image3=$oldimg3;
+            }
+            /*$model->subcategory_id=$_POST['Product']['subcategory_id'];
+            $model->name=$_POST['Product']['name'];
+            $model->description=$_POST['Product']['description'];
+            $model->subcategory_id=$_POST['Product']['subcategory_id'];
+            $model->stock=$_POST['Product']['stock'];
+            $model->price=$_POST['Product']['price'];
+            $model->status=$_POST['Product']['status'];
+            $model->auction=$_POST['Product']['auction'];*/
             if($model->save()){
-            return $this->redirect(['view', 'id' => $model->id]);
+            	if($image1!=NULL){
+	                $image1->saveAs('img/products/'.$name1);
+	            }
+                if($image2!=NULL){
+	                $image2->saveAs('img/products/'.$name2);
+	            }
+                if($image3!=NULL){
+	                $image3->saveAs('img/products/'.$name3);
+	            }
+            	return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             return $this->render('update', [
