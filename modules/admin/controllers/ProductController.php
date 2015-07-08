@@ -164,14 +164,6 @@ class ProductController extends Controller
             else{
             	$model->image3=$oldimg3;
             }
-            /*$model->subcategory_id=$_POST['Product']['subcategory_id'];
-            $model->name=$_POST['Product']['name'];
-            $model->description=$_POST['Product']['description'];
-            $model->subcategory_id=$_POST['Product']['subcategory_id'];
-            $model->stock=$_POST['Product']['stock'];
-            $model->price=$_POST['Product']['price'];
-            $model->status=$_POST['Product']['status'];
-            $model->auction=$_POST['Product']['auction'];*/
             if($model->save()){
             	if($image1!=NULL){
 	                $image1->saveAs('img/products/'.$name1);

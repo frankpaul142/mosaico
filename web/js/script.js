@@ -5,11 +5,11 @@ $(function() {
 
 	});
 
-	cambioMenu();
+	/*cambioMenu();
 	var cont1height = $('#cont1').height() - 33;
 	$(window).scroll(function(event) {
 		cambioMenu();
-	});
+	});*/
 
 	$(".menu-movil").click(function() {
 		var $this = $(this);
@@ -35,7 +35,7 @@ $(function() {
 		}
 	});
 
-	function cambioMenu() {
+	/*function cambioMenu() {
 		var st = $(this).scrollTop();
 		if (st > cont1height) {
 			$("#menu").css("height", "50px");
@@ -62,7 +62,7 @@ $(function() {
 				'top': '100px'
 			});
 		}
-	}
+	}*/
 
 	$('.selectQuantity').change(function() {
 		window.location = 'site/change-quantity?id=' + $(this).attr('id').substr(2) + '&q=' + $(this).val();

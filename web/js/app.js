@@ -1,27 +1,16 @@
-var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'duScroll', 'mgcrea.ngStrap', 'ngAnimate']);
+var app = angular.module('Mosaico', ['MosaicoControllers', 'MosaicoDirectives', 'ngRoute', 'mgcrea.ngStrap', 'ngAnimate']);
 
 // configs
 
 app.config(function($routeProvider /*, $locationProvider*/ ) {
 	$routeProvider.
 	when('/', {
-		templateUrl: 'partials/productos.html',
+		templateUrl: 'partials/home.html',
 		controller: 'HomeCtrl',
-	}).
-	when('/home', {
-		redirectTo: '/'
-	}).
-	when('/subastas', {
-		templateUrl: 'partials/productos.html',
-		controller: 'SubastasCtrl'
 	}).
 	when('/productos/:cat_id/:subcat_id', {
 		templateUrl: 'partials/productos.html',
 		controller: 'ProductosCtrl'
-	}).
-	when('/contacto', {
-		templateUrl: 'partials/productos.html',
-		controller: 'ContactoCtrl'
 	}).
 	otherwise({
 		redirectTo: '/'

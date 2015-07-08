@@ -612,4 +612,14 @@ class SiteController extends Controller
         }
         return json_encode($return);
     }
+
+    public function actionGuest()
+    {
+        if(Yii::$app->user->isGuest){
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
 }

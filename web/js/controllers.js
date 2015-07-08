@@ -1,15 +1,23 @@
 var controllers = angular.module('MosaicoControllers', []);
 
-controllers.controller('HomeCtrl', function($scope, $document, $rootScope) {
+controllers.controller('HomeCtrl', function($scope, $document, $rootScope, $http) {
     console.log('HomeCtrl');
     $rootScope.inProducts = false;
     watchLoaded($scope, $rootScope);
-    $document.scrollTopAnimated(0, 1300).then(function() {
-        addScrollSpy();
+    $scope.guest=true;
+    $http.get('site/guest').success(function (data) {
+        if(data=='false'){
+            $scope.guest=false;
+        }
+    }).error(function (data) {
+        console.log(data);
     });
+    // $document.scrollTopAnimated(0, 1300).then(function() {
+    //     addScrollSpy();
+    // });
 });
 
-controllers.controller('SubastasCtrl', function($scope, $document, $rootScope) {
+/*controllers.controller('SubastasCtrl', function($scope, $document, $rootScope) {
     console.log('SubastasController');
     $rootScope.inProducts = false;
     watchLoaded($scope, $rootScope);
@@ -30,13 +38,13 @@ controllers.controller('ContactoCtrl', function($scope, $document, $rootScope, $
     $document.scrollToElementAnimated(section, 50, 1500).then(function() {
         addScrollSpy();
     });
-});
+});*/
 
 controllers.controller('ProductosCtrl', function($scope, $document, $routeParams, $rootScope, $http, $timeout, $modal, $sce) {
     console.log('ProductosController');
     var wwidth = $(window).width();
     var wheight = $(window).height();
-    if (wwidth < 461) {
+    /*if (wwidth < 461) {
         $scope.numPerPage = 2;
     } else if (wwidth < 801) {
         $scope.numPerPage = 4;
@@ -47,7 +55,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
         if (wheight > 750) {
             $scope.numPerPage = 12;
         }
-    }
+    }*/
     $scope.producto = [];
     $scope.currentPage = 0;
     $scope.filteredProducts = [];
@@ -61,9 +69,9 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     loadedProducts();
     conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
     var section = angular.element(document.getElementById('cont4'));
-    $document.scrollToElementAnimated(section, 50, 1500).then(function() {
+    /*$document.scrollToElementAnimated(section, 50, 1500).then(function() {
         addScrollSpy();
-    });
+    });*/
     $scope.range = function(n) {
         return new Array(n);
     };
@@ -137,13 +145,13 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
                     $scope.allProducts.push(categories[categoriaActual][subcategoriaActual][i]);
                 }
             }
-            for (var i = 0; i < $scope.allProducts.length; i++) {
+            /*for (var i = 0; i < $scope.allProducts.length; i++) {
                 if (i % $scope.numPerPage === 0) {
                     $scope.filteredProducts[Math.floor(i / $scope.numPerPage)] = [$scope.allProducts[i]];
                 } else {
                     $scope.filteredProducts[Math.floor(i / $scope.numPerPage)].push($scope.allProducts[i]);
                 }
-            }
+            }*/
         } else {
             $timeout(loadedProducts, 500);
         }
