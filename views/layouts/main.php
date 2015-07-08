@@ -27,6 +27,9 @@ foreach ($categories as $i => $category) {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    
+    <link rel="shortcut icon" href="<?= Yii::getAlias('@web'); ?>/img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?= Yii::getAlias('@web'); ?>/img/favicon.ico" type="image/x-icon">
     <base href="<?= Yii::getAlias('@web'); ?>/#/">
     <link id="linkBaseUrl" href="<?= Yii::getAlias('@web'); ?>/">
     <?php $this->head() ?>

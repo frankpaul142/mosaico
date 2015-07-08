@@ -152,9 +152,10 @@
       
 }
 @media screen and (max-width:460px) {
-    .productos {
-  height: 430px;
-  overflow: hidden;
+.productos {
+		width:98%;
+  height: auto;
+  padding: 17% 1% 5% 1%;
 }
 
     .bisuteria, .sombreros, .pulseras, .bolsos {
@@ -289,6 +290,19 @@ td{
 }
 .tits, .producto{
     font-size: 12px;
-}    
+}  
+.product {
+	width: 90%;
+	margin: 10px 5% 10px 5%;
+}  
+#cont2 {
+	width:100%;
+    margin: 5% 0;
+ 
+}
+#contSubastas {
+    margin: 5% 0;
+	padding:0 5%;
+}
 }
 

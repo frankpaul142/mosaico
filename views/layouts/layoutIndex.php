@@ -25,7 +25,9 @@ foreach ($categories as $i => $category) {
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
     <?= Html::csrfMetaTags() ?>
+    
     <title><?= Html::encode($this->title) ?></title>
     <base href="<?= Yii::getAlias('@web'); ?>/#/">
     <link id="linkBaseUrl" href="<?= Yii::getAlias('@web'); ?>/">

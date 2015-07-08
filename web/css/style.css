@@ -347,7 +347,7 @@ img {
 }
 .productos {
     height: 100%;
-    padding: 5%;
+    padding:10% 5% 5% 5%;
 }
 /*select*/
 
@@ -799,10 +799,10 @@ a:-ms-any-link {
 
 #submenu {
     width: 100%;
-    background-color: #fff;
+    background-color:rgba(187,187,187,0.8);
     float: left;
     position: absolute;
-    top: 100px;
+    top: 110px;
     z-index: -1;
 }
 .cont-sub {
