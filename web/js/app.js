@@ -56,7 +56,7 @@ app.value('baseUrl', document.getElementById('linkBaseUrl').getAttribute('href')
 var categoriaActual = 1;
 var subcategoriaActual = 1;
 var conts = [];
-conts['cont1'] = '/';
+conts['cont1'] = '';
 conts['cont2'] = 'subastas';
 conts['cont3'] = 'contacto';
 conts['cont4'] = 'productos/' + categoriaActual + '/' + subcategoriaActual;
@@ -89,8 +89,8 @@ function loadProducts($http, $rootScope) {
 			$rootScope.subcategoria = subcategoriaActual;
 			$rootScope.loaded = true;
 		}).error(function(data) {
-			console.log('error al cargar productos, reintentando en 1 minuto');
-			setTimeout(function() {loadProducts($http, $rootScope)},60000);
+			console.log('error al cargar productos, reintentando en 30 segundos');
+			setTimeout(function() {loadProducts($http, $rootScope)},30000);
 		});
 	}
 }

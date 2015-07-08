@@ -2,7 +2,7 @@ var controllers = angular.module('MosaicoControllers', []);
 
 controllers.controller('HomeCtrl', function($scope, $document, $rootScope, $http) {
     console.log('HomeCtrl');
-    $rootScope.inProducts = false;
+    // $rootScope.inProducts = false;
     watchLoaded($scope, $rootScope);
     $scope.guest=true;
     $http.get('site/guest').success(function (data) {
@@ -60,7 +60,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     $scope.currentPage = 0;
     $scope.filteredProducts = [];
     $scope.allProducts = [];
-    $rootScope.inProducts = true;
+    // $rootScope.inProducts = true;
     $scope.loaded = $rootScope.loaded;
     watchLoaded($scope, $rootScope);
     categoriaActual = $routeParams.cat_id;
@@ -164,7 +164,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
     $scope.noenviado = false;
     $scope.cantidadCarrito = 0;
     $rootScope.loaded = false;
-    $rootScope.inProducts = false;
+    // $rootScope.inProducts = false;
     popover = $popover($('#icoCarrito'), {
         title: 'Carrito',
         template: "partials/carrito.html",
@@ -203,9 +203,9 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
     });
     loadProducts($http, $rootScope);
     watchLoaded($scope, $rootScope);
-    $rootScope.$watch('inProducts', function() {
+    /*$rootScope.$watch('inProducts', function() {
         $scope.inProducts = $rootScope.inProducts;
-    });
+    });*/
     $scope.$watch('loaded', function() {
         watchLoadedCategory($scope, $rootScope);
     });
@@ -218,19 +218,22 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
         if (categoriaId && subcategoriaId) {
             hash = 'productos/' + categoriaId + '/' + subcategoriaId;
         }
-        $('.circle').removeAttr('du-scrollspy');
+        // $('.circle').removeAttr('du-scrollspy');
         var section = angular.element(document.getElementById(sectionId));
         if (section[0]) {
-            $document.scrollToElementAnimated(section, 50, 1500).then(function() {
+            /*$document.scrollToElementAnimated(section, 50, 1500).then(function() {
                 addScrollSpy();
-                if (hash) {
-                    $location.url(hash);
-                }
-            });
+                if (hash) {*/
+                    $location.hash(hash);
+                    // $location.url(hash);
+                /*}
+            });*/
         } else {
             var url = baseUrl;
             $window.location.href = url + '#/' + hash;
+            // $location.url(hash);
         }
+        
     };
     $scope.changeSubcategory = function(subcategoriaId) {
         $location.url('productos/' + $rootScope.categoria + '/' + subcategoriaId);
