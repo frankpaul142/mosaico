@@ -68,7 +68,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-    	$this->layout='layoutIndex';
+    	// $this->layout='layoutIndex';
         return $this->render('index');
     }
 
@@ -154,16 +154,6 @@ class SiteController extends Controller
 
     public function actionContact()
     {
-        //$model = new ContactForm();
-        /*if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        } else {*/
-            /*return $this->render('contact', [
-                'model' => $model,
-            ]);*/
-        //}
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post())){
             $cont=$model->contact(Yii::$app->params['adminEmail']);

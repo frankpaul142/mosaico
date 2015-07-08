@@ -106,7 +106,7 @@ foreach ($categories as $i => $category) {
     <div id="footer">
         <img src="<?= Yii::getAlias('@web'); ?>/img/logo.jpg">
         <div class="foot-txt">
-            ® 2015 Mosaico. Todos los Derechos Reservados. Desarrollado por <a href="#">SHARE DITAL AGENCY</a> <a href="#">SOMBREROS</a> / <a href="#">BISUTERIA</a> / <a href="#">PULSERAS</a> / <a href="#">COLLARES</a> / <a href="#">FIGURAS</a> / <a href="#">BOLSOS</a>
+            ® 2015 Mosaico. Todos los Derechos Reservados. Desarrollado por <a href="http://share.com.ec/">SHARE DITAL AGENCY</a> 
         </div>
     </div>
 

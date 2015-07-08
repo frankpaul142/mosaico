@@ -75,7 +75,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     $scope.range = function(n) {
         return new Array(n);
     };
-    $scope.range2 = function(start, end) {
+    /*$scope.range2 = function(start, end) {
         var ret = [];
         if (!end) {
             end = start;
@@ -85,7 +85,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
             ret.push(i);
         }
         return ret;
-    };
+    };*/
     $scope.addToCart = function(id) {
         console.log(id);
         if(galeriaModal){
@@ -103,11 +103,11 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
             }
         }).
         error(function() {
-            console.log('error');
+            console.log('error add to cart');
             popover.$scope.cargando = false;
         });
     };
-    $scope.prevPage = function() {
+    /*$scope.prevPage = function() {
         if ($scope.currentPage > 0) {
             $scope.currentPage--;
         }
@@ -119,7 +119,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     };
     $scope.setPage = function() {
         $scope.currentPage = this.n;
-    };
+    };*/
     var galeriaModal = $modal({
         scope: $scope,
         template: 'partials/galeria.html',
