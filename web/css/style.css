@@ -800,7 +800,7 @@ a:-ms-any-link {
 
 #submenu {
     width: 100%;
-    background-color:rgba(187,187,187,0.8);
+    background-color:rgba(187,187,187,1);
     float: left;
     position: absolute;
     top: 110px;
