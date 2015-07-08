@@ -2,7 +2,7 @@ var controllers = angular.module('MosaicoControllers', []);
 
 controllers.controller('HomeCtrl', function($scope, $document, $rootScope, $http) {
     console.log('HomeCtrl');
-    // $rootScope.inProducts = false;
+    $rootScope.inProducts = false;
     watchLoaded($scope, $rootScope);
     $scope.guest=true;
     $http.get('site/guest').success(function (data) {
@@ -60,7 +60,7 @@ controllers.controller('ProductosCtrl', function($scope, $document, $routeParams
     $scope.currentPage = 0;
     $scope.filteredProducts = [];
     $scope.allProducts = [];
-    // $rootScope.inProducts = true;
+    $rootScope.inProducts = true;
     $scope.loaded = $rootScope.loaded;
     watchLoaded($scope, $rootScope);
     categoriaActual = $routeParams.cat_id;
@@ -164,7 +164,7 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
     $scope.noenviado = false;
     $scope.cantidadCarrito = 0;
     $rootScope.loaded = false;
-    // $rootScope.inProducts = false;
+    $rootScope.inProducts = false;
     popover = $popover($('#icoCarrito'), {
         title: 'Carrito',
         template: "partials/carrito.html",
@@ -203,9 +203,9 @@ controllers.controller('MainCtrl', function($scope, $document, $location, $rootS
     });
     loadProducts($http, $rootScope);
     watchLoaded($scope, $rootScope);
-    /*$rootScope.$watch('inProducts', function() {
+    $rootScope.$watch('inProducts', function() {
         $scope.inProducts = $rootScope.inProducts;
-    });*/
+    });
     $scope.$watch('loaded', function() {
         watchLoadedCategory($scope, $rootScope);
     });
